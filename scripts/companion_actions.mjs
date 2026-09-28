@@ -1,4 +1,4 @@
-/** Pin exact-form PMD action sheets, shared Emerald effects and the FireRed intro Oak; restore offline at build time. */
+/** Pin exact-form PMD action sheets and shared Emerald effects; restore offline at build time. */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,7 +11,6 @@ const output = path.join(root, 'companion/assets');
 const revision = '904f12e3fe8438ea5e53282ae1282831bd2b5124';
 const base = `https://raw.githubusercontent.com/PMDCollab/SpriteCollab/${revision}`;
 const effectsRevision = 'c925b8482d05fb882d6b64e523653cae599e025f';
-const introRevision = '037335f4c725d7c9aecdac87066f2002b4bd7e14';
 // Buddy actions first; the rest animate battles.
 const actions = ['Idle', 'Walk', 'Sleep', 'Eat', 'Pose', 'Nod', 'Attack', 'Hurt', 'Charge', 'Shoot', 'Hop'];
 const hash = data => createHash('sha256').update(data).digest('hex');
@@ -93,13 +92,10 @@ async function refresh() {
     const data = await save(`https://raw.githubusercontent.com/pret/pokeemerald/${effectsRevision}/graphics/${source}.png`, file);
     effects[name] = { file, width, height, columns: data.readUInt32BE(16) / width, rows: data.readUInt32BE(20) / height };
   }
-  // Professor Oak from FireRed's own intro; palette index zero is the backdrop, keyed out by the renderer.
-  const oak = await save(`https://raw.githubusercontent.com/pret/pokefirered/${introRevision}/graphics/oak_speech/oak/pic.png`, 'intro-oak.png');
-  const intro = { oak: { file: 'intro-oak.png', width: oak.readUInt32BE(16), height: oak.readUInt32BE(20) } };
   await save(`${base}/LICENSE.md`, 'ACTIONS-LICENSE.md');
-  const pack = { revision, effects_revision: effectsRevision, intro_revision: introRevision, source: 'https://github.com/PMDCollab/SpriteCollab',
+  const pack = { revision, effects_revision: effectsRevision, source: 'https://github.com/PMDCollab/SpriteCollab',
     rights: 'SpriteCollab contributions: CC BY-NC 4.0; Pokemon and original game artwork rights remain with their owners.',
-    species: Object.fromEntries(Object.entries(species).sort(([a], [b]) => Number(a) - Number(b))), missing: missing.sort(), effects, intro,
+    species: Object.fromEntries(Object.entries(species).sort(([a], [b]) => Number(a) - Number(b))), missing: missing.sort(), effects,
     manifest: manifest.sort((a, b) => a.file.localeCompare(b.file)) };
   await fs.writeFile(pinned, JSON.stringify(pack, null, 2) + '\n');
   console.log(JSON.stringify({ forms: Object.keys(species).length, missing, files: manifest.length, bytes: manifest.reduce((sum, a) => sum + a.bytes, 0) }));
@@ -110,7 +106,7 @@ export async function restoreActions() {
   await fs.mkdir(path.join(root, 'work/companion-catalog-cache'), { recursive: true });
   const pack = JSON.parse(await fs.readFile(pinned));
   await mapLimit(pack.manifest, async entry => {
-    if (!/^(\d+-actions\.xml|\d+-action-[A-Za-z]+\.png|effect-[a-z]+\.png|intro-[a-z]+\.png|ACTIONS-LICENSE\.md)$/.test(entry.file)) throw new Error('Invalid action asset filename');
+    if (!/^(\d+-actions\.xml|\d+-action-[A-Za-z]+\.png|effect-[a-z]+\.png|ACTIONS-LICENSE\.md)$/.test(entry.file)) throw new Error('Invalid action asset filename');
     const destination = path.join(output, entry.file);
     let data;
     try { data = await fs.readFile(destination); } catch (error) { if (error.code !== 'ENOENT') throw error; }

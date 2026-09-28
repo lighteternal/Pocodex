@@ -29,11 +29,11 @@ test('action sheets are pinned, attributed and valid for the exact form', async 
     const data = fs.readFileSync(path.join(folder, entry.file));
     assert.equal(data.length, entry.bytes);
     assert.equal(createHash('sha256').update(data).digest('hex'), entry.sha256);
-    assert.match(entry.url, /raw\.githubusercontent\.com\/(PMDCollab\/SpriteCollab|pret\/pokeemerald|pret\/pokefirered)\/[0-9a-f]{40}\//);
+    assert.match(entry.url, /raw\.githubusercontent\.com\/(PMDCollab\/SpriteCollab|pret\/pokeemerald)\/[0-9a-f]{40}\//);
   }
-  // Professor Oak is FireRed's own intro art, pinned like every other file.
-  assert.deepEqual(pack.intro.oak, { file: 'intro-oak.png', width: 64, height: 96 });
-  assert.ok(pack.manifest.find(entry => entry.file === 'intro-oak.png').url.includes(`pret/pokefirered/${pack.intro_revision}/`));
+  // The intro's professor is Pocodex's own art, not extracted from a game.
+  assert.equal(pack.intro, undefined);
+  assert.ok(!pack.manifest.some(entry => entry.url.includes('pokefirered')));
   const { formEntry, parseActions } = await import(pathToFileURL(path.join(__dirname, '../../scripts/companion_actions.mjs')));
   assert.equal(formEntry({ species_id: 20, slug: 'raticate-totem-alola', default: false }, { '0020': { subgroups: { '0001': { name: 'Alola', canon: true } } } }), null);
   assert.throws(() => parseActions('<Anim><Name>Walk</Name><CopyOf>Missing</CopyOf></Anim>'), /Invalid animation alias/);

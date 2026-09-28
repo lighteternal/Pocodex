@@ -4,19 +4,54 @@ A Pokémon buddy for your Windows desktop that grows while your coding agents wo
 
 <img src="docs/images/home.png" alt="Home with allowance boxes for Codex and Claude Code above the buddy" width="250"> <img src="docs/images/buddy-events.gif" alt="Transparent buddy walking while an agent works, then asking for input and celebrating a finished answer" width="200"> <img src="docs/images/battle.gif" alt="A wild battle: a wild Pokémon appears, Ivysaur is sent out of its Poké Ball and trades moves with it" width="250">
 
-Free, unofficial, Windows x64 only. No API key, Python or Node needed to use the installer.
+Free, unofficial, Windows x64 only. No API key or account needed.
 
 ## Install
 
-1. Download `Pocodex.Setup.<version>.exe` from [Releases](https://github.com/lighteternal/Pocodex/releases).
-2. Run it. It installs for your Windows user without administrator rights, then opens Pocodex.
-3. Professor Oak explains the basics. Tick the apps it should follow, tell him your name and choose **Start with an egg**. Settings can replay his intro.
+Pocodex is not published as a download. You build it on your own PC, and the build fetches the Pokémon sprites and cries from their public sources. You need Windows x64, [Git](https://git-scm.com/download/win), [Python 3.12 or later](https://www.python.org/downloads/) and [Node 24](https://nodejs.org/).
 
-<img src="docs/images/intro.gif" alt="Professor Oak says hello, sends out a Nidorino and shows the egg that hatches while you work" width="300">
+### Ask your coding assistant
 
-The installer is not code-signed, so Windows may warn about an unknown publisher. Only run it if you downloaded it from this repository. Each release includes `SHA256SUMS.txt`; compare with `Get-FileHash <file> -Algorithm SHA256` in PowerShell.
+Paste this into Codex or Claude Code on Windows:
 
-A portable ZIP is also published: extract the whole folder somewhere permanent and run `Pocodex.exe`.
+```text
+Install Pocodex on this Windows PC from source: https://github.com/lighteternal/Pocodex
+
+1. Use native Windows PowerShell, not WSL. Check that git, Python 3.12 or later and Node 24 are installed. If one is missing, tell me what to install and stop.
+2. Clone the repository into %USERPROFILE%\Pocodex, or run git pull there if it already exists.
+3. Follow the "Build it yourself" steps in its README. The build runs the tests and writes an installer to artifacts\companion. If a step fails, show me the error and stop; do not change the code.
+4. Run the newest "Pocodex Setup <version>.exe" in artifacts\companion and tell me when Pocodex is open.
+
+Do not edit my Codex or Claude Code settings yourself. Pocodex asks me which apps to follow in its first-run intro.
+```
+
+### Build it yourself
+
+In PowerShell:
+
+```powershell
+git clone https://github.com/lighteternal/Pocodex.git
+cd Pocodex
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[build]"
+npm ci --prefix companion
+.venv\Scripts\python.exe scripts/build_companion.py
+```
+
+The build runs every unit test, then writes `Pocodex Setup <version>.exe` and a portable ZIP to `artifacts\companion`.
+
+1. Run the installer. It installs for your Windows user without administrator rights, then opens Pocodex.
+2. Professor Tibo explains the basics. Tick the apps Pocodex should follow, tell him your name and choose **Start with an egg**. Settings can replay his intro.
+
+<img src="docs/images/intro.gif" alt="Professor Tibo says hello, sends out a Nidorino and shows the egg that hatches while you work" width="300">
+
+For the portable ZIP instead, extract the whole folder somewhere permanent and run `Pocodex.exe`.
+
+### Update or uninstall
+
+To update, run `git pull` in the Pocodex folder, then the last three commands above, and run the new installer over the old one. Your collection is kept.
+
+To uninstall, use Windows Settings > Apps > Installed apps > Pocodex. That removes the Claude Code entries Pocodex added and keeps your collection in `%APPDATA%\Pocodex`.
 
 ## Connecting your apps
 
@@ -97,6 +132,6 @@ See [Development](docs/DEVELOPMENT.md) for build commands and [Testing](docs/TES
 
 Pocodex is a free, non-commercial hobby project. It charges nothing, shows no ads and accepts no payments.
 
-It is unofficial and not affiliated with, endorsed by or sponsored by Nintendo, The Pokémon Company, Game Freak, Creatures, OpenAI, Anthropic or PokeTokenBar. Pokémon characters, artwork, cries, names and trademarks belong to their owners, and no ownership is claimed.
+It is unofficial and not affiliated with, endorsed by or sponsored by Nintendo, The Pokémon Company, Game Freak, Creatures, OpenAI, Anthropic or PokeTokenBar. Pokémon characters, artwork, cries, names and trademarks belong to their owners, and no ownership is claimed. Professor Tibo is Pocodex's own pixel art and a friendly nod to Tibo Sottiaux of OpenAI's Codex team; he has not endorsed Pocodex.
 
 Original Pocodex code is [MIT-licensed](LICENSE); that licence does not cover Pokémon material. This repository does not contain the Pokémon sprites or cries; builds download them from the sources in the [third-party notices](companion/THIRD-PARTY-NOTICES.md). Rights holders can ask for removal through GitHub.

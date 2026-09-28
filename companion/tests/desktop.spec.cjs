@@ -12,7 +12,7 @@ function launch(showHome = true) {
     args: [...(process.env.POCODEX_EXECUTABLE ? [] : [path.join(__dirname, '..')]), '--preview', ...(showHome ? ['--show-home'] : []), `--profile=${profileOverride || path.join(temporary, 'profile')}`, `--source=${source}`, `--claude-config=${path.join(temporary, 'claude-home')}`, `--claude-cli=${path.join(__dirname, 'fixtures', 'fake-claude.cmd')}`],
   });
 }
-// Skip Professor Oak's story, keep the ticked apps and the default name, and start with an egg.
+// Skip Professor Tibo's story, keep the ticked apps and the default name, and start with an egg.
 async function finishIntro(page = home) {
   const skip = page.getByRole('button', { name: 'Skip intro' });
   if (await skip.count()) await skip.click();
@@ -49,7 +49,7 @@ test.beforeEach(async () => {
   application = await launch();
   await expect.poll(() => application.windows().length).toBe(2);
   home = application.windows().find(w => w.url().includes('view=home'));
-  await expect(home.getByRole('img', { name: 'Professor Oak' })).toBeVisible();
+  await expect(home.getByRole('img', { name: 'Professor Tibo' })).toBeVisible();
 });
 test.afterEach(async ({}, info) => {
   if (info.status !== info.expectedStatus && home && !home.isClosed()) {
@@ -89,13 +89,13 @@ test('first run, sound, collection, settings, keyboard and missing data states',
   await home.screenshot({ path: path.join(__dirname, '../../artifacts/pocodex-empty-usage.png') });
 });
 
-test('Professor Oak walks a new Trainer through Pocodex and can be replayed', async () => {
+test('Professor Tibo walks a new Trainer through Pocodex and can be replayed', async () => {
   const text = home.locator('[data-intro-text]');
   const next = home.getByRole('button', { name: 'Next', exact: true });
   await expect(home.locator('.intro-box')).toContainText('Hello there! Welcome to the world of Pocodex!');
-  // Oak is FireRed's own intro art, keyed onto the stage: his pixels are opaque, the backdrop is not.
+  // Tibo is Pocodex's own pixel art, drawn with a transparent backdrop: his pixels are opaque, the corner is not.
   await expect.poll(() => home.evaluate(() => {
-    const canvas = document.querySelector('[data-intro-oak]'), pixels = canvas.getContext('2d').getImageData(0, 0, 64, 96).data;
+    const canvas = document.querySelector('[data-intro-professor]'), pixels = canvas.getContext('2d').getImageData(0, 0, 64, 96).data;
     let opaque = 0; for (let i = 3; i < pixels.length; i += 4) if (pixels[i]) opaque++;
     return { corner: pixels[3], some: opaque > 1000 };
   })).toEqual({ corner: 0, some: true });
@@ -104,7 +104,7 @@ test('Professor Oak walks a new Trainer through Pocodex and can be replayed', as
   await home.keyboard.press('Enter');
   await expect(text).toHaveText('Hello there! Welcome to the world of Pocodex!');
   await home.keyboard.press('Enter');
-  await expect(text).toContainText('My name is Oak');
+  await expect(text).toContainText('My name is Tibo');
   const advanceTo = async step => { while (await home.locator('.intro-stage').getAttribute('data-step') !== String(step)) await home.locator('.intro-box').click(); };
   await advanceTo(2);
   await expect(home.locator('.intro-stage')).toHaveAttribute('data-scene', 'pokemon');
@@ -127,8 +127,8 @@ test('Professor Oak walks a new Trainer through Pocodex and can be replayed', as
   expect(await home.evaluate(() => state.settings.onboarding)).toBe(true);
   // Replaying from Settings changes nothing unless you do: a new name here is saved.
   await home.getByRole('button', { name: 'Settings', exact: true }).click();
-  await home.getByRole('button', { name: "Replay Professor Oak's intro" }).click();
-  await expect(home.locator('.intro-stage')).toHaveAttribute('data-scene', 'oak');
+  await home.getByRole('button', { name: "Replay Professor Tibo's intro" }).click();
+  await expect(home.locator('.intro-stage')).toHaveAttribute('data-scene', 'professor');
   await home.getByRole('button', { name: 'Skip intro' }).click();
   await home.locator('[data-intro="connect"]').click();
   await home.getByLabel('Your name').fill('Red');

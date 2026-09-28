@@ -11,7 +11,7 @@ npm ci --prefix companion
 .venv\Scripts\python.exe scripts/build_companion.py
 ```
 
-The build downloads and verifies the pinned Pokémon assets (454 catalog files and 2,114 action-sprite and intro resources), copies the pinned battle data, runs the Python and Node tests, bundles three Python executables (the sidecar, the startup watcher and the Claude Code hook), checks the hook's start-up time, then writes an installer, a portable ZIP and `SHA256SUMS.txt` to `artifacts/companion`. A changed upstream hash fails the build.
+The build downloads and verifies the pinned Pokémon assets (454 catalog files and 2,113 action-sprite resources), copies the pinned battle data, runs the Python and Node tests, bundles three Python executables (the sidecar, the startup watcher and the Claude Code hook), checks the hook's start-up time, then writes an installer, a portable ZIP and `SHA256SUMS.txt` to `artifacts/companion`. A changed upstream hash fails the build.
 
 ## Running from source
 
@@ -60,7 +60,7 @@ Remove-Item Env:\POCODEX_EXECUTABLE
 
 ## Releases
 
-Build from a clean checkout, run the desktop tests against the packaged app, install it for your user and try one real task in each app (see [Testing](TESTING.md)). GitHub replaces spaces in uploaded file names with dots, so `Pocodex Setup 0.2.0.exe` is published as `Pocodex.Setup.0.2.0.exe`; list that name in the release copy of `SHA256SUMS.txt`.
+Pocodex is released as source only: no installer, ZIP or other build is published, because a build bundles the Pokémon sprites and cries it downloads. A release is a tagged commit. Before tagging, build from a clean checkout, run the desktop tests against the packaged app, install it for your user and try one real task in each app (see [Testing](TESTING.md)).
 
 Keep the `appId` in `companion/package.json` (`local.codexcompanion.desktop`, from the earliest builds) unchanged: Windows identifies an existing install by it, so a new value would install a second copy instead of upgrading.
 

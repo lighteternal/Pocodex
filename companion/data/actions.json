@@ -1,7 +1,6 @@
 {
   "revision": "904f12e3fe8438ea5e53282ae1282831bd2b5124",
   "effects_revision": "c925b8482d05fb882d6b64e523653cae599e025f",
-  "intro_revision": "037335f4c725d7c9aecdac87066f2002b4bd7e14",
   "source": "https://github.com/PMDCollab/SpriteCollab",
   "rights": "SpriteCollab contributions: CC BY-NC 4.0; Pokemon and original game artwork rights remain with their owners.",
   "species": {
@@ -30709,13 +30708,6 @@
       "rows": 1
     }
   },
-  "intro": {
-    "oak": {
-      "file": "intro-oak.png",
-      "width": 64,
-      "height": 96
-    }
-  },
   "manifest": [
     {
       "file": "1-action-Attack.png",
@@ -43394,12 +43386,6 @@
       "url": "https://raw.githubusercontent.com/pret/pokeemerald/c925b8482d05fb882d6b64e523653cae599e025f/graphics/field_effects/pics/small_sparkle.png",
       "sha256": "22efd626966ed2a35c8c710b699595c64249d0c711e924521acf0ba0be7bdbea",
       "bytes": 174
-    },
-    {
-      "file": "intro-oak.png",
-      "url": "https://raw.githubusercontent.com/pret/pokefirered/037335f4c725d7c9aecdac87066f2002b4bd7e14/graphics/oak_speech/oak/pic.png",
-      "sha256": "0968930e1e1d3fb33b4f9ccff09e500445f2dcd002e1921f0b12d0537d8cace6",
-      "bytes": 1733
     }
   ]
 }

@@ -120,9 +120,9 @@ function encode(folder, filename) {
       12: () => home.evaluate(() => window.scrollTo(0, 0)),
     });
     encode(evolveFrames, 'evolution.gif');
-    // Professor Oak's intro, replayed from Settings: hello, his name, Nidorino's send-out, the egg.
+    // Professor Tibo's intro, replayed from Settings: hello, his name, Nidorino's send-out, the egg.
     await home.getByRole('button', { name: 'Settings', exact: true }).click();
-    await home.getByRole('button', { name: "Replay Professor Oak's intro" }).click();
+    await home.getByRole('button', { name: "Replay Professor Tibo's intro" }).click();
     const introFrames = path.join(temporary, 'intro');
     const next = () => home.locator('.intro-box').click();
     const introBox = await home.evaluate(() => ({ x: 0, y: 0, width: innerWidth, height: Math.round(document.querySelector('.intro-box').getBoundingClientRect().bottom + 14) }));

@@ -541,19 +541,19 @@ progress.split-bar::-webkit-progress-value { background: #3d7d5a; }
 .reduced-motion .card-inner { transition: none; }
 @media(prefers-reduced-motion:reduce) { .card-inner { transition: none; } }
 
-/* First-run intro: FireRed's opening. Professor Oak on a striped stage above a Gen 3 text box. */
+/* First-run intro in the style of a Gen 3 opening. Professor Tibo on a striped stage above a Gen 3 text box. */
 .intro-mode main { padding: 12px 16px 24px; }
 .intro { display: flex; flex-direction: column; gap: 12px; }
 .intro-stage { position: relative; height: 380px; overflow: hidden; border: 8px solid var(--bezel); border-radius: 6px 6px 6px 26px; box-shadow: 0 0 0 2px #2c3436; background: repeating-linear-gradient(180deg, #e6f2e8 0 8px, #d4eadb 8px 16px); }
 .intro-platform { position: absolute; bottom: 18px; width: 220px; height: 40px; margin-left: -110px; border-radius: 50%; background: #b8d8a8; box-shadow: inset 0 -5px 0 #98c088; }
-.oak-platform { left: 50%; }
+.professor-platform { left: 50%; }
 .prop-platform { left: 73%; width: 190px; margin-left: -95px; }
-.intro-oak { position: absolute; bottom: 34px; left: 50%; width: 192px; height: 288px; margin-left: -96px; image-rendering: pixelated; }
+.intro-professor { position: absolute; bottom: 34px; left: 50%; width: 192px; height: 288px; margin-left: -96px; image-rendering: pixelated; }
 /* Questions shrink the stage so the answers fit beneath it. */
 .intro-stage:is([data-scene=connect], [data-scene=name]) { height: 250px; }
-.intro-stage:is([data-scene=connect], [data-scene=name]) .intro-oak { bottom: 30px; width: 128px; height: 192px; margin-left: -64px; }
+.intro-stage:is([data-scene=connect], [data-scene=name]) .intro-professor { bottom: 30px; width: 128px; height: 192px; margin-left: -64px; }
 .intro-stage:is([data-scene=connect], [data-scene=name]) .intro-platform { width: 170px; height: 34px; margin-left: -85px; }
-.intro-oak.aside, .oak-platform.aside { left: 27%; }
+.intro-professor.aside, .professor-platform.aside { left: 27%; }
 .intro-stage[data-scene=pokemon] .aside { animation: intro-aside .45s steps(6) both; }
 .intro-prop { position: absolute; left: 73%; bottom: 40px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
 .intro-prop .sprite { width: 150px; height: 150px; object-fit: contain; object-position: bottom; image-rendering: pixelated; animation: intro-sendout .4s .55s steps(5) both; }
@@ -582,7 +582,7 @@ progress.split-bar::-webkit-progress-value { background: #3d7d5a; }
 .intro-name > * { height: 48px; }
 .intro-name input { min-width: 0; padding: 0 12px; background: var(--box); color: var(--box-ink); border: 2px solid var(--box-edge); border-radius: 8px; font: 400 11px 'Pokemon Classic', monospace; }
 .intro-name input:focus-visible { outline: 2px solid var(--lens); outline-offset: 2px; }
-.intro.leaving .intro-oak { transform-origin: 50% 100%; animation: intro-leave .7s steps(7) forwards; }
+.intro.leaving .intro-professor { transform-origin: 50% 100%; animation: intro-leave .7s steps(7) forwards; }
 .intro.leaving .intro-stage::after { content: ''; position: absolute; inset: 0; background: #f8f8f0; animation: intro-white .7s both; }
 @keyframes intro-aside { from { left: 50%; } }
 @keyframes intro-flash { 0% { transform: scale(.4); opacity: 0; } 30% { opacity: 1; } 100% { transform: scale(6); opacity: 0; } }

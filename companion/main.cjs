@@ -161,12 +161,12 @@ app.whenReady().then(async () => {
     const filename = decodeURIComponent(url.pathname.slice(1));
     let target;
     if (url.hostname === 'app' && filename === 'markdown-it.js') target = require.resolve('markdown-it/browser');
-    if (url.hostname === 'app' && ['index.html', 'app.js', 'action-state.js', 'sprite-layout.js', 'sprite-motion.js', 'lore.js', 'allowance.js', 'battle.js', 'trainer-card.js', 'intro.js', 'scenery.js', 'style.css', 'egg.svg'].includes(filename)) target = path.join(__dirname, 'ui', filename);
+    if (url.hostname === 'app' && ['index.html', 'app.js', 'action-state.js', 'sprite-layout.js', 'sprite-motion.js', 'lore.js', 'allowance.js', 'battle.js', 'trainer-card.js', 'intro.js', 'scenery.js', 'style.css', 'egg.svg', 'professor-tibo.png'].includes(filename)) target = path.join(__dirname, 'ui', filename);
     if (url.hostname === 'app' && filename === 'fonts/pokemon-classic.ttf') target = path.join(__dirname, 'ui', filename);
     if (url.hostname === 'app' && /^icons\/(speaker-high|speaker-slash|x|check|arrow-up-right|magnifying-glass|paw-print|book-open|chart-bar|gear-six|heart-pixel|berry-pixel)\.svg$/.test(filename)) target = path.join(__dirname, 'ui', filename);
     if (url.hostname === 'assets' && /^\d+-(sprite|cry)\.(gif|png|ogg|mp3)$/.test(filename)) target = path.join(assets, filename);
     if (url.hostname === 'app' && /^assets\/\d+-sprite\.(gif|png)$/.test(filename)) target = path.join(assets, filename.slice(7));
-    if (url.hostname === 'app' && /^assets\/(actions\.json|\d+-action-[A-Za-z]+\.png|effect-[a-z]+\.png|intro-oak\.png)$/.test(filename)) target = path.join(assets, filename.slice(7));
+    if (url.hostname === 'app' && /^assets\/(actions\.json|\d+-action-[A-Za-z]+\.png|effect-[a-z]+\.png)$/.test(filename)) target = path.join(assets, filename.slice(7));
     return target ? net.fetch(pathToFileURL(target).href) : new Response('Not found', { status: 404 });
   });
   session.defaultSession.setPermissionRequestHandler((_contents, _permission, callback) => callback(false));

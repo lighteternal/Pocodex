@@ -1,11 +1,11 @@
-/* First-run intro in the style of FireRed's opening: Professor Oak explains Pocodex one text box at a time,
+/* First-run intro in the style of a Gen 3 opening: Professor Tibo explains Pocodex one text box at a time,
    then asks which apps to follow and the Trainer's name. Replayable from Settings. */
 const intro = (() => {
   const TYPE_MS = 24;           // per character, close to the games' medium text speed
-  const NIDORINO = 33;          // the Pokémon Oak shows off in FireRed's intro
+  const NIDORINO = 33;          // the Pokémon the professor shows off
   const LINES = [
-    { scene: 'oak', text: 'Hello there! Welcome to the world of Pocodex!' },
-    { scene: 'oak', text: 'My name is Oak. People call me the Pokémon Prof!' },
+    { scene: 'professor', text: 'Hello there! Welcome to the world of Pocodex!' },
+    { scene: 'professor', text: 'My name is Tibo. People call me the Codex Prof!' },
     { scene: 'pokemon', text: 'This world is inhabited far and wide by creatures called Pokémon. And, lately, by coding agents.' },
     { scene: 'egg', text: 'Here, an egg hatches while you work. Two active minutes with Codex or Claude Code, then you choose one of three Pokémon!' },
     { scene: 'egg', text: 'Your partner earns XP from each app on its own. Ten chats in one app still count once. No Rare Candy here!' },
@@ -17,7 +17,7 @@ const intro = (() => {
     { scene: 'farewell', text: name => `Right! So your name is ${name}! Your very own Pokémon legend is about to unfold! Let's go!` },
   ];
   const CONNECT = LINES.findIndex(line => line.scene === 'connect');
-  let h, step = 0, started = performance.now(), skipTyping = false, replaying = false, leaving = false, busy = false, focusPending = false, frame = 0, oak;
+  let h, step = 0, started = performance.now(), skipTyping = false, replaying = false, leaving = false, busy = false, focusPending = false, frame = 0, professor;
 
   const init = helpers => { h = helpers; };
   const active = state => Boolean(state) && (!state.settings.onboarding || replaying);
@@ -53,7 +53,7 @@ const intro = (() => {
     if (scene === 'bubble') return `<span class="intro-bubble">Ready to review</span><span class="intro-egg">${h.egg()}</span>`;
     if (scene === 'hp') {
       const box = (name, hp, tone) => `<div class="battle-box intro-hp" data-tone="${tone}"><div class="box-row"><span class="name">${name}</span><span class="level">5h</span></div><div class="hp-row"><span class="hp-label">HP</span><progress class="hp-bar" max="100" value="${hp}"></progress></div></div>`;
-      // Illustrative numbers: hidden from screen readers, which hear Oak's sentence instead.
+      // Illustrative numbers: hidden from screen readers, which hear the professor's sentence instead.
       return `<div class="intro-hp-stack" aria-hidden="true">${box('Codex', 72, 'high')}${box('Claude Code', 34, 'mid')}</div>`;
     }
     if (scene === 'ball') return '<span class="intro-grass" aria-hidden="true"></span><span class="intro-ball" aria-hidden="true"></span>';
@@ -78,8 +78,8 @@ const intro = (() => {
     return `<section class="intro${leaving ? ' leaving' : ''}" aria-labelledby="intro-title">
       <h1 id="intro-title" class="sr-only">Welcome to Pocodex</h1>
       <div class="intro-stage" data-scene="${scene}" data-step="${step}">
-        <span class="intro-platform oak-platform${aside ? ' aside' : ''}" aria-hidden="true"></span>
-        <canvas class="intro-oak${aside ? ' aside' : ''}" width="64" height="96" data-intro-oak role="img" aria-label="Professor Oak"></canvas>
+        <span class="intro-platform professor-platform${aside ? ' aside' : ''}" aria-hidden="true"></span>
+        <canvas class="intro-professor${aside ? ' aside' : ''}" width="64" height="96" data-intro-professor role="img" aria-label="Professor Tibo"></canvas>
         ${aside && story ? `<span class="intro-platform prop-platform" aria-hidden="true"></span><div class="intro-prop">${prop(scene)}</div>` : ''}
         ${story ? '<button class="intro-skip" data-intro="skip">Skip intro</button>' : ''}
       </div>
@@ -92,7 +92,7 @@ const intro = (() => {
     </section>`;
   }
 
-  // After each render: type the text out, paint Oak, and move focus once per step.
+  // After each render: type the text out, paint the professor, and move focus once per step.
   function sync() {
     const box = document.querySelector('[data-intro-box]');
     if (!box) { cancelAnimationFrame(frame); return; }
@@ -109,7 +109,7 @@ const intro = (() => {
       if (shown < full.length) frame = requestAnimationFrame(tick);
     };
     tick();
-    paintOak(document.querySelector('[data-intro-oak]'));
+    paintProfessor(document.querySelector('[data-intro-professor]'));
     // Poll-driven refreshes must not replay the step's entrance.
     if (!leaving) for (const animation of document.querySelector('.intro-stage')?.getAnimations({ subtree: true }) || []) animation.currentTime = performance.now() - started;
     if (focusPending) {
@@ -119,23 +119,17 @@ const intro = (() => {
       if (primary instanceof HTMLInputElement) primary.select();
     }
   }
-  async function paintOak(canvas) {
+  // Professor Tibo is Pocodex's own pixel art (scripts/draw_professor.py), a friendly nod to Tibo Sottiaux.
+  async function paintProfessor(canvas) {
     if (!canvas || canvas.dataset.painted) return;
     canvas.dataset.painted = 'true';
     try {
-      oak ||= (async () => {
-        const response = await fetch('pocodex://app/assets/intro-oak.png');
-        if (!response.ok) throw new Error('intro-oak.png');
-        const image = await createImageBitmap(await response.blob());
-        // FireRed's palette index zero is the backdrop, not part of the Professor.
-        const surface = new OffscreenCanvas(image.width, image.height), c = surface.getContext('2d');
-        c.drawImage(image, 0, 0);
-        const pixels = c.getImageData(0, 0, image.width, image.height), data = pixels.data, [r, g, b] = data;
-        for (let i = 0; i < data.length; i += 4) if (data[i] === r && data[i + 1] === g && data[i + 2] === b) data[i + 3] = 0;
-        c.putImageData(pixels, 0, 0);
-        return createImageBitmap(surface);
+      professor ||= (async () => {
+        const response = await fetch('pocodex://app/professor-tibo.png');
+        if (!response.ok) throw new Error('professor-tibo.png');
+        return createImageBitmap(await response.blob());
       })();
-      const bitmap = await oak;
+      const bitmap = await professor;
       const c = canvas.getContext('2d');
       c.clearRect(0, 0, canvas.width, canvas.height);
       c.drawImage(bitmap, 0, 0);

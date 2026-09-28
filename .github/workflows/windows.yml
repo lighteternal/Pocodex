@@ -32,14 +32,6 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           npm ci --prefix companion
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      # Builds and tests only: builds bundle Pokémon sprites and cries, so none is uploaded.
       - name: Test and package
         run: .venv/Scripts/python.exe scripts/build_companion.py
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pocodex-windows-${{ github.sha }}
-          path: |
-            artifacts/companion/*.exe
-            artifacts/companion/*.zip
-            artifacts/companion/SHA256SUMS.txt
-          if-no-files-found: error
-          retention-days: 7

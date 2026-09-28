@@ -13,7 +13,7 @@ The desktop layer needs an interactive Windows session because it opens real win
 
 ## What the desktop scenarios check
 
-- First run: Professor Oak's intro (typing, keyboard and mouse, the name, replaying from Settings), which apps are detected and pre-ticked, and that an unticked choice survives live refreshes.
+- First run: Professor Tibo's intro (typing, keyboard and mouse, the name, replaying from Settings), which apps are detected and pre-ticked, and that an unticked choice survives live refreshes.
 - Connecting Claude Code into an isolated folder, the exact hooks it adds, and disconnecting back to the original file byte for byte.
 - An unreadable Claude settings file: left untouched, explained, with a paste-in snippet.
 - Both apps at once: one buddy gains XP from each, one alert queue, a permission prompt clearing once Claude Code resumes, and no prompt text on screen.
