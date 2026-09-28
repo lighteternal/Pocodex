@@ -1,0 +1,68 @@
+{
+  "name": "pocodex",
+  "version": "0.3.0",
+  "private": true,
+  "description": "A Pokémon desktop buddy that grows while Codex and Claude Code work",
+  "author": "Pocodex contributors",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "test:ui": "playwright test",
+    "package": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "@phosphor-icons/core": "2.1.1",
+    "@playwright/test": "1.63.0",
+    "electron": "44.4.5",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "local.codexcompanion.desktop",
+    "productName": "Pocodex",
+    "directories": {
+      "output": "../artifacts/companion"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "bridge.cjs",
+      "startup.cjs",
+      "LICENSE",
+      "THIRD-PARTY-NOTICES.md",
+      "ui/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "runtime",
+        "to": "runtime"
+      },
+      {
+        "from": "assets",
+        "to": "assets"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "signExecutable": false,
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "include": "installer.nsh",
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": false
+    }
+  },
+  "dependencies": {
+    "markdown-it": "15.0.2"
+  }
+}

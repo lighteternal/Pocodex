@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pocodex"
+version = "0.3.0"
+description = "A Pokémon desktop buddy that grows while Codex and Claude Code work"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+build = ["pyinstaller==6.16.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

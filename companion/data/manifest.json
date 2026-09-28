@@ -1,0 +1,4088 @@
+[
+  {
+    "id": 1,
+    "kind": "cry",
+    "file": "1-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg",
+    "sha256": "6233bc22546f161d61240c7eef8494a61c42f8ba56833f96313045d1cbbec575",
+    "bytes": 13733,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 1,
+    "kind": "sprite",
+    "file": "1-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif",
+    "sha256": "447b187118da4dc74ee353835df0ab833bd70866f47836f07c24c082e1f8d4ba",
+    "bytes": 28505,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10,
+    "kind": "cry",
+    "file": "10-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10.ogg",
+    "sha256": "759a0def7b76f0ee879ba789d1747bca485942dc8d0cda89174666444cbf2569",
+    "bytes": 9944,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10,
+    "kind": "sprite",
+    "file": "10-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10.gif",
+    "sha256": "c07fb9e800e7d0e410d3ed9b2ef87acb97823dbe0be5d2d1b042d83e121b70d0",
+    "bytes": 22502,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 100,
+    "kind": "cry",
+    "file": "100-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/100.ogg",
+    "sha256": "7c5dfb2a140402ee32df5d2da166a86f119596d5e6f03ad9d6276e0d95c42403",
+    "bytes": 17470,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 100,
+    "kind": "sprite",
+    "file": "100-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/100.gif",
+    "sha256": "15f24756a7611a02d8de700eb72b8f9ff9456d3c74fa789b28dc3629ec4b35d7",
+    "bytes": 14487,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10091,
+    "kind": "cry",
+    "file": "10091-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10091.ogg",
+    "sha256": "87d551514ef9b8e42da154be8b4c2002efea53c558989344126170eecff54aab",
+    "bytes": 7576,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10091,
+    "kind": "sprite",
+    "file": "10091-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10091.gif",
+    "sha256": "84fbd8e5bc00e49d2dbabde6bff3b6197c83e6f365a9fbc76990176afd488605",
+    "bytes": 14833,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10092,
+    "kind": "cry",
+    "file": "10092-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10092.ogg",
+    "sha256": "58a24056c7b92edde94698d03ae0257188baf014f4124ae6ba1c7db448e4b6e9",
+    "bytes": 8630,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10092,
+    "kind": "sprite",
+    "file": "10092-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10092.gif",
+    "sha256": "eef0156d060d4bf5694fa5e002f1fe442c4b09ed75918a0c2069ee59ff5ea419",
+    "bytes": 53019,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10093,
+    "kind": "cry",
+    "file": "10093-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10093.ogg",
+    "sha256": "58a24056c7b92edde94698d03ae0257188baf014f4124ae6ba1c7db448e4b6e9",
+    "bytes": 8630,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10093,
+    "kind": "sprite",
+    "file": "10093-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10093.gif",
+    "sha256": "c761a14b94563c01a367e4a6e7562cf5056cad740ef53ce93e353e0451c3002c",
+    "bytes": 147945,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10099,
+    "kind": "cry",
+    "file": "10099-cry.mp3",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10099.ogg",
+    "sha256": "1ec10c893184b155a110d746ff0560f291978f32ce90c283b9871e61d6df12a1",
+    "bytes": 7080,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10099,
+    "kind": "sprite",
+    "file": "10099-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10099.gif",
+    "sha256": "40ec33fab799d6d422dc7ad44cadf1ef70d5693e42197e3ef55f7c6688e9c0a8",
+    "bytes": 30842,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 101,
+    "kind": "cry",
+    "file": "101-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/101.ogg",
+    "sha256": "f373c29018f20ac39d752894b1eeac75994b66054340ff1654aef84d01d5afe5",
+    "bytes": 17688,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 101,
+    "kind": "sprite",
+    "file": "101-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/101.gif",
+    "sha256": "1382623e8ee270f7b6c14c712b69fbc8795ee2807b35fe6a10bcd9222d7cce56",
+    "bytes": 57875,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10100,
+    "kind": "cry",
+    "file": "10100-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10100.ogg",
+    "sha256": "7fdd8215c003331221a47203b90a26efbdf9ea4c8393d0a4daae42af0b94a8c0",
+    "bytes": 14010,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10100,
+    "kind": "sprite",
+    "file": "10100-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10100.gif",
+    "sha256": "fa5753e085cf274d57b9e1dd1c2d4c5c4604244cc83b84203c678650ec2d538f",
+    "bytes": 90883,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10101,
+    "kind": "cry",
+    "file": "10101-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10101.ogg",
+    "sha256": "1d2fcc16683cad9b24313d86b9ec8f77aa8d7660724e798dc8f60a587c4bb7d2",
+    "bytes": 8512,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10101,
+    "kind": "sprite",
+    "file": "10101-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10101.gif",
+    "sha256": "40eb74d3c3cbc382b5fccdb15d6b959536a473ce4e3233444c3599443a80cc2a",
+    "bytes": 23200,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10102,
+    "kind": "cry",
+    "file": "10102-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10102.ogg",
+    "sha256": "03812406a22c9abc15a8e683a13d4cde1fe89c6d44c952c6776442fc1044ed94",
+    "bytes": 10024,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10102,
+    "kind": "sprite",
+    "file": "10102-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10102.gif",
+    "sha256": "00ff87bf2e2ab31f79cddab6a84a35eaf494d0b78a62272300ae2fed8cd228f8",
+    "bytes": 32901,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10103,
+    "kind": "cry",
+    "file": "10103-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10103.ogg",
+    "sha256": "70ed1c7f151d0bf13fe84f3e46c20c4beef810e308075f458bbff32b72469b48",
+    "bytes": 14647,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10103,
+    "kind": "sprite",
+    "file": "10103-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10103.gif",
+    "sha256": "f4f09b87dc4a64dd0a61d7f0060140709f1d94118f284cd07a034cc2f8e20c5d",
+    "bytes": 24412,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10104,
+    "kind": "cry",
+    "file": "10104-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10104.ogg",
+    "sha256": "a91b30857b164e3ed2f3fb0eeb6aad6aca59e8d4643dd75d974d2f7f28e61d7f",
+    "bytes": 14221,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10104,
+    "kind": "sprite",
+    "file": "10104-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10104.gif",
+    "sha256": "8b1fdf941d544ed0604463fc817f40ce042148e0e4dd1b9a833a6f097d096ebd",
+    "bytes": 84352,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10105,
+    "kind": "cry",
+    "file": "10105-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10105.ogg",
+    "sha256": "fc27635f89c49650e733fc77f9f8faf5cb23a019c75d4a26a3445d398a580f67",
+    "bytes": 14224,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10105,
+    "kind": "sprite",
+    "file": "10105-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10105.gif",
+    "sha256": "8c6f05a073c84909e6419a8a37ab1df7288ec7a2a5bbad79057cc7d509775f5e",
+    "bytes": 17382,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10106,
+    "kind": "cry",
+    "file": "10106-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10106.ogg",
+    "sha256": "81e35241472e40f71c05670683a42cc37cef95d104eb9eee62c7e5667b94db0e",
+    "bytes": 14020,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10106,
+    "kind": "sprite",
+    "file": "10106-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10106.gif",
+    "sha256": "2c6ca67e489afca928fa5382a24e6bc5f2fe4d8f5120af97ce8c53ff3ce6a2be",
+    "bytes": 51429,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10107,
+    "kind": "cry",
+    "file": "10107-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10107.ogg",
+    "sha256": "e72d520a30d5ed7280162d4e600e925ffb94eb0ba30bd8a984bb1662ffadb2ed",
+    "bytes": 10150,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10107,
+    "kind": "sprite",
+    "file": "10107-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10107.gif",
+    "sha256": "a6e7c17c6681dbfb9b90aad10e03d643b79d144463bc0d927998764102b4bf83",
+    "bytes": 36934,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10108,
+    "kind": "cry",
+    "file": "10108-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10108.ogg",
+    "sha256": "f28d5ef81f2ec4a752c3c5e7855af3e262e3dcc04fea1a8a100fc101df5c6252",
+    "bytes": 12616,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10108,
+    "kind": "sprite",
+    "file": "10108-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10108.gif",
+    "sha256": "076fd12853ea0ea2bfede31e00e9f6021948b8ed635cb6e7d6f84c27185bab86",
+    "bytes": 63775,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10109,
+    "kind": "cry",
+    "file": "10109-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10109.ogg",
+    "sha256": "41b6ff2ac6244905c946098eb7966109fadc5ff732d0342a809b36a425bdaf80",
+    "bytes": 14399,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10109,
+    "kind": "sprite",
+    "file": "10109-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10109.gif",
+    "sha256": "d15b520a63ade6136378e99d9db7d40d30c75b6796cd83933ed276f2c385863c",
+    "bytes": 25887,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10110,
+    "kind": "cry",
+    "file": "10110-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10110.ogg",
+    "sha256": "5ee5a3ba4cb75c05a178c5f2303a761357880bb529b0604bd25452c92e3dc451",
+    "bytes": 16547,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10110,
+    "kind": "sprite",
+    "file": "10110-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10110.gif",
+    "sha256": "1b9ca2a5be8c2790d5d01935828f7e8dbf5c8518aed00584bfa20fcb8d335f6a",
+    "bytes": 81313,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10111,
+    "kind": "cry",
+    "file": "10111-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10111.ogg",
+    "sha256": "707d486d27f89d2d2a836e0edb0c49fcbf4777cf1768de71466137d6cd9cbea7",
+    "bytes": 12862,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10111,
+    "kind": "sprite",
+    "file": "10111-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10111.gif",
+    "sha256": "c454975252c56535a8f9913bafe752d81ccb312c8d2d6df36c791db96adaae96",
+    "bytes": 100627,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10112,
+    "kind": "cry",
+    "file": "10112-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10112.ogg",
+    "sha256": "d79bc358029276b8cc9a4cc5f75ad22d26c4229188a47969f61eca49bcdb5177",
+    "bytes": 8696,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10112,
+    "kind": "sprite",
+    "file": "10112-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10112.gif",
+    "sha256": "ef7e5963b28d2687f55919a88dc6b18998be1e4682f3917eaad706cee238ff7d",
+    "bytes": 64165,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10113,
+    "kind": "cry",
+    "file": "10113-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10113.ogg",
+    "sha256": "68653acef5fe182e83546e57542a8f4f9932f82f590990c99127bd4fc3ad87a5",
+    "bytes": 11078,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10113,
+    "kind": "sprite",
+    "file": "10113-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10113.gif",
+    "sha256": "4f9b8365c7325754e27bb5c6d55c1322fa895098f42b513cbe1f8800b6bd9f22",
+    "bytes": 110384,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10114,
+    "kind": "cry",
+    "file": "10114-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10114.ogg",
+    "sha256": "6bbc0a9e115e0de728b53b77619eb5fb01754147ac4dd5ac3e318bf18b040ae1",
+    "bytes": 16429,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10114,
+    "kind": "sprite",
+    "file": "10114-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10114.gif",
+    "sha256": "8449b25b54594ec07ef8f523971aa19213fa1e2308ebd53457af121f45fdd9b5",
+    "bytes": 81869,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10115,
+    "kind": "cry",
+    "file": "10115-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10115.ogg",
+    "sha256": "bdf9ecd3820d6f3f4cf2afcd95ecfe23ca4c9fba4e3ddd5504b0171113f79961",
+    "bytes": 10637,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10115,
+    "kind": "sprite",
+    "file": "10115-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10115.gif",
+    "sha256": "a1443512634c0298c28aa1cd52b4c13c5da441e11b386f31bb0a02dc5b994cce",
+    "bytes": 45002,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10161,
+    "kind": "cry",
+    "file": "10161-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10161.ogg",
+    "sha256": "e72d520a30d5ed7280162d4e600e925ffb94eb0ba30bd8a984bb1662ffadb2ed",
+    "bytes": 10150,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10161,
+    "kind": "sprite",
+    "file": "10161-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10161.gif",
+    "sha256": "2c7da036ac27f84a2eb0a292fb2d2af5d89a71312a107910b8a42b50ef723f8a",
+    "bytes": 58113,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10162,
+    "kind": "cry",
+    "file": "10162-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10162.ogg",
+    "sha256": "6be79d7172ac8cc9c1584e6303155cffefeed33a279f4e8b55b71e9f2a80e900",
+    "bytes": 15837,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10162,
+    "kind": "sprite",
+    "file": "10162-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10162.gif",
+    "sha256": "b57a420e3746221241ebeebf7a2e9c9afe1bea958aca4e191940f5a3326ebae4",
+    "bytes": 91188,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10163,
+    "kind": "cry",
+    "file": "10163-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10163.ogg",
+    "sha256": "43db7dc4707035f18025b43db27de3ebe5bf86bc7795b2a45e549e8cb00c0b7e",
+    "bytes": 14563,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10163,
+    "kind": "sprite",
+    "file": "10163-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10163.gif",
+    "sha256": "1bbccf1d2518895cde31b00f29e094930d955303e6b08063ac981b9e744d720e",
+    "bytes": 231877,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10164,
+    "kind": "cry",
+    "file": "10164-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10164.ogg",
+    "sha256": "8e239c0de81d81af370dd99bdbdace2f07e057704bc9d2a4aac8b4833ec200d1",
+    "bytes": 8650,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10164,
+    "kind": "sprite",
+    "file": "10164-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10164.gif",
+    "sha256": "cf053e797161f091b64e7cb1534f1c5b913a72a29fdb8683f089c9e2f213094d",
+    "bytes": 74353,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10165,
+    "kind": "cry",
+    "file": "10165-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10165.ogg",
+    "sha256": "216778d4a4a0db319e9226673fec1c16b899479949984b1627e42603c81f6bc0",
+    "bytes": 10568,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10165,
+    "kind": "sprite",
+    "file": "10165-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10165.gif",
+    "sha256": "28db41eb016a172652a8cf715d2baf8a198f3f276b41534eb34896fed07c36c9",
+    "bytes": 95409,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10166,
+    "kind": "cry",
+    "file": "10166-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10166.ogg",
+    "sha256": "20ac2e7b9498b73fb89d6659489336d87ba141af9ec95f75b0c24e206d4ecc37",
+    "bytes": 9469,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10166,
+    "kind": "sprite",
+    "file": "10166-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10166.gif",
+    "sha256": "e1adf5065b039f10a9067d2fcb1ba6d08d7d8d11f69361027e110a23928b7e34",
+    "bytes": 103236,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10167,
+    "kind": "cry",
+    "file": "10167-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10167.ogg",
+    "sha256": "298e4b24f0da3769ad05677dedcaedd973f3ff5d6a944d571004a5f2d7f71529",
+    "bytes": 12440,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10167,
+    "kind": "sprite",
+    "file": "10167-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10167.gif",
+    "sha256": "1b0448a9835238f78bdb28fa66b8388720c82575f85354eaf2d2141116730486",
+    "bytes": 639330,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10168,
+    "kind": "cry",
+    "file": "10168-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10168.ogg",
+    "sha256": "00771d6d5f9bce86be72d0843d54178eb478f1039bf039e8428e6eea02b36cda",
+    "bytes": 11587,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10168,
+    "kind": "sprite",
+    "file": "10168-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10168.gif",
+    "sha256": "275af0711f940fb6b6c40cfc70ee45176d5df47ec592e1d7e3c9daa302f05150",
+    "bytes": 56199,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10169,
+    "kind": "cry",
+    "file": "10169-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10169.ogg",
+    "sha256": "d45d3595e290f3035dfaf7acaaf6e680025739d9e7f99dd5f14bfee2b0e658dc",
+    "bytes": 14542,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10169,
+    "kind": "sprite",
+    "file": "10169-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10169.gif",
+    "sha256": "0108e817e3e6f0d36a6f4aae2270f83bcc31db23209c5ad99804b9f4decc7a4d",
+    "bytes": 231898,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10170,
+    "kind": "cry",
+    "file": "10170-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10170.ogg",
+    "sha256": "3505565dccb43d0067ff490a6398b2a6ff35902895b891c9662b0577181c63d9",
+    "bytes": 12010,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10170,
+    "kind": "sprite",
+    "file": "10170-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10170.gif",
+    "sha256": "7a9912f38633ccd08cc4695cddace59ff359d0b92a528932672cfddceaed7517",
+    "bytes": 153150,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10171,
+    "kind": "cry",
+    "file": "10171-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10171.ogg",
+    "sha256": "6267c8bc38899963230b0a1be3c02a34c3ba839fa965abff2c68ec2ed61ab46a",
+    "bytes": 14009,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10171,
+    "kind": "sprite",
+    "file": "10171-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10171.gif",
+    "sha256": "33c179e5d259af7cbbf6718639ed1f5cc2a61ee3bf5fa31e759f7f2c14964443",
+    "bytes": 220513,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10172,
+    "kind": "cry",
+    "file": "10172-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10172.ogg",
+    "sha256": "13525463508e35cfa828419c0af3f4b014fe5160a9472a489ebfe4a412fcf15f",
+    "bytes": 15021,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10172,
+    "kind": "sprite",
+    "file": "10172-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10172.gif",
+    "sha256": "99d91ef919223f55dc3c3c826a4366f59c42b7d9dd901b8d8966116593b6e9b5",
+    "bytes": 131336,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 102,
+    "kind": "cry",
+    "file": "102-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/102.ogg",
+    "sha256": "c13bcdc271949e02484533989f9cdba39e51ddf9ef2d0a473f1d8c6c1c7a7eae",
+    "bytes": 15236,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 102,
+    "kind": "sprite",
+    "file": "102-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/102.gif",
+    "sha256": "979d4225d8507a1d21f9735bcd1ab1319af12100def5de76e9068ea9e2cbfccd",
+    "bytes": 32600,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10229,
+    "kind": "cry",
+    "file": "10229-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10229.ogg",
+    "sha256": "801607e1befb10dea07401bd404b46fafb50b73cce5010e116e5ed74c9e53686",
+    "bytes": 9959,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10229,
+    "kind": "sprite",
+    "file": "10229-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10229.gif",
+    "sha256": "43190941572b8976e6931c94f06452a83f2ca44cbff4da6ac2ca64f284c6abbc",
+    "bytes": 151427,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10230,
+    "kind": "cry",
+    "file": "10230-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10230.ogg",
+    "sha256": "31d53d4e91d38cd65885b05d85656bb6371c413de8fca9dc2fcceb9c63482d46",
+    "bytes": 11861,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10230,
+    "kind": "sprite",
+    "file": "10230-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10230.gif",
+    "sha256": "25cd5f551a3add17cbca673891d4b16d8774bb0cde1fa32c7a1f405832d9cfdc",
+    "bytes": 377827,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10231,
+    "kind": "cry",
+    "file": "10231-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10231.ogg",
+    "sha256": "a6ade3540ce5456e9928f906e2157dddc4fd244a69dfd12e679ab870bbe66cd8",
+    "bytes": 13870,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10231,
+    "kind": "sprite",
+    "file": "10231-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10231.gif",
+    "sha256": "38f8f5b1a2462cb548c7947f73c28e2342f5e760e027d4d6d849cf584be02100",
+    "bytes": 102390,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10232,
+    "kind": "cry",
+    "file": "10232-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10232.ogg",
+    "sha256": "4325709b89c799bd88f3b2308ffa5dbbaa137e7ee940efe0592269ff0bbc9f3b",
+    "bytes": 14508,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10232,
+    "kind": "sprite",
+    "file": "10232-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10232.gif",
+    "sha256": "8b138acaa113d6b9bd93e632ebfc321082748e82a296583abf9ae333ab6d506b",
+    "bytes": 448619,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10250,
+    "kind": "cry",
+    "file": "10250-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10250.ogg",
+    "sha256": "3ac8baacad124dee9f19dba3ef59972e8b806178fdf3cad2817f4289156b742d",
+    "bytes": 12270,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10250,
+    "kind": "sprite",
+    "file": "10250-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10250.gif",
+    "sha256": "f4df8027f539f828d26f62c31f225719a07a63a8dd40f7bb4f70827d7733afc6",
+    "bytes": 42994,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10251,
+    "kind": "cry",
+    "file": "10251-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10251.ogg",
+    "sha256": "3ac8baacad124dee9f19dba3ef59972e8b806178fdf3cad2817f4289156b742d",
+    "bytes": 12270,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10251,
+    "kind": "sprite",
+    "file": "10251-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10251.gif",
+    "sha256": "e1bfb5b4a2c7a92f51ad2feea535b87ed77777894101ecb26f9b290de7000b78",
+    "bytes": 44541,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10252,
+    "kind": "cry",
+    "file": "10252-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10252.ogg",
+    "sha256": "3ac8baacad124dee9f19dba3ef59972e8b806178fdf3cad2817f4289156b742d",
+    "bytes": 12270,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 10252,
+    "kind": "sprite",
+    "file": "10252-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10252.gif",
+    "sha256": "386347d62ee0024d20b8034c2708c7467b2233f507f19711bc86284659ae12aa",
+    "bytes": 70136,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 103,
+    "kind": "cry",
+    "file": "103-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/103.ogg",
+    "sha256": "c3feb673bb98a493d9151dc0deb5cf7802279ce4640a2a1d84221a746fdc429b",
+    "bytes": 19287,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 103,
+    "kind": "sprite",
+    "file": "103-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/103.gif",
+    "sha256": "f17d8626b06c227568c093db1eff390e7c0b91093f008fdfe3f37a2629f28ade",
+    "bytes": 72635,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 104,
+    "kind": "cry",
+    "file": "104-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/104.ogg",
+    "sha256": "2e03f5523c100935b82eaf0cbd684d862ed80c0af0796b096979c15580a4fbfa",
+    "bytes": 11241,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 104,
+    "kind": "sprite",
+    "file": "104-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/104.gif",
+    "sha256": "c99a07b69ed81ece9f5baea23d81295338411ee815dc294578f9834bbcc9ca22",
+    "bytes": 26459,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 105,
+    "kind": "cry",
+    "file": "105-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/105.ogg",
+    "sha256": "ba8f5c9096e0595ee9c684fb1719d584afa88ed0bcb2061494014dc1d9bec5a0",
+    "bytes": 11879,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 105,
+    "kind": "sprite",
+    "file": "105-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/105.gif",
+    "sha256": "fda60e467981f85612ee68cf750bcd14732295611bfc1746663ed27b1f3da1d3",
+    "bytes": 32200,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 106,
+    "kind": "cry",
+    "file": "106-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/106.ogg",
+    "sha256": "7495be14589635ab8178138f706b7ab9cdc862d187114908ef2c89580cd72699",
+    "bytes": 13820,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 106,
+    "kind": "sprite",
+    "file": "106-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/106.gif",
+    "sha256": "28625898a956760456883329e17d86d8d2dd9fe92c774b40fb98e20966795d1b",
+    "bytes": 26318,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 107,
+    "kind": "cry",
+    "file": "107-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/107.ogg",
+    "sha256": "4b0a792dc03e7b683c20c8205495c494cbc21a2bff442dab270a7550f4bdc7bf",
+    "bytes": 13136,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 107,
+    "kind": "sprite",
+    "file": "107-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/107.gif",
+    "sha256": "0682a7c5fcb5e73790a67658cbf18c66f83aad6b74d71c6362e7afeed569c8ac",
+    "bytes": 17020,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 108,
+    "kind": "cry",
+    "file": "108-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/108.ogg",
+    "sha256": "a5132090424007fb4bfe24f457da7b354b0c169901c96db502f2f59e31de7580",
+    "bytes": 11390,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 108,
+    "kind": "sprite",
+    "file": "108-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/108.gif",
+    "sha256": "81857a2d16aaa6ae037a3fab9a6d8fa5a08de541f3d0fc72665f474855781079",
+    "bytes": 22452,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 109,
+    "kind": "cry",
+    "file": "109-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/109.ogg",
+    "sha256": "eead6395a9c33af5298db17ea74e7766458cae3e160ba45c17ae368713edcb90",
+    "bytes": 13422,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 109,
+    "kind": "sprite",
+    "file": "109-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/109.gif",
+    "sha256": "cd2431ac9f4c1cace567bf5794f660a7aac39527bfed02012408c32ed3877b66",
+    "bytes": 83779,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 11,
+    "kind": "cry",
+    "file": "11-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/11.ogg",
+    "sha256": "876f4039b177ec5e28a6c8b8c5b8e7ef20e4ae1f8a627e688dd8fd491d100411",
+    "bytes": 15843,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 11,
+    "kind": "sprite",
+    "file": "11-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/11.gif",
+    "sha256": "f51c0b67c287f0ece67801f74322960505ce9dc2f9dee23670849959e9d268ce",
+    "bytes": 31684,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 110,
+    "kind": "cry",
+    "file": "110-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/110.ogg",
+    "sha256": "3b6f5d1f48b6771ae16958e732ce95e1a361eebbf9ad6749cea1d4e61c8e8fdf",
+    "bytes": 14366,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 110,
+    "kind": "sprite",
+    "file": "110-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/110.gif",
+    "sha256": "6d8423086499834ab0e9d2ee6b4982a68db1293e7b48bfc6d4f7f2885e9c6416",
+    "bytes": 301251,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 111,
+    "kind": "cry",
+    "file": "111-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/111.ogg",
+    "sha256": "7c9d5ef3d3937cf98bef681171fcb8aa8141904dcd94c6b710f2f72593c1878a",
+    "bytes": 14323,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 111,
+    "kind": "sprite",
+    "file": "111-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/111.gif",
+    "sha256": "d7eb9a1a9b316cf1ce3ee728e66681d3a3072ed0240b4f38c878bcf98d8dc825",
+    "bytes": 80122,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 112,
+    "kind": "cry",
+    "file": "112-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/112.ogg",
+    "sha256": "8e5314a2645724800ce6e5e188ccf3d7bcf046b951f7deea65511831a57c4c8f",
+    "bytes": 16326,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 112,
+    "kind": "sprite",
+    "file": "112-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/112.gif",
+    "sha256": "00e3201780e0f682e732ca12b15cc572c5eed83d7fe1b1981a90c71870df425d",
+    "bytes": 77529,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 113,
+    "kind": "cry",
+    "file": "113-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/113.ogg",
+    "sha256": "fd4c86559e25018a9e7a9284778821b714b6a160ea85403d9687b9cba3eef1ec",
+    "bytes": 12598,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 113,
+    "kind": "sprite",
+    "file": "113-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/113.gif",
+    "sha256": "919ccfcbe4a7ce52877d49b9d25ab493d7bd583d7cc1c5804e189e73d771ddff",
+    "bytes": 40295,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 114,
+    "kind": "cry",
+    "file": "114-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/114.ogg",
+    "sha256": "200f192a87c8e03cda9025c5ee5068b51e575baee77126af41854aadb93861d6",
+    "bytes": 12884,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 114,
+    "kind": "sprite",
+    "file": "114-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/114.gif",
+    "sha256": "577edca1f09da0fcbb566b90600fc973134eea76cc644ebb223a3da1e726bd5b",
+    "bytes": 48375,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 115,
+    "kind": "cry",
+    "file": "115-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/115.ogg",
+    "sha256": "b9ae9c78948d5a2e42646ac8f3ae951ae66f297cdb8b6a65fa11a9c2f0e023cc",
+    "bytes": 13105,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 115,
+    "kind": "sprite",
+    "file": "115-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/115.gif",
+    "sha256": "1d1c711bb7aa17f9fc3a7c13c071be388ad76e2ebbb242d24b4a97bcaa36d4a0",
+    "bytes": 92247,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 116,
+    "kind": "cry",
+    "file": "116-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/116.ogg",
+    "sha256": "8310e517146d265acc7db8bb79ea9e0151960d4a8ef71c5ab2bcda31e7fc53dc",
+    "bytes": 11074,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 116,
+    "kind": "sprite",
+    "file": "116-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/116.gif",
+    "sha256": "db990e0146c42c97b3ce70c8acbf0fd9fac0b885704b69976266674c6b380441",
+    "bytes": 25923,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 117,
+    "kind": "cry",
+    "file": "117-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/117.ogg",
+    "sha256": "3df8f6df0b5a2b140c45bdea3c60669c1414138cede0f023d5e519b8161542e5",
+    "bytes": 10866,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 117,
+    "kind": "sprite",
+    "file": "117-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/117.gif",
+    "sha256": "d82bb4a1478725503d74a3acd3a72cb91c08bb053794d5894258ce9a5db4cac2",
+    "bytes": 55683,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 118,
+    "kind": "cry",
+    "file": "118-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/118.ogg",
+    "sha256": "685d5e8de4577fc9d6541489893bf44752588e8b47ccf0bdefe20c809c15ca1f",
+    "bytes": 10085,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 118,
+    "kind": "sprite",
+    "file": "118-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/118.gif",
+    "sha256": "530c1c26e3bc4bea5d75c5ace11f552fa97a0ef699424c1529299479c8b31e35",
+    "bytes": 43316,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 119,
+    "kind": "cry",
+    "file": "119-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/119.ogg",
+    "sha256": "3c0cfb804b47a311181b9d98bfbf1dbbc02c022064d3e9e33e221c7256145f6b",
+    "bytes": 13262,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 119,
+    "kind": "sprite",
+    "file": "119-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/119.gif",
+    "sha256": "8d347e7f65e48f4710108a9a4251174e07e5a08ed32b88eff8512e188abc15e2",
+    "bytes": 48965,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 12,
+    "kind": "cry",
+    "file": "12-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/12.ogg",
+    "sha256": "a761dc3185c3063b835dcfd21999b0bed78e20957f9226b5918056fac0d014a5",
+    "bytes": 12316,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 12,
+    "kind": "sprite",
+    "file": "12-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/12.gif",
+    "sha256": "8885e568873bee1e0bf374cc8ca9f65d260a15b376f24a4d83278d7ce3934319",
+    "bytes": 74363,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 120,
+    "kind": "cry",
+    "file": "120-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/120.ogg",
+    "sha256": "00e0a3646c47359d9c8ba62826deb1bed41b5cbfea1d10dff1a0d1aaa0f2858a",
+    "bytes": 13837,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 120,
+    "kind": "sprite",
+    "file": "120-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/120.gif",
+    "sha256": "7c2c02dd9e3b87979c4efd8e638d59cfc0c8c801a2a2e73b8186ac72c0a0a2a1",
+    "bytes": 28519,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 121,
+    "kind": "cry",
+    "file": "121-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/121.ogg",
+    "sha256": "c67d959c78a9bc2abed74ed14ae564196788bc5924042e811c031ffa59d72604",
+    "bytes": 15960,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 121,
+    "kind": "sprite",
+    "file": "121-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/121.gif",
+    "sha256": "165a463b1876a64c84d293686668101ee1405949c5c03d3583f8370e25377224",
+    "bytes": 55353,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 122,
+    "kind": "cry",
+    "file": "122-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/122.ogg",
+    "sha256": "1564b93426341e465f48f0b1af59fd7db41e49d41f0a7dbca8092efb34997719",
+    "bytes": 13278,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 122,
+    "kind": "sprite",
+    "file": "122-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/122.gif",
+    "sha256": "a71e3f3f8593cf62adfaafc6bf4e1954c3e690643295e1a339f1862f8f5c9d52",
+    "bytes": 76935,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 123,
+    "kind": "cry",
+    "file": "123-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/123.ogg",
+    "sha256": "b2044be86260e7e05a3cf95b78e931e624c836b64dc41c31dd5ada72b70ffd41",
+    "bytes": 11327,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 123,
+    "kind": "sprite",
+    "file": "123-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/123.gif",
+    "sha256": "937598ed72ccc9864677a3caa9835e0beed14ce1cf8b241b575ab95b8b7069ad",
+    "bytes": 74168,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 124,
+    "kind": "cry",
+    "file": "124-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/124.ogg",
+    "sha256": "bbb343f6f15e53201a100a259f68bb4fd2bb1196426f29c635be09b7b97ec1ee",
+    "bytes": 20020,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 124,
+    "kind": "sprite",
+    "file": "124-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/124.gif",
+    "sha256": "fea59443487d26db67eff217a88f57813c00f698fcd8f9b2f81d1dd4040f8b44",
+    "bytes": 73402,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 125,
+    "kind": "cry",
+    "file": "125-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/125.ogg",
+    "sha256": "89fec055d836af8cde57325d19a2e516c4c338238eec102e96c7b377b8cfd27e",
+    "bytes": 19111,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 125,
+    "kind": "sprite",
+    "file": "125-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/125.gif",
+    "sha256": "29823955c7e86596c2b08970fadbaa17c3fb9d9daba7bdcd4cc137a7e3ac38bc",
+    "bytes": 50983,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 126,
+    "kind": "cry",
+    "file": "126-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/126.ogg",
+    "sha256": "0d92cccdc3e80747a06f25685c02a42001c41cb9f775fae4b07d4b4f775f3df5",
+    "bytes": 14194,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 126,
+    "kind": "sprite",
+    "file": "126-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/126.gif",
+    "sha256": "5389ac1e875952f94d095ef966e98f30a6480e885e454c04be71cf210936b9ee",
+    "bytes": 64997,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 127,
+    "kind": "cry",
+    "file": "127-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/127.ogg",
+    "sha256": "8e85ee92b973e06b72561831fe2eeec6d4b02466cb3c6cdabab326a5b7cae5db",
+    "bytes": 10816,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 127,
+    "kind": "sprite",
+    "file": "127-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/127.gif",
+    "sha256": "756e4e3274e5d2345ffb9447292e0180f3fceca19c4f54cd45ff6060cfb7ad2b",
+    "bytes": 51383,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 128,
+    "kind": "cry",
+    "file": "128-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/128.ogg",
+    "sha256": "e1e9708af7a6870d84748aabd521215dcfa7ff973b0638845f5222e17bc08933",
+    "bytes": 13753,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 128,
+    "kind": "sprite",
+    "file": "128-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/128.gif",
+    "sha256": "78356f4260934ed1d035bc4314bb3fc46750301da145de359ad73c6e582db0a1",
+    "bytes": 53056,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 129,
+    "kind": "cry",
+    "file": "129-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/129.ogg",
+    "sha256": "a1b0243112b8d5ff54b5071b8c37ccd942498b07582d35c2cbe49b3328815372",
+    "bytes": 15746,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 129,
+    "kind": "sprite",
+    "file": "129-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/129.gif",
+    "sha256": "04143fd9914d01b64bef0102d2801c496a317ee9c02fcaa7f6edafe89eecbb7e",
+    "bytes": 16483,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 13,
+    "kind": "cry",
+    "file": "13-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/13.ogg",
+    "sha256": "3e251df454a539df43ecdbd75451dbedfeb3b4fb26e0066ffe1f724ddf18af5a",
+    "bytes": 12870,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 13,
+    "kind": "sprite",
+    "file": "13-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/13.gif",
+    "sha256": "ff4d091e7a2d291f4afcb17ecae260f68761f5a40a6626f54c9cf3ffeb8b4378",
+    "bytes": 25061,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 130,
+    "kind": "cry",
+    "file": "130-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/130.ogg",
+    "sha256": "60fc6b4a60078029293efd90dcf2db2e38dd3f0afd0b0e13406ea3f51642b404",
+    "bytes": 14017,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 130,
+    "kind": "sprite",
+    "file": "130-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/130.gif",
+    "sha256": "444b71a063b935da5779a59db2474c0582f531b6ae69c88a12ecd06710d9f6f1",
+    "bytes": 95584,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 131,
+    "kind": "cry",
+    "file": "131-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/131.ogg",
+    "sha256": "570e76b9b638ee50d1300ad83bd4dd9cd9466002292d76df467fbccb75811e99",
+    "bytes": 12042,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 131,
+    "kind": "sprite",
+    "file": "131-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/131.gif",
+    "sha256": "4bc5b1238b0e94d35c5c9dad21e45dd6a63fa6413e2a7f5c5871aed9fad84a13",
+    "bytes": 107593,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 132,
+    "kind": "cry",
+    "file": "132-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/132.ogg",
+    "sha256": "e57d48ee56a31fe6744f2c155f31b28fbd03e9d2b2797a3359fcf8f929d34c45",
+    "bytes": 10977,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 132,
+    "kind": "sprite",
+    "file": "132-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/132.gif",
+    "sha256": "ed2c1b20cebbe2f5a099acb57d43a1f0e8f687c98333dd308c47cdce0e660e02",
+    "bytes": 20470,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 133,
+    "kind": "cry",
+    "file": "133-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/133.ogg",
+    "sha256": "b9dd1a040ed6bd4e9025df476180c7cc82c3187ff21f235b26798ba84992489c",
+    "bytes": 11659,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 133,
+    "kind": "sprite",
+    "file": "133-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/133.gif",
+    "sha256": "244c533a4d2d96fb89f35195cde1eec7eb06bd3b5f137fa116190cceaec05670",
+    "bytes": 18944,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 134,
+    "kind": "cry",
+    "file": "134-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/134.ogg",
+    "sha256": "8954f4acc8658d84620b7eb93d99a21221518d6d5388e667de989ff35dec4c28",
+    "bytes": 20852,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 134,
+    "kind": "sprite",
+    "file": "134-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/134.gif",
+    "sha256": "06a71846732f687afc9ebe5bd33ecdbcd42dc19a46aac4dcb0b86631b4b95143",
+    "bytes": 61128,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 135,
+    "kind": "cry",
+    "file": "135-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/135.ogg",
+    "sha256": "3969e6cfc337fea879d7341fe4a81a8dfae3e0aa5ccd27182873e3685762ae67",
+    "bytes": 12410,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 135,
+    "kind": "sprite",
+    "file": "135-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/135.gif",
+    "sha256": "dda1587367357d625fad6bc7ee32ceef5218c6e547b1de51b09287ae387ebf84",
+    "bytes": 36808,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 136,
+    "kind": "cry",
+    "file": "136-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/136.ogg",
+    "sha256": "3e93a8b9fbf3d903939508c3b324de6074ed47e2f17595697de8cef7dd63b841",
+    "bytes": 15987,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 136,
+    "kind": "sprite",
+    "file": "136-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/136.gif",
+    "sha256": "d0f2be9707bc84c06069fb2901ba9501556b664c7c7b32fa68ef6416d3c19e8c",
+    "bytes": 32906,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 137,
+    "kind": "cry",
+    "file": "137-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/137.ogg",
+    "sha256": "db8bba5f384070a1481f6697a06057f741baf49b547bd4a845fe1503b3ea3269",
+    "bytes": 16341,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 137,
+    "kind": "sprite",
+    "file": "137-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/137.gif",
+    "sha256": "fdc71fd73902f6d5b83bc690e58b2fe6e940db592b0d003939f0db45932f0092",
+    "bytes": 22918,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 138,
+    "kind": "cry",
+    "file": "138-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/138.ogg",
+    "sha256": "5d836fc478fb23a9da7fe3b7a2a1022b15131b5eac58ba413d72022e1abf0a3d",
+    "bytes": 12182,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 138,
+    "kind": "sprite",
+    "file": "138-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/138.gif",
+    "sha256": "d7f65c0f9a877fca9479315b25ea60a3b5cd02afc53849ca7a09e7ca2e37f1fe",
+    "bytes": 37089,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 139,
+    "kind": "cry",
+    "file": "139-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/139.ogg",
+    "sha256": "b6be8e5e2e8e484d52b74de54b491a8e068e5a9e0a2de41e721d5bf98749d929",
+    "bytes": 11892,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 139,
+    "kind": "sprite",
+    "file": "139-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/139.gif",
+    "sha256": "bead14b47d4d2c0afafe21d9abb868ab06a41e534ff551ad655027fdd5061f6c",
+    "bytes": 79298,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 14,
+    "kind": "cry",
+    "file": "14-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/14.ogg",
+    "sha256": "0ea229bf95f0ba687a1d4f017745f0d3a485c7951e2bbf474bd61096702a3765",
+    "bytes": 13610,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 14,
+    "kind": "sprite",
+    "file": "14-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/14.gif",
+    "sha256": "df609243cc36293960e9a889265915ebb63bee06047981d5946c0a93979bee55",
+    "bytes": 43704,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 140,
+    "kind": "cry",
+    "file": "140-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/140.ogg",
+    "sha256": "68a30ce203a0046e94abb749c35ff77f5f75097a6fe715e6e5b63f130286da13",
+    "bytes": 11244,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 140,
+    "kind": "sprite",
+    "file": "140-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/140.gif",
+    "sha256": "d876f399d88b175cea993d744da465a8f07935407e60cca9d4937765e32819eb",
+    "bytes": 28119,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 141,
+    "kind": "cry",
+    "file": "141-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/141.ogg",
+    "sha256": "bad5a9d850761946e1c7a368183f920eb6f3a31365109c4f14d08b1a06b4ab86",
+    "bytes": 11861,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 141,
+    "kind": "sprite",
+    "file": "141-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/141.gif",
+    "sha256": "5f0d406b3be4f137f2ed97f2520e1ac531288abd47221494db9e4fc3499c1ac5",
+    "bytes": 38462,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 142,
+    "kind": "cry",
+    "file": "142-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/142.ogg",
+    "sha256": "a87eee32cca948329f278047157d446e9602ba81c650ea225d653d3213b92af3",
+    "bytes": 18793,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 142,
+    "kind": "sprite",
+    "file": "142-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/142.gif",
+    "sha256": "046b7286dac5f1c9121ed09f6c2be7175c2be52bcd3a67a9b66978415370e8d7",
+    "bytes": 57535,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 143,
+    "kind": "cry",
+    "file": "143-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/143.ogg",
+    "sha256": "2ee3f95fd3102e7cd8a6e0e429170acaf8674032eff9c9ad119f7011260cfc7e",
+    "bytes": 8528,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 143,
+    "kind": "sprite",
+    "file": "143-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/143.gif",
+    "sha256": "4fda3c99113ae30482c3a16a00b3ae5854139a8590e4d2a49497053ba1b21f56",
+    "bytes": 113858,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 144,
+    "kind": "cry",
+    "file": "144-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/144.ogg",
+    "sha256": "374612dfbb0a5c7e7721b9698553fc15909c0ab2b49be9eeb3385e7558d9730b",
+    "bytes": 17059,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 144,
+    "kind": "sprite",
+    "file": "144-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/144.gif",
+    "sha256": "dbd4943e70b24d7897544868027a819b821ccd355106e97938d555377e8e4ea5",
+    "bytes": 61266,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 145,
+    "kind": "cry",
+    "file": "145-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/145.ogg",
+    "sha256": "14170397636113ab7ad532bf7adff189344fbfcfd296d6f02f9a64cc915344ff",
+    "bytes": 12874,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 145,
+    "kind": "sprite",
+    "file": "145-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/145.gif",
+    "sha256": "838f92f99347fd88806dbe10eebbfbec8a79b1df1b2c043941eaf939cbbd8af9",
+    "bytes": 47396,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 146,
+    "kind": "cry",
+    "file": "146-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/146.ogg",
+    "sha256": "6a7b2df55ae4fcce64b1d50f8f0b1d7a62ba9424e9be36b36116817b8a423da9",
+    "bytes": 16396,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 146,
+    "kind": "sprite",
+    "file": "146-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/146.gif",
+    "sha256": "d022330507f69f42b010a0289ed85519fe03b4577bfa59000a8269bbba645520",
+    "bytes": 86658,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 147,
+    "kind": "cry",
+    "file": "147-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/147.ogg",
+    "sha256": "75c51de6bbf6fb37bb3362926588a8b4632b453e755a759f1bdbffe7930fd9f9",
+    "bytes": 10974,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 147,
+    "kind": "sprite",
+    "file": "147-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/147.gif",
+    "sha256": "c940e7b3ffb1d92e0511cf6454c54bf5abe13eeb7be66028650234c40df19114",
+    "bytes": 27431,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 148,
+    "kind": "cry",
+    "file": "148-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/148.ogg",
+    "sha256": "d34251b8f63c26b610f2adde50eeff895061cad974862379a9a7d198ec69a91c",
+    "bytes": 13235,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 148,
+    "kind": "sprite",
+    "file": "148-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/148.gif",
+    "sha256": "45be9040dea62340b1bbee630843d30da6b2153770ee93dc405cd45177718c18",
+    "bytes": 43694,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 149,
+    "kind": "cry",
+    "file": "149-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/149.ogg",
+    "sha256": "ec18d152596b92ea1ecdfed88b64a095f5ee5a5242dfa9472079ef8fb11d5e99",
+    "bytes": 14076,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 149,
+    "kind": "sprite",
+    "file": "149-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/149.gif",
+    "sha256": "b0f471b3decdd5587dd81e7ef3a910e24532f03b01b12d69c78e92a90c945d99",
+    "bytes": 55212,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 15,
+    "kind": "cry",
+    "file": "15-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/15.ogg",
+    "sha256": "8e34434be0eba2c6fbfd56a28d8f65aff2bcfdcea7b8895e1f6650be66eac238",
+    "bytes": 14366,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 15,
+    "kind": "sprite",
+    "file": "15-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/15.gif",
+    "sha256": "130d4d30cecf537c41401a7e17bc897a3249b592491b2b748bf2b1fe1a49a98c",
+    "bytes": 116245,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 150,
+    "kind": "cry",
+    "file": "150-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/150.ogg",
+    "sha256": "84b90df6aff3484ba3eab06a57a5108c84f636b59e8f1a284a5e410ac01f2bbe",
+    "bytes": 19108,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 150,
+    "kind": "sprite",
+    "file": "150-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/150.gif",
+    "sha256": "85552147a132b6d07068348c29c41d2763dea666ecd7b255877b2ab7c850d584",
+    "bytes": 130293,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 151,
+    "kind": "cry",
+    "file": "151-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/151.ogg",
+    "sha256": "67135848fe7529c10dd09c140a0113b49902502260e1999751e4ae8287864835",
+    "bytes": 19571,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 151,
+    "kind": "sprite",
+    "file": "151-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/151.gif",
+    "sha256": "f34d1b244039ed62378c04c12c9d5f1640cd8388259573b05e4e7a09473dbbaf",
+    "bytes": 21912,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 16,
+    "kind": "cry",
+    "file": "16-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/16.ogg",
+    "sha256": "84e599c9bdfc9315e55f78cfaf3262ad0958bdb671239c877a2d9e647d659842",
+    "bytes": 7933,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 16,
+    "kind": "sprite",
+    "file": "16-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/16.gif",
+    "sha256": "04e89311c868e8012d04550b018a628bac21fc2b2fd3b13836517f7b585bd618",
+    "bytes": 12458,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 169,
+    "kind": "cry",
+    "file": "169-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/169.ogg",
+    "sha256": "26ca3634c02881105b83038428d39b923f96eff2563aff4ab0bdf501e61ed1f5",
+    "bytes": 15144,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 169,
+    "kind": "sprite",
+    "file": "169-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/169.gif",
+    "sha256": "282eebddcbd8994d502741117d06f4d2cc243d020ba79d07d12db06d2fa3d657",
+    "bytes": 22963,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 17,
+    "kind": "cry",
+    "file": "17-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/17.ogg",
+    "sha256": "0474bf8634b6d05833675f52bafce1cd1bd187bf7a97b600a69710576023e08f",
+    "bytes": 12323,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 17,
+    "kind": "sprite",
+    "file": "17-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/17.gif",
+    "sha256": "9a9c164716dc30af6c682b38e11852c7d8bcea37f8d8d0d084dfbf959576d761",
+    "bytes": 19558,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 172,
+    "kind": "cry",
+    "file": "172-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/172.ogg",
+    "sha256": "370902071a061c17578252d533d81b0ce0c166ca260c21326d5250fd480478c7",
+    "bytes": 9312,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 172,
+    "kind": "sprite",
+    "file": "172-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/172.gif",
+    "sha256": "f8f1df548b3834babb50bcdb5856c5390ae91fff40b6862fcb8fff15bf7a7bf3",
+    "bytes": 24163,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 173,
+    "kind": "cry",
+    "file": "173-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/173.ogg",
+    "sha256": "c3a7abd70381ad1caee29969ed172b3879d9fb54388cc8c86728116e380bfbcd",
+    "bytes": 8317,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 173,
+    "kind": "sprite",
+    "file": "173-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/173.gif",
+    "sha256": "6275f8c0687757229bc6dece02878aa10e23bceb2f84be77595693f99b82072b",
+    "bytes": 20539,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 174,
+    "kind": "cry",
+    "file": "174-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/174.ogg",
+    "sha256": "2b5c539f623b7dcf4fdc5b1e5436704f921d2438fba6e01a14431ace61079a90",
+    "bytes": 10451,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 174,
+    "kind": "sprite",
+    "file": "174-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/174.gif",
+    "sha256": "54c19966eb1313d5992ede2c1ead0ca4f58934fc4223c6774828f0c1d8ecf9df",
+    "bytes": 39560,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 18,
+    "kind": "cry",
+    "file": "18-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/18.ogg",
+    "sha256": "c5b426b8fcc183d5bdb44ca3db066670b4ac1a60619680943f323c70744fbdfb",
+    "bytes": 14489,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 18,
+    "kind": "sprite",
+    "file": "18-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/18.gif",
+    "sha256": "87627a7e52808005076edf6aa4631eebeb2cfafbdae26b5590bb54ed901a8eca",
+    "bytes": 68538,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 182,
+    "kind": "cry",
+    "file": "182-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/182.ogg",
+    "sha256": "20d61db4ac2a485a2bac64bc2c0f6194eb886ecde8f710d129a5400379cb012f",
+    "bytes": 13102,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 182,
+    "kind": "sprite",
+    "file": "182-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/182.gif",
+    "sha256": "7304ba6f7dda5ab65e700041f655d12410fe1962a3c263d80f41c9b67bc28d01",
+    "bytes": 32166,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 186,
+    "kind": "cry",
+    "file": "186-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/186.ogg",
+    "sha256": "aa34d9e156c7090cd0268b47ce99b455714ec428fc2942a8342f58315faa07db",
+    "bytes": 13778,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 186,
+    "kind": "sprite",
+    "file": "186-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/186.gif",
+    "sha256": "17553b2008acd2dfc7061c6730259360c60a75958b57f9bac4d8dd31d204f976",
+    "bytes": 177286,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 19,
+    "kind": "cry",
+    "file": "19-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/19.ogg",
+    "sha256": "252a292bb738a55eeebc3955a111932fae8f400d199fa6d30105418a9af961b4",
+    "bytes": 8710,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 19,
+    "kind": "sprite",
+    "file": "19-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/19.gif",
+    "sha256": "3f412941f4c49ec09c3403e959ede3321ad10bee61d5321fde246ab5913ee3f4",
+    "bytes": 16397,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 196,
+    "kind": "cry",
+    "file": "196-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/196.ogg",
+    "sha256": "9798d47efbd80eadc6601b3183040ec7fb611aa9f0b690b0716633fbd4d78848",
+    "bytes": 15984,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 196,
+    "kind": "sprite",
+    "file": "196-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/196.gif",
+    "sha256": "c8a62cd6c77b6ff779c2eb9c2fe9e37743221f88981b8039b0383c2ab52aceb3",
+    "bytes": 52521,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 197,
+    "kind": "cry",
+    "file": "197-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/197.ogg",
+    "sha256": "27f1903b20a71d3a4b9e03c03dd9f35cee3547873e929f68ee124152925b1554",
+    "bytes": 11916,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 197,
+    "kind": "sprite",
+    "file": "197-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/197.gif",
+    "sha256": "8fa1febd7ae71190781d6d267615394892c6a91d8739dc1cab30dacfb34225e0",
+    "bytes": 27589,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 199,
+    "kind": "cry",
+    "file": "199-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/199.ogg",
+    "sha256": "70223878c26f47f4bdc59c6347a1defcb9fc485254559a1b0871a6edb74a5950",
+    "bytes": 15552,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 199,
+    "kind": "sprite",
+    "file": "199-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/199.gif",
+    "sha256": "0e1d8755eae4a617b9fd0c570c369d0fa955ed76ec74dc2a8bef523fc445b55c",
+    "bytes": 71568,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 2,
+    "kind": "cry",
+    "file": "2-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/2.ogg",
+    "sha256": "7cd88c8b0c4b9186cfeb29696b25fd4443d81619d1d85c8bebf48dfc19740da2",
+    "bytes": 12325,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 2,
+    "kind": "sprite",
+    "file": "2-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/2.gif",
+    "sha256": "34eaba93a727a7a000e45ea6fa3bf115f59118ff05eb0a1d08cd3da8e1b21515",
+    "bytes": 49345,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 20,
+    "kind": "cry",
+    "file": "20-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/20.ogg",
+    "sha256": "9a086a30b3f0404050d0778b26426463c3f5d1324fa1a5e5d254b0da23a49eee",
+    "bytes": 8935,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 20,
+    "kind": "sprite",
+    "file": "20-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/20.gif",
+    "sha256": "1bc27120e3bcc7e6b5ecaf78aca11103fd8fe4c6926bcff94e93d545a7414934",
+    "bytes": 159910,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 208,
+    "kind": "cry",
+    "file": "208-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/208.ogg",
+    "sha256": "12dcb55162156cc0bd150ddc388cec587611d9dc365a8b23acb796fa559fd01c",
+    "bytes": 20840,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 208,
+    "kind": "sprite",
+    "file": "208-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/208.gif",
+    "sha256": "b8699e3008df9d5154be371af56a0bdb093190de4a4024660b96a172459e1928",
+    "bytes": 145960,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 21,
+    "kind": "cry",
+    "file": "21-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/21.ogg",
+    "sha256": "6461f7d577430fb049afec8da647cc58ddf9c472b582218fecc39a2d3d219c04",
+    "bytes": 13618,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 21,
+    "kind": "sprite",
+    "file": "21-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/21.gif",
+    "sha256": "1bfed43a038ecbe03806953cf4437c1700ee482eca7ade54defe175210135250",
+    "bytes": 12801,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 212,
+    "kind": "cry",
+    "file": "212-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/212.ogg",
+    "sha256": "72ee17ca69d594f247b1100d8fb894bf5f80295f209bba235c65248812fa717e",
+    "bytes": 14888,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 212,
+    "kind": "sprite",
+    "file": "212-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/212.gif",
+    "sha256": "3c0bcb169489b313498a88ece78c3a77f8eb241b780bf723a478b09d47a47ab0",
+    "bytes": 76089,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 22,
+    "kind": "cry",
+    "file": "22-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/22.ogg",
+    "sha256": "d62981ad1fc9d59334d46c0ccf7c6977af118950a313ed026a2d2699e9704665",
+    "bytes": 13110,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 22,
+    "kind": "sprite",
+    "file": "22-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/22.gif",
+    "sha256": "30fd1775245a73aaade53864b29fa025d77eb4bda072886e5d748d93a4560d0e",
+    "bytes": 71274,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 23,
+    "kind": "cry",
+    "file": "23-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/23.ogg",
+    "sha256": "233d7aeab65f325721755e7db57b089b3a2c1b095536b783dc4e57eceb018ed3",
+    "bytes": 15108,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 23,
+    "kind": "sprite",
+    "file": "23-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/23.gif",
+    "sha256": "0c226451bb1bbf203d09558b721d44c2887c1106d2addf618cec429959c21d6d",
+    "bytes": 23091,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 230,
+    "kind": "cry",
+    "file": "230-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/230.ogg",
+    "sha256": "ed0519dc06bc1aa90bb62deb2e9f35dd0b43dba9cc8b4681cebdaaf1798d0a45",
+    "bytes": 12096,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 230,
+    "kind": "sprite",
+    "file": "230-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/230.gif",
+    "sha256": "6dc0e24647b18db38b1e63fa726424df0a57cba5b25230b723f76fa977790fc7",
+    "bytes": 62870,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 233,
+    "kind": "cry",
+    "file": "233-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/233.ogg",
+    "sha256": "ea324d60a2e57dcb352490afa2eb2a9438228eb3d88b9d757b1caf2c00485f57",
+    "bytes": 14787,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 233,
+    "kind": "sprite",
+    "file": "233-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/233.gif",
+    "sha256": "4742018a352de938b6b112b7c43e36bf826ebfe860f13bf2c2cb6da8fee24868",
+    "bytes": 54079,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 236,
+    "kind": "cry",
+    "file": "236-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/236.ogg",
+    "sha256": "8745d22d3d33de1468bde828a511f3cb51fd59081f8738e1a49fefe618d2f3b7",
+    "bytes": 13374,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 236,
+    "kind": "sprite",
+    "file": "236-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/236.gif",
+    "sha256": "e74b990a4833cb384e35c5fbe2faad71401b04f15ff76a7f7c142497a46044fc",
+    "bytes": 24953,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 237,
+    "kind": "cry",
+    "file": "237-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/237.ogg",
+    "sha256": "8c9af8532f28b1ee623bef5ceebf266ff230712a35c04210442adc3ede5e9c78",
+    "bytes": 11458,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 237,
+    "kind": "sprite",
+    "file": "237-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/237.gif",
+    "sha256": "02167571bf0e0add3835793a327c0212315b81ed07272df45704fde45b5189ca",
+    "bytes": 55540,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 238,
+    "kind": "cry",
+    "file": "238-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/238.ogg",
+    "sha256": "faeec548e63eeeab397f4c84232b1e2599df415855aa503501a06e3258272d52",
+    "bytes": 11466,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 238,
+    "kind": "sprite",
+    "file": "238-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/238.gif",
+    "sha256": "9201951b6eed14100f393489121d83f369937f2ff8afc7d3b15aae9fab92df09",
+    "bytes": 28637,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 239,
+    "kind": "cry",
+    "file": "239-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/239.ogg",
+    "sha256": "95ce72119458373d8fbfd22f9fe069fe45873c474431af3fb31b189a8c51388e",
+    "bytes": 10045,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 239,
+    "kind": "sprite",
+    "file": "239-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/239.gif",
+    "sha256": "0833f50aefc3131688fe4f604d79eb39feceefbb10c47007c40d60e152f31c1b",
+    "bytes": 23533,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 24,
+    "kind": "cry",
+    "file": "24-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/24.ogg",
+    "sha256": "2763ba38d68e41e5d3c1a7ae08057435ee7e867e6bf8f3023c9fdf7081b370bc",
+    "bytes": 13363,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 24,
+    "kind": "sprite",
+    "file": "24-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/24.gif",
+    "sha256": "02744652859882c8d8a8147a01d1ae9ff3f0907f3ac04068a5103692e6ab1e48",
+    "bytes": 87543,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 240,
+    "kind": "cry",
+    "file": "240-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/240.ogg",
+    "sha256": "27574432b5022d4a7cc31bc8f7e76405cd0d88bc56ee6cc75155706f21e30375",
+    "bytes": 12149,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 240,
+    "kind": "sprite",
+    "file": "240-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/240.gif",
+    "sha256": "37876d927d0eea05f8c59c3cb76da0952217d6f3bf869db1c72c84d93beaa6ee",
+    "bytes": 21532,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 242,
+    "kind": "cry",
+    "file": "242-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/242.ogg",
+    "sha256": "6515eef6266652d73f6b990c0ecd708dd9f5011b6df5c850d0269a67c61b9d44",
+    "bytes": 13495,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 242,
+    "kind": "sprite",
+    "file": "242-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/242.gif",
+    "sha256": "5f7c4842cd71a5e9b89a161eb2916fa1ae3d36613dcd208a186f59a959359527",
+    "bytes": 64097,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 25,
+    "kind": "cry",
+    "file": "25-cry.mp3",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/25.ogg",
+    "sha256": "1ec10c893184b155a110d746ff0560f291978f32ce90c283b9871e61d6df12a1",
+    "bytes": 7080,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 25,
+    "kind": "sprite",
+    "file": "25-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/25.gif",
+    "sha256": "24bf3c5d81181fce5903b1040ba1f3b235520ebea11679c89ee74dd51961fa4b",
+    "bytes": 25987,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 26,
+    "kind": "cry",
+    "file": "26-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/26.ogg",
+    "sha256": "53d2fc13471e005befab71dd5a92fbdd96ee64e3c8152d448e6094dbb9375e08",
+    "bytes": 15003,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 26,
+    "kind": "sprite",
+    "file": "26-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/26.gif",
+    "sha256": "102220149fe438707a68c72a0a76233fef12cd2f460ea60968d1eb37d786713b",
+    "bytes": 32318,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 27,
+    "kind": "cry",
+    "file": "27-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/27.ogg",
+    "sha256": "c951a4e39a35d7423f35c1d0b32c6183c600bf6bdb3c5aa4b1a2513fb8cafb47",
+    "bytes": 9641,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 27,
+    "kind": "sprite",
+    "file": "27-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/27.gif",
+    "sha256": "2935420131dc43ae472e56d3f921d6285fbb1099cd532ef8415b06430e5b928f",
+    "bytes": 19756,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 28,
+    "kind": "cry",
+    "file": "28-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/28.ogg",
+    "sha256": "65fef01c1e7d9d4f94384f43885b825d6456b0734871f7fe94cc944602a4c25d",
+    "bytes": 10799,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 28,
+    "kind": "sprite",
+    "file": "28-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/28.gif",
+    "sha256": "9cdcc623794531f1ae787f3bf8a4d2f63d82e4149eaa737479086c5ed927a564",
+    "bytes": 49716,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 29,
+    "kind": "cry",
+    "file": "29-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/29.ogg",
+    "sha256": "9f71edc9874f2f4664160dfd060c36acb770489e7aca6f3ca567661325f859eb",
+    "bytes": 9598,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 29,
+    "kind": "sprite",
+    "file": "29-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/29.gif",
+    "sha256": "96873648c373ca9ce9ab672ac606834f21651e8a42ed6acd9eaa4c6b10e2d3ce",
+    "bytes": 34145,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 3,
+    "kind": "cry",
+    "file": "3-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/3.ogg",
+    "sha256": "a1abf616f8f1391c174d4d2c92ecc6e241ec3bbdc8b9020942678d6eec67e8f4",
+    "bytes": 13965,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 3,
+    "kind": "sprite",
+    "file": "3-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/3.gif",
+    "sha256": "2a469af1dfc84087dcc07193ad75ddf5e27bc69bc959417fc7907cd99e86030a",
+    "bytes": 110718,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 30,
+    "kind": "cry",
+    "file": "30-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/30.ogg",
+    "sha256": "940db365336e24ec0a908c82af2a5e2104ec05de00ce0fe0c5a7655439c5ec19",
+    "bytes": 10836,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 30,
+    "kind": "sprite",
+    "file": "30-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/30.gif",
+    "sha256": "cfb8f2cd79ddab24524feef29d0764797016a8da94afc31f31347adcec65b88f",
+    "bytes": 27988,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 31,
+    "kind": "cry",
+    "file": "31-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/31.ogg",
+    "sha256": "e12e352ccfb4e2f213a3940448142e00d13c315f8ec79fa80daaf93115f29da0",
+    "bytes": 12267,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 31,
+    "kind": "sprite",
+    "file": "31-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/31.gif",
+    "sha256": "9c7700a33fabbecc1b025dbcbb15a6e148dab153896b638bc36838e8b0377e09",
+    "bytes": 64275,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 32,
+    "kind": "cry",
+    "file": "32-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/32.ogg",
+    "sha256": "4400b2b7b6480abc96704b56e28bcf10a0f9184a9f3fb0ca414bfdc5f9cc7ca6",
+    "bytes": 9815,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 32,
+    "kind": "sprite",
+    "file": "32-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/32.gif",
+    "sha256": "ba371fda31d98410d638b9f80c3245238387ccd70e9bbd9a6754f5536e69e253",
+    "bytes": 34813,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 33,
+    "kind": "cry",
+    "file": "33-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/33.ogg",
+    "sha256": "23015aa3dce74c7452bbedbb4c56e82bf38178663a92b00462059b15d39a8c1f",
+    "bytes": 12196,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 33,
+    "kind": "sprite",
+    "file": "33-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/33.gif",
+    "sha256": "54366d2546192e1fe037676072a17a6d8aa31abb725cdac598209ed1f2709723",
+    "bytes": 47612,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 34,
+    "kind": "cry",
+    "file": "34-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/34.ogg",
+    "sha256": "4c1a738152d6671a31eccabd6dd20924a2be8d16cc10d6d3a63cd6cb0cd4aed8",
+    "bytes": 16611,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 34,
+    "kind": "sprite",
+    "file": "34-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/34.gif",
+    "sha256": "e80c5a1f5d707a024d26677692519bc5f073f0e29f5bbb444282790ce47c33ed",
+    "bytes": 71649,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 35,
+    "kind": "cry",
+    "file": "35-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/35.ogg",
+    "sha256": "5c70de9ad505876d6f7ce4c6fd7d77682f63feead4473476155d9801641dada8",
+    "bytes": 9798,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 35,
+    "kind": "sprite",
+    "file": "35-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/35.gif",
+    "sha256": "99010afd9373a12f1dc08dc56b39881e36fb63fef58c51dae63fbfb9db5e35c7",
+    "bytes": 27721,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 36,
+    "kind": "cry",
+    "file": "36-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/36.ogg",
+    "sha256": "4a4f4bb3df0174b01678f12f031021ec3e955bd567b5eb12c9ff67c2476a55d1",
+    "bytes": 11074,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 36,
+    "kind": "sprite",
+    "file": "36-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/36.gif",
+    "sha256": "3b596f7ff78d147abf8638bc26e0414beab1d9d6c475575ac8b672a3c5b7339c",
+    "bytes": 35434,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 37,
+    "kind": "cry",
+    "file": "37-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/37.ogg",
+    "sha256": "b489cb4ac7b3ec393dc4ae774b218bfd4007be3e7db6402165ccb6969eeb974a",
+    "bytes": 15982,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 37,
+    "kind": "sprite",
+    "file": "37-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/37.gif",
+    "sha256": "2397217d20c45b2d0430c81783fb89e727fcb6a3ac2b233ec556a9da84a51479",
+    "bytes": 27960,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 38,
+    "kind": "cry",
+    "file": "38-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/38.ogg",
+    "sha256": "04fe646545cba8f326f4091502db48f1b8b177ff0b765dfb3ae97200d1cf1f99",
+    "bytes": 15535,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 38,
+    "kind": "sprite",
+    "file": "38-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/38.gif",
+    "sha256": "83f396676f5ba634c175cf81013c7c68ce5dc29a8acf070d0e3a7b12a2214c76",
+    "bytes": 105057,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 39,
+    "kind": "cry",
+    "file": "39-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/39.ogg",
+    "sha256": "f58caea1a748e1cffef27d3977802cc5145e59b9647417f57ff762fe6187e7b3",
+    "bytes": 7919,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 39,
+    "kind": "sprite",
+    "file": "39-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/39.gif",
+    "sha256": "fd529d29d75a0cc25508a1729feb0426661eb5677c231dcf77df15e9262d7401",
+    "bytes": 26929,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 4,
+    "kind": "cry",
+    "file": "4-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
+    "sha256": "bdb41cecd5a948ee4b19e4e13156abcbdb2bd3e9c9f458d65fe2c64a87fd852e",
+    "bytes": 11257,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 4,
+    "kind": "sprite",
+    "file": "4-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/4.gif",
+    "sha256": "d1b27ac8e5a9054201b324b99ea29d7c3fbc9ccf64980d78b8583006f065c07d",
+    "bytes": 40257,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 40,
+    "kind": "cry",
+    "file": "40-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/40.ogg",
+    "sha256": "0e43489d044b2f4d3ef1821c26f5e787b6b42b3940da74b46dbb5976d4709108",
+    "bytes": 8597,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 40,
+    "kind": "sprite",
+    "file": "40-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/40.gif",
+    "sha256": "f0d897627e54f0ae649179a53a82b46bd177713cb98c7d85eab1d061eeba4b3c",
+    "bytes": 57039,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 41,
+    "kind": "cry",
+    "file": "41-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/41.ogg",
+    "sha256": "c81952f1be5539c2c5cd6191c9319f61fe5cd630216bba6c703a009ff3c3295b",
+    "bytes": 13337,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 41,
+    "kind": "sprite",
+    "file": "41-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/41.gif",
+    "sha256": "a0b538cf57b295b7bea68937ba03746d5616392272aa8d3dbef2f3899bf6edbe",
+    "bytes": 22215,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 42,
+    "kind": "cry",
+    "file": "42-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/42.ogg",
+    "sha256": "8840b339ef564cc5f7ba1c2416a7a91a8157b61744ca3b5a384586e4750d69ad",
+    "bytes": 13728,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 42,
+    "kind": "sprite",
+    "file": "42-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/42.gif",
+    "sha256": "7d53696ef8d88bc329ed2c8f002bf91a0f88666109cd7b4a783936982acb335b",
+    "bytes": 48659,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 43,
+    "kind": "cry",
+    "file": "43-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/43.ogg",
+    "sha256": "f74f25d48fde5e46b6d746a94d641380e00e5d3f65a870da5db5c4def245b4ce",
+    "bytes": 12381,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 43,
+    "kind": "sprite",
+    "file": "43-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/43.gif",
+    "sha256": "85645ee38bcb97d21b3ea9fa7813066bbc6c3d2f32d10034ce1011327b1af0cf",
+    "bytes": 23389,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 439,
+    "kind": "cry",
+    "file": "439-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/439.ogg",
+    "sha256": "13dc4a68f1e446009dd79bc862cdfd4f6cf6e0150713bb8e997e0a7c07f6b2b5",
+    "bytes": 11996,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 439,
+    "kind": "sprite",
+    "file": "439-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/439.gif",
+    "sha256": "b7d341fb3fd5aa7947d78d4f56788155e603e510ffd0cc1438b186e0f943ab9b",
+    "bytes": 17863,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 44,
+    "kind": "cry",
+    "file": "44-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/44.ogg",
+    "sha256": "2c43ed582ddea25b896ae8effe9b154df62ca3e378fa25bbeed5342d247d820b",
+    "bytes": 10350,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 44,
+    "kind": "sprite",
+    "file": "44-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/44.gif",
+    "sha256": "94718f9b137389791f0e7c8419e9f5de2e02e6346fe4f54bd87c0d23e1af8a1a",
+    "bytes": 28291,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 440,
+    "kind": "cry",
+    "file": "440-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/440.ogg",
+    "sha256": "7bdc0127a318b51fd77a9420fd68acc339e29992d47fac5e12c390903f7f981e",
+    "bytes": 12639,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 440,
+    "kind": "sprite",
+    "file": "440-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/440.gif",
+    "sha256": "616f1ba1c3eb6d9df0f81843cd270863f392727b23bc80bb44196ee3d5c10c7f",
+    "bytes": 19914,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 446,
+    "kind": "cry",
+    "file": "446-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/446.ogg",
+    "sha256": "9c4f001fcdd1be083ae193debec3595c158fda73e72cff0cc0490606dd84c777",
+    "bytes": 10093,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 446,
+    "kind": "sprite",
+    "file": "446-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/446.gif",
+    "sha256": "633691a3fefc49f01b386d96c62dc9a6153ef19bb5ed22f111f1214e9be7fb41",
+    "bytes": 32505,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 45,
+    "kind": "cry",
+    "file": "45-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/45.ogg",
+    "sha256": "850c7c332329319858a4d98a2fdad34cd521c532fdc2cc9eb659ec8a6f58d002",
+    "bytes": 16704,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 45,
+    "kind": "sprite",
+    "file": "45-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/45.gif",
+    "sha256": "1ccd03a7b3d1be858559f90f4e7ed9a3da7cc062f93a74c564b3489876570265",
+    "bytes": 21318,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 46,
+    "kind": "cry",
+    "file": "46-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/46.ogg",
+    "sha256": "e2509c05c2a9fc7383c3274b5f0ca05d69d992f8711fac4ddaf3056c73f96d92",
+    "bytes": 17870,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 46,
+    "kind": "sprite",
+    "file": "46-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/46.gif",
+    "sha256": "cf2964499149d8abe1dc1f439b9c5f550f933f2d9fc583625b4c636031d0fa6b",
+    "bytes": 21949,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 462,
+    "kind": "cry",
+    "file": "462-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/462.ogg",
+    "sha256": "feb19737f4a74ca1df3852886f1decd1b6d24cf6a208c7f5b450a89d8fca8546",
+    "bytes": 19902,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 462,
+    "kind": "sprite",
+    "file": "462-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/462.gif",
+    "sha256": "fab3f16d2c2b8d8c189ca86d245f535068867b3f517f1d515af10b32a7c3efce",
+    "bytes": 80035,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 463,
+    "kind": "cry",
+    "file": "463-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/463.ogg",
+    "sha256": "f072588e49fb67a1ea6b2aabe6405f290f8a828f870d50ac4250fc0cbc13a7a5",
+    "bytes": 18583,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 463,
+    "kind": "sprite",
+    "file": "463-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/463.gif",
+    "sha256": "feba38098601068ccea662370673de96c4ae874e12bcdbb72c265fd4df0725ea",
+    "bytes": 47814,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 464,
+    "kind": "cry",
+    "file": "464-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/464.ogg",
+    "sha256": "5832929acd2faeb5d78404b4ba6b5f60a16f64cd291e5bf384720f9435b83278",
+    "bytes": 16183,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 464,
+    "kind": "sprite",
+    "file": "464-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/464.gif",
+    "sha256": "0d891c76508d566ccb4e6dc5e374fc8da08ed27a143bf121546d718db65847b5",
+    "bytes": 150029,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 465,
+    "kind": "cry",
+    "file": "465-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/465.ogg",
+    "sha256": "cdeca3492f3159b9dbf7945fada55730817b8f06e02c4d235a0c87feedff1054",
+    "bytes": 16999,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 465,
+    "kind": "sprite",
+    "file": "465-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/465.gif",
+    "sha256": "9e8fb676d81f9538da699ed610bce38f12ac8bdfa099af45a7a071c19b0dafd1",
+    "bytes": 373939,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 466,
+    "kind": "cry",
+    "file": "466-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/466.ogg",
+    "sha256": "cc24299ab48f9120d1b3adb31cfbaadd8aa7a418792ec14b0c9e152332d2a491",
+    "bytes": 24000,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 466,
+    "kind": "sprite",
+    "file": "466-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/466.gif",
+    "sha256": "7d0162662d76393e08ac7562a1b765997ffc33e5a2a87db5afd63e6ff2a93181",
+    "bytes": 112926,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 467,
+    "kind": "cry",
+    "file": "467-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/467.ogg",
+    "sha256": "62aef5eb0bef8c5e526e8a38f246a7587f484668bef1b3763fb543e7eb59534a",
+    "bytes": 16709,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 467,
+    "kind": "sprite",
+    "file": "467-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/467.gif",
+    "sha256": "f9fbb5af43b059881000185313bb9871115f2377baffbf57cca9c0dca13fee02",
+    "bytes": 109310,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 47,
+    "kind": "cry",
+    "file": "47-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/47.ogg",
+    "sha256": "a1fdfe938f6ebb4d5fb747d405805525940a23be14a2d030a8b06c7f7dd313e2",
+    "bytes": 19790,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 47,
+    "kind": "sprite",
+    "file": "47-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/47.gif",
+    "sha256": "7b015bd94e15c5fc159350cdb9dd89c0343f8a342985381d2fbd3c40958dc5b8",
+    "bytes": 55539,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 470,
+    "kind": "cry",
+    "file": "470-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/470.ogg",
+    "sha256": "dbd85ca2e62d5feff170e1646620d24239548c252263333289825f6a1bf1a019",
+    "bytes": 15767,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 470,
+    "kind": "sprite",
+    "file": "470-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/470.gif",
+    "sha256": "6111ff594dadaab21c0fbbfbe6241f108e71a719e64b5f340937f941b6d47f5f",
+    "bytes": 39352,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 471,
+    "kind": "cry",
+    "file": "471-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/471.ogg",
+    "sha256": "5922978a1e65c26c55018ffcfc86eeb88a91133f27c27cd78465245ad7d3044b",
+    "bytes": 24994,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 471,
+    "kind": "sprite",
+    "file": "471-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/471.gif",
+    "sha256": "f6ba9292e31f458f9f918923b977044a9ba1ab22bb7d37a3ba44e83c3db59d88",
+    "bytes": 67199,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 474,
+    "kind": "cry",
+    "file": "474-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/474.ogg",
+    "sha256": "32316278778eaf4075ab8737237e1ae853384e57e3baaabab8219fad458722b8",
+    "bytes": 20961,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 474,
+    "kind": "sprite",
+    "file": "474-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/474.gif",
+    "sha256": "841102bed2981096d307b2569f00acf599e53cf3943b36d708bba0bffe3db89e",
+    "bytes": 159790,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 48,
+    "kind": "cry",
+    "file": "48-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/48.ogg",
+    "sha256": "0e6bac693e83ef11573d3dddceed3d3e5a1cf97a7b1f373137edc327450ea073",
+    "bytes": 15231,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 48,
+    "kind": "sprite",
+    "file": "48-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/48.gif",
+    "sha256": "bf3414f64d9f1f8f8d80471754cc6d94c1f0da0ae1ddecbdd449caa29602b45b",
+    "bytes": 41549,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 49,
+    "kind": "cry",
+    "file": "49-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/49.ogg",
+    "sha256": "f7dbbcc00ac8881c18927818f1d9c4edf89e3c63d17c00286fc4e8d2c335135e",
+    "bytes": 14319,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 49,
+    "kind": "sprite",
+    "file": "49-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/49.gif",
+    "sha256": "d8932090b7798037d58551fe2f837dc2ed2429f6824c366eebfdaa4038dfd50f",
+    "bytes": 72423,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 5,
+    "kind": "cry",
+    "file": "5-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/5.ogg",
+    "sha256": "e2a6fc5d5e96d7b0796153da39a4d3c0aa1f3c95360ca4512f23e717600a0fb3",
+    "bytes": 13019,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 5,
+    "kind": "sprite",
+    "file": "5-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/5.gif",
+    "sha256": "8d6c1dd2c93580ff7312379bbd6dc799baccdbf9dc316e87b10e254445988db7",
+    "bytes": 45807,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 50,
+    "kind": "cry",
+    "file": "50-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/50.ogg",
+    "sha256": "ce6b04d043f5d02ee45c10b524cee241752fc3769cee46fa7f0ba7d215d27426",
+    "bytes": 14692,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 50,
+    "kind": "sprite",
+    "file": "50-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/50.gif",
+    "sha256": "4c8e0b5d22c2eb738fc4971c1e5023c54f7d784727962dab3f85c23b5680fd3d",
+    "bytes": 7788,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 51,
+    "kind": "cry",
+    "file": "51-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/51.ogg",
+    "sha256": "ec50216087ef7cf12ba67ca4121d198932a95e321d9e06f0dd2bd5de2cfc8ae8",
+    "bytes": 17165,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 51,
+    "kind": "sprite",
+    "file": "51-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/51.gif",
+    "sha256": "1810b3ce06014d2613950e360031939eb74d7aaece50b669b3f26154db52028e",
+    "bytes": 80895,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 52,
+    "kind": "cry",
+    "file": "52-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/52.ogg",
+    "sha256": "4718dca5902584f6bb243589e0dd57bb189ce5373d594ebd741ad8a6544302dd",
+    "bytes": 10828,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 52,
+    "kind": "sprite",
+    "file": "52-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/52.gif",
+    "sha256": "5f8479f5b65d3545535eba77a5d974a78b951899cdb196eed05a41c707e039a3",
+    "bytes": 32178,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 53,
+    "kind": "cry",
+    "file": "53-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/53.ogg",
+    "sha256": "2b0aaea961449b26e8e525fa848ed1b14087de93ab3977a882fe019e0a733540",
+    "bytes": 14008,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 53,
+    "kind": "sprite",
+    "file": "53-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/53.gif",
+    "sha256": "d46d080274d7008ec3c0ee1f4a605e1e04ae9f2adc91f0a912430414a8332340",
+    "bytes": 73210,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 54,
+    "kind": "cry",
+    "file": "54-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/54.ogg",
+    "sha256": "2313b1749ba446f7ad5634dafed46b6b72dde6cad5dad4529b45cc17b4f5b306",
+    "bytes": 11928,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 54,
+    "kind": "sprite",
+    "file": "54-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/54.gif",
+    "sha256": "a8177ae225739117dc3b2480100b1fd58172e4e79bc1f5737c7567bf3b18a861",
+    "bytes": 22466,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 55,
+    "kind": "cry",
+    "file": "55-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/55.ogg",
+    "sha256": "126dfd2c19b3b54c3d68d6c684e61a9cf52d89fd6558112eda311a6aa4ff2be5",
+    "bytes": 10401,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 55,
+    "kind": "sprite",
+    "file": "55-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/55.gif",
+    "sha256": "bc415ccb26944e2388b3a892810dc65759b5a4091264e230ed404193d5c5a4aa",
+    "bytes": 47075,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 56,
+    "kind": "cry",
+    "file": "56-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/56.ogg",
+    "sha256": "1a8e1964ff409f0e5dde0530e4e0030a6cf035149ce01397a35d6bbf157fbfff",
+    "bytes": 12590,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 56,
+    "kind": "sprite",
+    "file": "56-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/56.gif",
+    "sha256": "4e6503750b65dddae55013ae5e402fc25c4aad16980ecfa73512e9e31dfad599",
+    "bytes": 19645,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 57,
+    "kind": "cry",
+    "file": "57-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/57.ogg",
+    "sha256": "bebea5e611630524f836cb1f55490d50ff4fa19a21936d00c3a52b533971ad49",
+    "bytes": 12862,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 57,
+    "kind": "sprite",
+    "file": "57-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/57.gif",
+    "sha256": "e4463d5824107207ed926ac149b6e05aaf28f37822937dd1cb4ca5fe07895d13",
+    "bytes": 39544,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 58,
+    "kind": "cry",
+    "file": "58-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/58.ogg",
+    "sha256": "a4bcc703435473eb0e779c137ea9a1bef3046b95c57aa943623eeb2c7463ae9e",
+    "bytes": 11073,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 58,
+    "kind": "sprite",
+    "file": "58-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/58.gif",
+    "sha256": "aab86cd5b13660abb7b8efdb87bcfcaaa9947f5244ba4196ec1c2e077370afaa",
+    "bytes": 18202,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 59,
+    "kind": "cry",
+    "file": "59-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/59.ogg",
+    "sha256": "2d11c767abee554b1aad9f35d35dc01f8ddc9790e1793780313d991e6080b398",
+    "bytes": 12784,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 59,
+    "kind": "sprite",
+    "file": "59-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/59.gif",
+    "sha256": "e5b9e9b5ad9effc49a301796685ad2de4df35ab6935edda54a881047d8bf70fd",
+    "bytes": 81789,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 6,
+    "kind": "cry",
+    "file": "6-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/6.ogg",
+    "sha256": "110f91526342399a6a8d5e5c7d12b76ad85e925bce509d7fd4d2459930df09cf",
+    "bytes": 13071,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 6,
+    "kind": "sprite",
+    "file": "6-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/6.gif",
+    "sha256": "4127a320075ca2ac222768cacda3b5c4932c5a7a646dae4cdeebe3b2c8264694",
+    "bytes": 84175,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 60,
+    "kind": "cry",
+    "file": "60-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/60.ogg",
+    "sha256": "cbf72888566fe82a1718b174a85b891d8c6e5c5757b4ad72c43857dabead0fd3",
+    "bytes": 11032,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 60,
+    "kind": "sprite",
+    "file": "60-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/60.gif",
+    "sha256": "578747dfc7bab111d11f355fe1054527b8d918975bee22eb04a3c512ec8594da",
+    "bytes": 25166,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 61,
+    "kind": "cry",
+    "file": "61-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/61.ogg",
+    "sha256": "fd14fee36d7e97f0ffe1dec7d7e5db48c56cff081261df454e920b2519b72998",
+    "bytes": 8551,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 61,
+    "kind": "sprite",
+    "file": "61-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/61.gif",
+    "sha256": "a5cd0e4e7ca823d08c7e0305e0fc3002bb966231bccdf94e1510cef206d0b57e",
+    "bytes": 102727,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 62,
+    "kind": "cry",
+    "file": "62-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/62.ogg",
+    "sha256": "961ea5a1245e6db5a458c1e2e10533d4338c009530d3d9ffbc4d7651c2b28173",
+    "bytes": 11438,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 62,
+    "kind": "sprite",
+    "file": "62-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/62.gif",
+    "sha256": "535addc0bfcc45598f65ffb8ee90f9a44bdec2776f28fd2cac5579eb5026e2e7",
+    "bytes": 43473,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 63,
+    "kind": "cry",
+    "file": "63-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/63.ogg",
+    "sha256": "38289424bbf67cd3aa6964f0930c399ff57a3b229d52a5ec9d009d5f717ff640",
+    "bytes": 15115,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 63,
+    "kind": "sprite",
+    "file": "63-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/63.gif",
+    "sha256": "6722d2dc0b1c257d54ef5b84598d332f79de1a7688af9c6fe91ecc13271c07eb",
+    "bytes": 58628,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 64,
+    "kind": "cry",
+    "file": "64-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/64.ogg",
+    "sha256": "075313e521a091759881178feb6894b9f4ef235baa3fe927ea87c1dec7790db8",
+    "bytes": 14839,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 64,
+    "kind": "sprite",
+    "file": "64-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/64.gif",
+    "sha256": "7b7da425940929fcf97974893314e235f850dc131e658a80948cdad4a5ff6c74",
+    "bytes": 69112,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 65,
+    "kind": "cry",
+    "file": "65-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/65.ogg",
+    "sha256": "f3c2b3c76d1b2958acb0ea0a2cc8486eb64a83e96d4db7e5c719446489408f4a",
+    "bytes": 18562,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 65,
+    "kind": "sprite",
+    "file": "65-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/65.gif",
+    "sha256": "553d76f187c01267b624eaa09d80783914569fde2f95164e0f04108b84e515d0",
+    "bytes": 107471,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 66,
+    "kind": "cry",
+    "file": "66-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/66.ogg",
+    "sha256": "556723d768886667d303ca2697892873341bc48ecc0f1a740d706631d34af547",
+    "bytes": 11824,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 66,
+    "kind": "sprite",
+    "file": "66-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/66.gif",
+    "sha256": "613eb3997d491f7ca9cff5509d23f07dcf43a8f7b3e969d0d00885f2c257e4d5",
+    "bytes": 19596,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 67,
+    "kind": "cry",
+    "file": "67-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/67.ogg",
+    "sha256": "164a8674e652622df0678937cac1ee5f1d177527e13070926542c3d7314a13b6",
+    "bytes": 11168,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 67,
+    "kind": "sprite",
+    "file": "67-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/67.gif",
+    "sha256": "6dcb70f0a7c59b5970fe71eb8b4dbf1ec815e279fe8e78144f7e7e5beab0ac5b",
+    "bytes": 48557,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 68,
+    "kind": "cry",
+    "file": "68-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/68.ogg",
+    "sha256": "69f2493fedcc7120d2ffa83b6f194d4335c26186c9d23af6c26c8b93c29c3a42",
+    "bytes": 12345,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 68,
+    "kind": "sprite",
+    "file": "68-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/68.gif",
+    "sha256": "a0d27aa2029cf3cb24aadd54fc79096e7625a26ddcf7cfafe932f09c4f78082d",
+    "bytes": 67496,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 69,
+    "kind": "cry",
+    "file": "69-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/69.ogg",
+    "sha256": "5077af50db7e5c009dc257da5024e8addb574f6234a78662f8ec0174301106be",
+    "bytes": 8825,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 69,
+    "kind": "sprite",
+    "file": "69-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/69.gif",
+    "sha256": "ef66f3d8e624506edd994b3617fbebd241a40b47ecf4ab9f82f6198c4f5c5b8a",
+    "bytes": 25027,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 7,
+    "kind": "cry",
+    "file": "7-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg",
+    "sha256": "6c2603df20b277bf2e814a5a3b292bdb404d47ada67ab769ff9bee59d3f38631",
+    "bytes": 12204,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 7,
+    "kind": "sprite",
+    "file": "7-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/7.gif",
+    "sha256": "8afe65cd30f30be60bcbb6f293259d3c9ba2fdfc98d7fb599814997da69e0a5d",
+    "bytes": 19465,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 70,
+    "kind": "cry",
+    "file": "70-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/70.ogg",
+    "sha256": "71bd872a8e452a04b48f5a5f25725f295162c90acd6013f3cc2a5a7750e65353",
+    "bytes": 12129,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 70,
+    "kind": "sprite",
+    "file": "70-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/70.gif",
+    "sha256": "e8876294121b9c9c66dff2a7feefee8bee2a58b69688258cd7dfc65efedc4349",
+    "bytes": 33297,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 700,
+    "kind": "cry",
+    "file": "700-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/700.ogg",
+    "sha256": "d545f5319aee9b67fa2e11174c8458bd272171b2c05b9d8ddcdaa790a684a8c3",
+    "bytes": 20049,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 700,
+    "kind": "sprite",
+    "file": "700-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/700.gif",
+    "sha256": "70f3884cdc2869270c749805c04f753db07a5516cdc2069bbe20115d27266613",
+    "bytes": 50684,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 71,
+    "kind": "cry",
+    "file": "71-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/71.ogg",
+    "sha256": "09ae2c028fe2a4bf8cc4b6c22a0fece00c2ccf48b4c3f2852a49d0391137e623",
+    "bytes": 14144,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 71,
+    "kind": "sprite",
+    "file": "71-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/71.gif",
+    "sha256": "bfd0b15489f67bb8bcc1a1f1417c8450cead00b04aba468f3708e8b2eca85631",
+    "bytes": 57013,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 72,
+    "kind": "cry",
+    "file": "72-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/72.ogg",
+    "sha256": "07ca79ffcb6bc2329de36d86db25e87a90cf15a3de0e809a4bd93a520f460647",
+    "bytes": 13949,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 72,
+    "kind": "sprite",
+    "file": "72-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/72.gif",
+    "sha256": "621b1dc1e60c4feb60ab35a38515422dd7c695d9ecd841cb4855ad66ac59bc93",
+    "bytes": 31484,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 73,
+    "kind": "cry",
+    "file": "73-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/73.ogg",
+    "sha256": "4547cc22831b2a0c12cae2dad5667861946a0669349347af51312df54199bef3",
+    "bytes": 16700,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 73,
+    "kind": "sprite",
+    "file": "73-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/73.gif",
+    "sha256": "5a10fa75b16d02d57fb60b7bfa5a47e8f1e9499449039d07f4895760174751a0",
+    "bytes": 88505,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 74,
+    "kind": "cry",
+    "file": "74-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/74.ogg",
+    "sha256": "9e4f3a50a436e796a3d74804a9c07daa92004f3740f629e73ff50778a85f63bf",
+    "bytes": 16816,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 74,
+    "kind": "sprite",
+    "file": "74-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/74.gif",
+    "sha256": "1fb9ed72380533f713659c2b5d4b7e9e8e1a8b2f79b438e34a720a275fa8ec01",
+    "bytes": 29638,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 75,
+    "kind": "cry",
+    "file": "75-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/75.ogg",
+    "sha256": "a0a1bae8a472d8281829c4d920a61ac52ac8bfc73b267ece761c99c147f6be1a",
+    "bytes": 18629,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 75,
+    "kind": "sprite",
+    "file": "75-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/75.gif",
+    "sha256": "9148b4643c5bff5e0d961bcedfd6c78b2ca7082432a4a1d24e2bb3a3182cf5b1",
+    "bytes": 71807,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 76,
+    "kind": "cry",
+    "file": "76-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/76.ogg",
+    "sha256": "c91ce4b0abcc0f548d71899bf54a199f34ae3cc41d61572ae533c7ddbeb122c9",
+    "bytes": 15426,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 76,
+    "kind": "sprite",
+    "file": "76-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/76.gif",
+    "sha256": "c3843c5fe283ff79a1599647d5fcfca20c8f2f0deb7762b8973f8c7c588b47c7",
+    "bytes": 103497,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 77,
+    "kind": "cry",
+    "file": "77-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/77.ogg",
+    "sha256": "3a86fca487b28ccb487d93a5cdda2eab5fdf5947f46e5ea9c5ed08050d277ad2",
+    "bytes": 17959,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 77,
+    "kind": "sprite",
+    "file": "77-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/77.gif",
+    "sha256": "c17e471c2460a3ed8199804077f71838e0ce88e127debea8f7b98e1ecd82749e",
+    "bytes": 227798,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 78,
+    "kind": "cry",
+    "file": "78-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/78.ogg",
+    "sha256": "017424186f8f8adfdf4d6b9ca2d6cf4a2962373a183bf8efc7964ff84459841b",
+    "bytes": 15649,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 78,
+    "kind": "sprite",
+    "file": "78-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/78.gif",
+    "sha256": "c9d4a66e337e94735991b85a18f693533a1d001a5d978834c8a25b9bc68684a2",
+    "bytes": 110065,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 79,
+    "kind": "cry",
+    "file": "79-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/79.ogg",
+    "sha256": "f9c5b592e2bc343781be0663036270a47d091306ee58dd857df2885d0a6ae538",
+    "bytes": 8892,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 79,
+    "kind": "sprite",
+    "file": "79-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/79.gif",
+    "sha256": "fc54c644e7eb0e85e2d39a61122f5aedd9fe13601bfcc695b3ca534415fa8d53",
+    "bytes": 28409,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 8,
+    "kind": "cry",
+    "file": "8-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/8.ogg",
+    "sha256": "1685aaa5e05edf822b016f21f2334eb00ecf6f6e4a6858807846a91c96e4cdf3",
+    "bytes": 13792,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 8,
+    "kind": "sprite",
+    "file": "8-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/8.gif",
+    "sha256": "611e0a0d49b7e594d6d5a836127953b641cf4fbb851de29d8a632a72a38fcf0a",
+    "bytes": 32503,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 80,
+    "kind": "cry",
+    "file": "80-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/80.ogg",
+    "sha256": "06f066b41f87899ef765e7c0ce8dac27ed07152a6cecd413cd2826cbdea2c4b3",
+    "bytes": 11243,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 80,
+    "kind": "sprite",
+    "file": "80-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/80.gif",
+    "sha256": "fb8ce2c3985a31570b0c8b33d657a0ca2859367126416c9c1c3c227cc21821fd",
+    "bytes": 85979,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 81,
+    "kind": "cry",
+    "file": "81-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/81.ogg",
+    "sha256": "6e5c47a9637d1440dad263280281ecb6abad8fd22009c436ddc965890d620b1f",
+    "bytes": 13717,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 81,
+    "kind": "sprite",
+    "file": "81-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/81.gif",
+    "sha256": "e49be998dd0333b4e1b2a5f2674bfeb25e83c93cbafeda9218fb19ec0e961798",
+    "bytes": 13119,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 82,
+    "kind": "cry",
+    "file": "82-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/82.ogg",
+    "sha256": "f323ffdeecdfa27db540f342df71d4f919a30a12f4591cae13149de6672c0842",
+    "bytes": 17740,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 82,
+    "kind": "sprite",
+    "file": "82-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/82.gif",
+    "sha256": "557bbb83c65ed9d6fc240e006c20ed7e1e12575cfcb5958a4b4510508b376c8d",
+    "bytes": 74555,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 83,
+    "kind": "cry",
+    "file": "83-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/83.ogg",
+    "sha256": "851dfc31aa191ecbbc48b5f95534738874d4b1572331a4679323268535c003db",
+    "bytes": 10539,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 83,
+    "kind": "sprite",
+    "file": "83-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/83.gif",
+    "sha256": "510f42ee704a863a20b568170c86b5d4b7b682ab0e3467b0fa0fc052c82a8e40",
+    "bytes": 25294,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 84,
+    "kind": "cry",
+    "file": "84-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/84.ogg",
+    "sha256": "1c94a04c3f3b62dc2b55239f9cf87caf7b7dd82abc48a24c4ead05d6b5415b10",
+    "bytes": 14542,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 84,
+    "kind": "sprite",
+    "file": "84-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/84.gif",
+    "sha256": "67ea715e0f5d88a43820b01932b7ccccd5d96931f12b96d46e2f5fae5425741a",
+    "bytes": 28671,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 85,
+    "kind": "cry",
+    "file": "85-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/85.ogg",
+    "sha256": "90c693dd2656350bfedfbde7f08fb4417571cd9a922abd3bfdf94aec3a2813d5",
+    "bytes": 15237,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 85,
+    "kind": "sprite",
+    "file": "85-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/85.gif",
+    "sha256": "7e5bfce18e50b0569ad6b081bd72731a555d008927047b871609dfbda260ddbf",
+    "bytes": 72487,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 86,
+    "kind": "cry",
+    "file": "86-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/86.ogg",
+    "sha256": "0e74d863b42fb94d9c8440de800932c916bd22c5dd06b3c9b18ef5c8c233b29a",
+    "bytes": 12912,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 86,
+    "kind": "sprite",
+    "file": "86-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/86.gif",
+    "sha256": "58d04c1ed4593fbfd96b5c0c6b708eadb083b65323125ab9d27ba02b2de890d4",
+    "bytes": 34110,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 863,
+    "kind": "cry",
+    "file": "863-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/863.ogg",
+    "sha256": "d97c06991b59c14a3e3f0ad4cd742a5db36edf311dfd60f3d22fa3ee5c54f1cc",
+    "bytes": 9987,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 863,
+    "kind": "sprite",
+    "file": "863-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/863.gif",
+    "sha256": "cabc8890be481dbadd29a6aed80385d49f8a2d79e1da07627c792492afe4d905",
+    "bytes": 96931,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 865,
+    "kind": "cry",
+    "file": "865-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/865.ogg",
+    "sha256": "1b65eaae1ae8d1392008d2a0a3611afde2cc87d15162545d9fb7cbf4f6b9d57a",
+    "bytes": 8413,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 865,
+    "kind": "sprite",
+    "file": "865-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/865.gif",
+    "sha256": "2374555dedcfb1b63da43be0e2f089a6ccc20a602f7c6747ae514814eec2f596",
+    "bytes": 184588,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 866,
+    "kind": "cry",
+    "file": "866-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/866.ogg",
+    "sha256": "108daeb1a00ed8e92a097fb4e4161440449ad1f8bbae1809d0fa1928342bb266",
+    "bytes": 12420,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 866,
+    "kind": "sprite",
+    "file": "866-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/866.gif",
+    "sha256": "471da4a5e18b220c60983f7a6a417621f4df014fba925da959ce580d2a60c050",
+    "bytes": 139958,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 87,
+    "kind": "cry",
+    "file": "87-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/87.ogg",
+    "sha256": "1a785d88888c0fb222aff65cc9e03c0adc1586ab9414129a8afddce6572f1c44",
+    "bytes": 14044,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 87,
+    "kind": "sprite",
+    "file": "87-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/87.gif",
+    "sha256": "89e6e65778c62e1f81d0e846bdf8c8128b1ee30980575e47ce9d9e257a9980f8",
+    "bytes": 46390,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 88,
+    "kind": "cry",
+    "file": "88-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/88.ogg",
+    "sha256": "b54920f191299b9df28ad5e45421d308b336c952c6bac283aaf9546e1cfd73b8",
+    "bytes": 10305,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 88,
+    "kind": "sprite",
+    "file": "88-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/88.gif",
+    "sha256": "22b0eb535852da2add1b423a559e4fbdaa12a86d05a050de2cb076bc64d359e5",
+    "bytes": 70273,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 89,
+    "kind": "cry",
+    "file": "89-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/89.ogg",
+    "sha256": "f5af97a828f732794ca077dfa246aa958d1ef97074feb5f92d8697a38ce3da7e",
+    "bytes": 12090,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 89,
+    "kind": "sprite",
+    "file": "89-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/89.gif",
+    "sha256": "7312cf86f4ddd9bd3fca713ea1cbb46f47fa2fbc574fb621a72cf28f786f815d",
+    "bytes": 136781,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 9,
+    "kind": "cry",
+    "file": "9-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/9.ogg",
+    "sha256": "66e47fa494ae7217676fceff69bdf59f6399d87143cbde29cc7958e2565325ec",
+    "bytes": 14039,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 9,
+    "kind": "sprite",
+    "file": "9-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/9.gif",
+    "sha256": "9fcb3adef60d42700f3cba8e4335eb68fb6b2d2fe78800ee21ca855e1d3c9582",
+    "bytes": 129086,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 90,
+    "kind": "cry",
+    "file": "90-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/90.ogg",
+    "sha256": "e5dad4965f9ad6bcaa416f6d94a612be136e92968ebfa01fdaf54cfc1a0aade5",
+    "bytes": 12255,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 90,
+    "kind": "sprite",
+    "file": "90-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/90.gif",
+    "sha256": "ce5277e42922c353860adda50cd150c3e9aa25cc26f71f3843ab472f0bcfe1f4",
+    "bytes": 46837,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 900,
+    "kind": "cry",
+    "file": "900-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/900.ogg",
+    "sha256": "e9354b27c4169800887179d62583aa1e3a94d2eea7f73516d82b44d0e8c7d4bb",
+    "bytes": 11233,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 900,
+    "kind": "sprite",
+    "file": "900-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/900.gif",
+    "sha256": "8532500fa49b6ca6a2c11e6ce4acf735c312e46b7baf6d749150f4c088af81bd",
+    "bytes": 118041,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 91,
+    "kind": "cry",
+    "file": "91-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/91.ogg",
+    "sha256": "d893eb8d08bb8fe8be1ed41d285e16a33f0d32f7462bcf7616f04d112ef97319",
+    "bytes": 14093,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 91,
+    "kind": "sprite",
+    "file": "91-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/91.gif",
+    "sha256": "ec4fe9ab9b99611a993bfdd7f5f0b6508e45946c35cea6109724c54111549f7c",
+    "bytes": 87580,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 92,
+    "kind": "cry",
+    "file": "92-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/92.ogg",
+    "sha256": "3829dd291fc9b08f82981fca3c469f33d07f17af5c07f84f949272d819a6a318",
+    "bytes": 17674,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 92,
+    "kind": "sprite",
+    "file": "92-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/92.gif",
+    "sha256": "13da08bd2242e213f63656bf9c70ae04de2311a0d72978a92e78ab99de6fb186",
+    "bytes": 42866,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 93,
+    "kind": "cry",
+    "file": "93-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/93.ogg",
+    "sha256": "9b7cc740782f43d26b648f42b378c592dce66af24d9241c1c7ba509add1171b9",
+    "bytes": 16743,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 93,
+    "kind": "sprite",
+    "file": "93-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/93.gif",
+    "sha256": "c3c346131538b83152aa0fc76a3c4a92ec3ac44145040b4bb1ad2cc633e8a630",
+    "bytes": 61973,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 94,
+    "kind": "cry",
+    "file": "94-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/94.ogg",
+    "sha256": "d44d4a6c9e6e276a20ba7a3be3256f5da0e1caf1ff01b51183dedad3dd8bead8",
+    "bytes": 11760,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 94,
+    "kind": "sprite",
+    "file": "94-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif",
+    "sha256": "65e12ea407d7b6da5895dcd451a0f581f3423bdee8b2efc807b65f248defb2b3",
+    "bytes": 50496,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 95,
+    "kind": "cry",
+    "file": "95-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/95.ogg",
+    "sha256": "dc10a195219d228c60de61041816c9d38916b85096a3fa3933614169f2ca66cb",
+    "bytes": 16625,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 95,
+    "kind": "sprite",
+    "file": "95-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/95.gif",
+    "sha256": "01de6af46d3fc3275e343d78e927f7cf530bd6f6a01944e47125de49a2c79ab1",
+    "bytes": 105151,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 96,
+    "kind": "cry",
+    "file": "96-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/96.ogg",
+    "sha256": "f03c18ad8953ec76fcac35bab185b4196c16b7793585e30a5b38b8772d574f12",
+    "bytes": 18949,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 96,
+    "kind": "sprite",
+    "file": "96-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/96.gif",
+    "sha256": "04f3cf6c75b1674004120a60bda5aef808aa8b36f2c9d7433eb059f849933578",
+    "bytes": 54486,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 97,
+    "kind": "cry",
+    "file": "97-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/97.ogg",
+    "sha256": "ad876741676c89f843ee046fbec8dbdab7592169be35f0bd6d980bf4d07d411c",
+    "bytes": 18381,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 97,
+    "kind": "sprite",
+    "file": "97-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/97.gif",
+    "sha256": "cfe6df38b4e2d95ed6aa4453165dcc29677740e5af84668c8bfff158fda337d9",
+    "bytes": 49729,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 979,
+    "kind": "cry",
+    "file": "979-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/979.ogg",
+    "sha256": "221c59eed6741e957cf717b6f46dc3668f2041e8f26cd7da7ae49f987885f5d6",
+    "bytes": 19349,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 979,
+    "kind": "sprite",
+    "file": "979-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/979.gif",
+    "sha256": "f405be786686f26fb8ae4fff440a15e5d976c11e1f68ffdcdf4482a350bac02f",
+    "bytes": 130550,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 98,
+    "kind": "cry",
+    "file": "98-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/98.ogg",
+    "sha256": "4ff08568eb417bee9b117e2b4085427ef82e598088d6bd19194a23de00cc4fe9",
+    "bytes": 17829,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 98,
+    "kind": "sprite",
+    "file": "98-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/98.gif",
+    "sha256": "4104612c5b14b564fd003731357bb77971e616b160a9ad62f0c96d996f6be79f",
+    "bytes": 28401,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 99,
+    "kind": "cry",
+    "file": "99-cry.ogg",
+    "url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/99.ogg",
+    "sha256": "c38f0bf1e7d4615a22bf3d2b6805df47c0bb97230a36bace4cb864e6417f1886",
+    "bytes": 16092,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  },
+  {
+    "id": 99,
+    "kind": "sprite",
+    "file": "99-sprite.gif",
+    "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/99.gif",
+    "sha256": "af7542f33763dfb1409c9d7d0d4a535bc18e6cdae92f4f5fe9571168bb0305c4",
+    "bytes": 67359,
+    "rights": "Pokémon third-party content; redistribution rights unresolved"
+  }
+]

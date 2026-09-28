@@ -1,0 +1,45 @@
+name: Windows build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: companion/package-lock.json
+      - name: Install build dependencies
+        shell: pwsh
+        run: |
+          python -m venv .venv
+          .venv/Scripts/python.exe -m pip install -e ".[build]"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm ci --prefix companion
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Test and package
+        run: .venv/Scripts/python.exe scripts/build_companion.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pocodex-windows-${{ github.sha }}
+          path: |
+            artifacts/companion/*.exe
+            artifacts/companion/*.zip
+            artifacts/companion/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 7
