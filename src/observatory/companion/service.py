@@ -145,17 +145,13 @@ def main() -> None:
             pass
 
     def publish_files() -> None:
-        """Small files the Claude hook and status line read: who the buddy is, and whether previews are on."""
+        """The small file the Claude status line reads: who the buddy is."""
         active = engine._active()
         buddy = ({"name": engine.catalog[active["species_id"]]["name"], "level": min(100, bisect.bisect_right(THRESHOLDS, active["xp"]))}
                  if active else {"name": "Egg", "level": None})
         if buddy != published.get("buddy"):
             write_json("buddy-status.json", buddy)
             published["buddy"] = buddy
-        flags = {"previews": bool(setting("message_previews"))}
-        if flags != published.get("hook"):
-            write_json("claude-hook.json", flags)
-            published["hook"] = flags
 
     commands: queue.Queue = queue.Queue()
 

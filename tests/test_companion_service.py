@@ -132,7 +132,7 @@ class ServiceContracts(unittest.TestCase):
                 until(lambda m: m.get("type") == "state")
                 self.assertIn("Hatch", request(1, "pet")["error"])  # rolls the engine back to a copy
                 request(2, "settings", {"message_previews": False, "claude_usage_check": True})
-                self.assertEqual(json.loads((root / "save/claude-hook.json").read_text()), {"previews": False})
+                self.assertFalse((root / "save/claude-hook.json").exists())  # the hook never stores question text, so it needs no flag
                 state = request(3, "connect", {"app": "claude", "enabled": True})["state"]
                 self.assertTrue(state["connections"]["claude"]["usage_check"]["enabled"])
                 # The claude and usage-check gates see the new settings: the check runs (and finds no CLI here).

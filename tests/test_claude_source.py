@@ -1,9 +1,11 @@
 """Claude Code activity from Pocodex's own hook inbox, status-line snapshot and transcript tails."""
 
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from observatory.companion.sources import ClaudeSource
 
@@ -58,9 +60,17 @@ class ClaudeContracts(unittest.TestCase):
         self.hook("Stop", BOOT + 2)
         self.assertEqual(self.source.poll(BOOT + 2)[0]["preview"], "Fire beats Grass.\nWater beats Fire.")
 
+    def ask(self, ident, text="Dual?", at="2026-09-28T10:00:02Z"):
+        with self.transcript.open("a") as stream:
+            stream.write(json.dumps({"type": "assistant", "timestamp": at, "message": {
+                "id": "m-" + ident, "model": "claude-opus-5-5", "role": "assistant", "content": [{
+                    "type": "tool_use", "id": ident, "name": "AskUserQuestion",
+                    "input": {"questions": [{"question": text, "header": "Types", "options": [{"label": "Yes", "description": "Two"}]}]}}]}}) + "\n")
+
     def test_question_and_permission_wait_then_resume(self):
         self.hook("UserPromptSubmit", BOOT + 1)
-        self.hook("PreToolUse", BOOT + 2, tool="AskUserQuestion", questions=[{"text": "Dual?", "options": ["Yes"]}])
+        self.ask("toolu_1")
+        self.hook("PreToolUse", BOOT + 2, tool="AskUserQuestion", tool_use="toolu_1")
         events = self.source.poll(BOOT + 2)
         self.assertEqual((events[0]["kind"], events[0]["reason"]), ("input_needed", "question"))
         self.assertNotIn("questions", events[0])  # previews are off
@@ -78,10 +88,36 @@ class ClaudeContracts(unittest.TestCase):
     def test_question_previews_follow_the_setting(self):
         self.source.set_previews(True)
         self.hook("UserPromptSubmit", BOOT + 1)
-        self.hook("PreToolUse", BOOT + 2, tool="AskUserQuestion", questions=[{"text": "Dual?", "options": ["Yes"]}])
+        self.ask("toolu_0", "Earlier?")
+        self.ask("toolu_1")
+        self.hook("PreToolUse", BOOT + 2, tool="AskUserQuestion", tool_use="toolu_1")
         self.assertEqual(self.source.poll(BOOT + 2)[0]["questions"], [{"text": "Dual?", "options": ["Yes"]}])
         self.source.set_previews(False)
         self.assertNotIn("questions", self.source.attention[0])
+        self.source.poll(BOOT + 3)
+        self.assertNotIn("questions", self.source.attention[0])
+        self.source.set_previews(True)
+        self.source.poll(BOOT + 4)
+        self.assertEqual(self.source.attention[0]["questions"], [{"text": "Dual?", "options": ["Yes"]}])
+
+    def test_question_text_is_read_from_the_transcript_once_it_is_written(self):
+        self.source.set_previews(True)
+        self.hook("UserPromptSubmit", BOOT + 1)
+        self.hook("PreToolUse", BOOT + 2, tool="AskUserQuestion", tool_use="toolu_1", questions=[{"text": "Old inbox", "options": []}])
+        self.assertNotIn("questions", self.source.poll(BOOT + 2)[0])  # not in the transcript yet; old inbox text ignored
+        self.ask("toolu_1")
+        self.source.poll(BOOT + 3)
+        self.assertEqual(self.source.attention[0]["questions"], [{"text": "Dual?", "options": ["Yes"]}])
+
+    def test_question_without_a_tool_use_id_takes_only_a_fresh_call(self):
+        self.source.set_previews(True)
+        self.hook("UserPromptSubmit", BOOT + 1)
+        self.ask("toolu_0", "Stale?", at="2026-09-28T09:58:00Z")
+        self.hook("PreToolUse", BOOT + 2, tool="AskUserQuestion")
+        self.assertNotIn("questions", self.source.poll(BOOT + 2)[0])
+        self.ask("toolu_1")
+        self.source.poll(BOOT + 3)
+        self.assertEqual(self.source.attention[0]["questions"], [{"text": "Dual?", "options": ["Yes"]}])
 
     def test_idle_prompt_is_not_an_alert(self):
         self.hook("UserPromptSubmit", BOOT + 1)
@@ -194,11 +230,46 @@ class ClaudeContracts(unittest.TestCase):
         with (self.profile / "claude-inbox.jsonl").open("a") as inbox:
             inbox.write(("#" * 200 + "\n") * 6000)
         self.source.poll(BOOT + 1)
-        self.assertLess((self.profile / "claude-inbox.jsonl").stat().st_size, 1024)
+        self.assertFalse((self.profile / "claude-inbox.jsonl").exists())
         self.hook("UserPromptSubmit", BOOT + 2)
         self.source.poll(BOOT + 2)
         self.assertEqual(self.source.snapshot(BOOT + 2)["running"], 1)
         self.assertEqual(self.source.last_event, BOOT + 2)
+        self.assertEqual(sorted(p.name for p in self.profile.iterdir()), ["claude-inbox.jsonl", "t.jsonl"])
+
+    def test_a_line_appended_while_the_inbox_is_trimmed_is_kept(self):
+        with (self.profile / "claude-inbox.jsonl").open("a") as inbox:
+            inbox.write(("#" * 200 + "\n") * 6000)
+        rename = os.replace
+
+        def racing_hook(source, target):  # a hook appends after the read, before the trim
+            self.hook("UserPromptSubmit", BOOT + 1)
+            rename(source, target)
+
+        with mock.patch("observatory.companion.sources.claude.os.replace", racing_hook):
+            self.source.poll(BOOT + 1)
+        self.assertEqual(self.source.snapshot(BOOT + 1)["running"], 0)
+        self.source.poll(BOOT + 2)
+        self.assertEqual(self.source.snapshot(BOOT + 2)["running"], 1)
+        self.assertFalse((self.profile / "claude-inbox.jsonl.old").exists())
+
+    def test_a_rotated_inbox_left_by_a_crash_is_read_first(self):
+        self.hook("UserPromptSubmit", BOOT - 30)
+        (self.profile / "claude-inbox.jsonl").rename(self.profile / "claude-inbox.jsonl.old")
+        self.hook("Stop", BOOT + 2)
+        self.assertEqual([e["kind"] for e in self.source.poll(BOOT + 2)], ["completed"])
+        self.assertFalse((self.profile / "claude-inbox.jsonl.old").exists())
+        self.assertEqual(self.source.poll(BOOT + 3), [])
+
+    def test_question_text_left_by_an_older_build_is_cleared_once_read(self):
+        self.hook("PreToolUse", BOOT - 30, tool="AskUserQuestion", questions=[{"text": "secret marker", "options": []}])
+        self.source.poll(BOOT + 1)
+        self.source.poll(BOOT + 2)
+        self.assertFalse(any(b"secret marker" in p.read_bytes() for p in self.profile.iterdir()))
+        self.hook("UserPromptSubmit", BOOT + 3)
+        self.source.poll(BOOT + 3)
+        self.assertEqual(self.source.snapshot(BOOT + 3)["running"], 1)
+        self.assertTrue((self.profile / "claude-inbox.jsonl").exists())  # new lines wait for the usual trim
 
 
 if __name__ == "__main__":
