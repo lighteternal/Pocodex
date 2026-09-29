@@ -54,7 +54,7 @@ class Bridge extends EventEmitter {
   }
   close() {
     if (this.child.stdin.writable) this.child.stdin.end(JSON.stringify({ action: 'quit' }) + '\n');
-    const timer = setTimeout(() => { if (this.child.exitCode === null) this.child.kill(); }, 2000);
+    const timer = setTimeout(() => { if (this.child.exitCode === null) this.child.kill(); }, 12000);  // past the service's 10 s wait for a usage check to remove its session
     timer.unref();
   }
 }
