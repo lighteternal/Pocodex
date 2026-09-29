@@ -6,6 +6,7 @@ previews are on. Failures are swallowed: a missed line costs one reaction, never
 """
 
 import json
+import math
 import os
 import re
 import shutil
@@ -103,7 +104,7 @@ def status_line(profile: Path, raw: str) -> str:
         parts.append(f"{buddy['name']} Lv. {buddy['level']}" if buddy.get("level") else str(buddy["name"]))
     five = limits.get("five_hour") if isinstance(limits, dict) else None
     used = five.get("used_percentage") if isinstance(five, dict) else None
-    if isinstance(used, (int, float)) and not isinstance(used, bool):
+    if isinstance(used, (int, float)) and not isinstance(used, bool) and math.isfinite(used):
         parts.append(f"5h {max(0, round(100 - used))}% left")
     return " · ".join(parts) + "\n"
 
