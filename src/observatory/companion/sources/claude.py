@@ -1,8 +1,8 @@
 """Claude Code adapter: Pocodex's own hook inbox, status-line snapshot and transcript tails.
 
 Hooks give exact turn boundaries and waits; the transcript is only read for token counts, usage-limit
-refusals and, when previews are on, the final answer. Claude Code documents its transcript format as
-internal, so every transcript read is defensive and never decides turn state on its own.
+refusals and, when previews are on, the question asked and the final answer. Claude Code documents its
+transcript format as internal, so every transcript read is defensive and never decides turn state on its own.
 
 Allowance comes from two places. The status line carries live percentages, but only terminal sessions
 run it: the desktop app drives Claude Code headless. Any session, desktop included, logs a refusal with
@@ -11,11 +11,12 @@ the exact window and reset time when a usage limit is hit, so that window reads 
 
 import hashlib
 import json
+import os
 from collections import deque
 from datetime import datetime
 from pathlib import Path
 
-from observatory.companion.previews import excerpt
+from observatory.companion.previews import excerpt, question_previews
 from observatory.companion.sources.codex import STALE_SECONDS, timestamp
 
 WAITS = {"permission_prompt", "elicitation_dialog", "agent_needs_input"}
@@ -36,7 +37,8 @@ class ClaudeSource:
     def __init__(self, profile: Path, now: float):
         self.profile, self.boot = profile, now
         self.inbox, self.limits = profile / "claude-inbox.jsonl", profile / "claude-limits.json"
-        self.offset, self.limits_seen = 0, None
+        self.rotated = profile / "claude-inbox.jsonl.old"
+        self.offset, self.rotated_offset, self.limits_seen = 0, 0, None
         self.sessions: dict[str, dict] = {}
         self.attention: list[dict] = []
         self.usage: list[dict] = []
@@ -49,21 +51,9 @@ class ClaudeSource:
         self.last_event: float | None = None
 
     # Inbox ---------------------------------------------------------------
-    def _lines(self) -> list[dict]:
-        try:
-            size = self.inbox.stat().st_size
-        except FileNotFoundError:
-            self.offset = 0
-            return []
-        if size < self.offset:
-            self.offset = 0
-        with self.inbox.open("rb") as stream:
-            stream.seek(self.offset)
-            data = stream.read(4 * TRIM_BYTES)
-        end = data.rfind(b"\n") + 1
-        self.offset += end
+    def _parse(self, data: bytes) -> list[dict]:
         lines = []
-        for raw in data[:end].splitlines():
+        for raw in data.splitlines():
             try:
                 line = json.loads(raw)
             except ValueError:
@@ -71,13 +61,41 @@ class ClaudeSource:
                 continue
             if isinstance(line, dict) and isinstance(line.get("at"), (int, float)) and not isinstance(line.get("at"), bool):
                 lines.append(line)
-        if self.offset >= TRIM_BYTES and self.offset == size:
-            try:
-                with self.inbox.open("r+b") as stream:
-                    stream.truncate(0)
-                self.offset = 0
+        return lines
+
+    def _lines(self) -> list[dict]:
+        lines = []
+        try:  # Rotated on an earlier poll: take what hooks appended after that read, then drop it.
+            with self.rotated.open("rb") as stream:
+                stream.seek(self.rotated_offset)
+                data = stream.read()
+            self.rotated_offset += len(data)
+            lines = self._parse(data)
+            self.rotated.unlink()
+            self.rotated_offset = 0
+        except FileNotFoundError:
+            self.rotated_offset = 0
+        except OSError:
+            pass  # Still held open; delete it on a later poll.
+        try:
+            size = self.inbox.stat().st_size
+        except FileNotFoundError:
+            self.offset = 0
+            return lines
+        if size < self.offset:
+            self.offset = 0
+        with self.inbox.open("rb") as stream:
+            stream.seek(self.offset)
+            data = stream.read(4 * TRIM_BYTES)
+        end = data.rfind(b"\n") + 1
+        self.offset += end
+        lines += self._parse(data[:end])
+        if self.offset >= TRIM_BYTES and self.offset == size and not self.rotated.exists():
+            try:  # Rotate, never truncate: a line appended since the read survives in the rotated file.
+                os.replace(self.inbox, self.rotated)
+                self.rotated_offset, self.offset = self.offset, 0
             except OSError:
-                pass  # A hook is writing right now; trim on a later poll.
+                pass  # On Windows a hook holding the file blocks the rename; rotate on a later poll.
         return lines
 
     # Transcript ----------------------------------------------------------
@@ -160,9 +178,8 @@ class ClaudeSource:
         if name == "UserPromptSubmit":
             session.update(status="working", turn=session["turn"] + 1, wait=None, last_seen=at, size=self._size(session["transcript"]))
         elif name == "PreToolUse" and line.get("tool") == "AskUserQuestion" and busy:
-            session.update(status="waiting", wait="question", last_seen=at)
-            extra = {"questions": line["questions"]} if self.previews and isinstance(line.get("questions"), list) else {}
-            events.append(self._event("input_needed", session, at, reason="question", **extra))
+            session.update(status="waiting", wait="question", last_seen=at, ask=str(line.get("tool_use") or ""), asked=None)
+            events.append(self._event("input_needed", session, at, reason="question"))
         elif name == "PostToolUse" and line.get("tool") == "AskUserQuestion" and session["status"] == "waiting":
             session.update(status="working", wait=None, last_seen=at)
         elif name == "Notification" and line.get("notification") in WAITS and busy:
@@ -194,6 +211,48 @@ class ClaudeSource:
             session.update(size=size, last_seen=now)
             if session["wait"] == "permission" and size != session["wait_size"]:
                 session.update(status="working", wait=None)
+
+    @staticmethod
+    def _asked(path: str, tool_use: str, at: float) -> list[dict] | None:
+        """The questions of this AskUserQuestion call, from the transcript tail; None until it is written."""
+        try:
+            with open(path, "rb") as stream:
+                stream.seek(0, 2)
+                stream.seek(max(0, stream.tell() - TAIL_BYTES))
+                raw = stream.read()
+        except (OSError, ValueError):
+            return None
+        found = None
+        for chunk in raw.splitlines():
+            if b'"AskUserQuestion"' not in chunk:
+                continue
+            try:
+                entry = json.loads(chunk)
+            except ValueError:
+                continue
+            message = entry.get("message") if isinstance(entry, dict) and entry.get("type") == "assistant" else None
+            for block in message.get("content", []) if isinstance(message, dict) and isinstance(message.get("content"), list) else []:
+                # Without a tool use id (older Claude Code), only a call written just before the hook ran.
+                if (isinstance(block, dict) and block.get("type") == "tool_use" and block.get("name") == "AskUserQuestion"
+                        and isinstance(block.get("input"), dict)
+                        and (block.get("id") == tool_use if tool_use else timestamp(entry.get("timestamp")) >= at - 30)):
+                    values = block["input"].get("questions")
+                    found = question_previews([q for q in values[:32] if isinstance(q, dict)]) if isinstance(values, list) else []
+        return found
+
+    def _fill_questions(self) -> None:
+        """Question text is never stored: read it from the transcript, again whenever that grows until it appears."""
+        for event in self.attention:
+            session = self.sessions.get(event.get("thread"))
+            if event["kind"] != "input_needed" or event.get("reason") != "question" or "questions" in event or not session:
+                continue
+            size = self._size(session["transcript"])
+            if size is None or size == session["asked"]:
+                continue
+            session["asked"] = size
+            found = self._asked(session["transcript"], session["ask"], event["at"])
+            if found is not None:
+                event["questions"] = found
 
     # Allowance -----------------------------------------------------------
     @staticmethod
@@ -295,6 +354,8 @@ class ClaudeSource:
         events.extend(self._read_refusals(now))
         events = [e for e in events if self._relevant(e)]
         self.attention = [e for e in self.attention + events if self._relevant(e)][-100:]
+        if self.previews:
+            self._fill_questions()
         return events
 
     def acknowledge(self, ident: str) -> None:
@@ -306,6 +367,8 @@ class ClaudeSource:
             for event in self.attention:
                 event.pop("preview", None)
                 event.pop("questions", None)
+            for session in self.sessions.values():
+                session["asked"] = None  # turned back on, a waiting question is read again
 
     def snapshot(self, now: float) -> dict:
         live = [s for s in self.sessions.values() if s["status"] in ("working", "waiting")]

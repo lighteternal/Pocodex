@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from observatory.companion import hook
 
@@ -33,15 +34,14 @@ class HookContracts(unittest.TestCase):
         self.assertEqual((line["event"], line["session"], line["project"], line["transcript"]), ("UserPromptSubmit", "s1", "demo", "C:/t.jsonl"))
         self.assertNotIn("SECRET", json.dumps(line))
 
-    def test_questions_are_kept_only_when_previews_are_on(self):
-        ask = {"hook_event_name": "PreToolUse", "session_id": "s1", "tool_name": "AskUserQuestion",
-               "tool_input": {"questions": [{"question": "Single or dual types?", "options": [{"label": "Single"}, {"label": "Dual"}]}]}}
-        run("claude-event", ask, self.profile)
+    def test_question_text_is_never_written(self):
+        ask = {"hook_event_name": "PreToolUse", "session_id": "s1", "tool_name": "AskUserQuestion", "tool_use_id": "toolu_1",
+               "tool_input": {"questions": [{"question": "SECRET types?", "options": [{"label": "SECRET single"}]}]}}
         (self.profile / "claude-hook.json").write_text('{"previews": true}')
         run("claude-event", ask, self.profile)
-        first, second = self.lines()
-        self.assertNotIn("questions", first)
-        self.assertEqual(second["questions"], [{"text": "Single or dual types?", "options": ["Single", "Dual"]}])
+        line = self.lines()[0]
+        self.assertEqual((line["tool"], line["tool_use"]), ("AskUserQuestion", "toolu_1"))
+        self.assertNotIn("SECRET", json.dumps(line))
 
     def test_notification_and_session_end_keep_only_their_kind(self):
         run("claude-event", {"hook_event_name": "Notification", "session_id": "s1", "notification_type": "permission_prompt",
@@ -67,6 +67,14 @@ class HookContracts(unittest.TestCase):
         (self.profile / "claude-limits.json").write_text('{"at": 1, "rate_limits": {"five_hour": {"used_percentage": 5}}}')
         self.assertEqual(run("claude-statusline", {"model": {"display_name": "Opus"}}, self.profile).strip(), "Pocodex")
         self.assertEqual(json.loads((self.profile / "claude-limits.json").read_text())["at"], 1)
+
+    def test_status_line_snapshot_failure_leaves_no_temporary_file(self):
+        with mock.patch("observatory.companion.hook.os.replace", side_effect=PermissionError):
+            text = run("claude-statusline", {"rate_limits": {"five_hour": {"used_percentage": 23.4}}}, self.profile)
+        self.assertEqual(text.strip(), "Pocodex · 5h 77% left")  # the status line still shows
+        self.assertEqual(list(self.profile.iterdir()), [])
+        run("claude-statusline", {"rate_limits": {"five_hour": {"used_percentage": 30}}}, self.profile)
+        self.assertEqual([p.name for p in self.profile.iterdir()], ["claude-limits.json"])
 
     def test_default_profile_is_the_app_data_folder(self):
         self.assertEqual(hook.default_profile().name, "Pocodex")
