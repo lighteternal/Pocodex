@@ -115,6 +115,10 @@ test('Professor Tibo walks a new Trainer through Pocodex and can be replayed', a
   await advanceTo(8);
   await expect(home.locator('.intro-stage')).toHaveAttribute('data-scene', 'connect');
   await expect(home.getByRole('button', { name: 'Skip intro' })).toHaveCount(0);
+  // The text box never skips choosing apps.
+  await home.locator('.intro-box').click();
+  await home.locator('.intro-box').click();
+  await expect(home.locator('.intro-stage')).toHaveAttribute('data-scene', 'connect');
   await home.locator('[data-intro="connect"]').click();
   await expect(home.getByLabel('Your name')).toBeFocused();
   await home.getByLabel('Your name').fill('   ');
@@ -1105,4 +1109,8 @@ test('the Trainer Card shows real records, copies the exact card and keeps a val
   await expect(home.locator('#error')).toContainText('Trainer names are 1 to 12 characters');
   expect(await home.evaluate(() => state.trainer.name)).toBe('Red');
   await capture(home, 'pocodex-trainer-card.png');
+  // A refresh that rebuilds the card must not snap a half-typed name back to the saved one.
+  await home.locator('#trainer-name').fill('Blu');
+  await home.evaluate(() => { document.querySelector('#trainer-name').setSelectionRange(1, 2); lastMarkup = ''; render(); });
+  expect(await home.evaluate(() => { const input = document.activeElement; return [input.id, input.value, input.selectionStart, input.selectionEnd]; })).toEqual(['trainer-name', 'Blu', 1, 2]);
 });
