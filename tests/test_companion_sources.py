@@ -172,6 +172,23 @@ class SourcesContracts(unittest.TestCase):
         self.assertEqual(state["tokens"], 120)
         self.assertEqual(state["cached"], 80)
 
+    def test_tokens_are_kept_for_today_only(self):
+        self.append("token_usage_record", {"thread_id": "thread-1", "turn_id": "t1", "response_id": "r1", "usage": {"input_tokens": 100, "cached_input_tokens": 80, "output_tokens": 20, "reasoning_output_tokens": 5, "total_tokens": 120}})
+        self.sources.poll(1790589601)
+        self.assertEqual(len(self.sources.snapshot(1790589601)["usage"]), 1)
+        state = self.sources.snapshot(1790589601 + 86400)
+        self.assertEqual((state["tokens"], state["usage"]), (0, []))
+        self.assertEqual((self.sources.ledger.days, self.sources.ledger.seen), ({}, {}))
+
+    def test_a_log_quiet_for_a_day_is_parked_and_resumes_where_it_left_off(self):
+        self.sources.poll(1790589601)
+        self.sources.poll(1790589600 + 86402)
+        self.assertNotIn(self.path, self.sources.paths)
+        self.append("event_msg", {"type": "task_started", "turn_id": "t2"}, "2026-09-29T10:00:05Z")
+        self.sources.poll(1790589600 + 86410)
+        self.assertEqual(self.sources.paths[self.path]["thread"], "thread-1")
+        self.assertEqual(self.sources.snapshot(1790589600 + 86410)["running"], 1)
+
     def test_fresh_heartbeat_discovers_a_turn_started_before_pocodex(self):
         self.append("turn_context", {"turn_id": "already-running", "model": "known-model"}, "2026-09-28T09:59:50Z")
         self.append("event_msg", {"type": "token_count", "info": None})

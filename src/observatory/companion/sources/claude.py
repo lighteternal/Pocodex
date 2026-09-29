@@ -11,12 +11,11 @@ the exact window and reset time when a usage limit is hit, so that window reads 
 
 import hashlib
 import json
-from collections import deque
-from datetime import datetime
 from pathlib import Path
 
 from observatory.companion.previews import excerpt
 from observatory.companion.sources.codex import STALE_SECONDS, timestamp
+from observatory.companion.telemetry import Ledger
 
 WAITS = {"permission_prompt", "elicitation_dialog", "agent_needs_input"}
 WINDOWS = {"five_hour": ("5h", 300), "seven_day": ("weekly", 10080)}
@@ -39,8 +38,7 @@ class ClaudeSource:
         self.offset, self.limits_seen = 0, None
         self.sessions: dict[str, dict] = {}
         self.attention: list[dict] = []
-        self.usage: list[dict] = []
-        self.responses: deque[str] = deque(maxlen=4096)
+        self.ledger = Ledger()
         self.quotas: dict[str, dict] = {}
         self.to_scan: set[str] = set()
         self.warnings: set[tuple] = set()
@@ -81,51 +79,55 @@ class ClaudeSource:
         return lines
 
     # Transcript ----------------------------------------------------------
-    def _messages(self, path: str) -> dict[str, dict]:
-        """Assistant messages in the transcript tail, merged across their per-block entries."""
-        try:
-            with open(path, "rb") as stream:
-                stream.seek(0, 2)
-                start = max(0, stream.tell() - TAIL_BYTES)
-                stream.seek(start)
-                raw = stream.read()
-        except (OSError, ValueError):
-            return {}
-        chunks = raw.splitlines()[1 if start else 0:]
+    def _messages(self, session: dict) -> dict[str, dict]:
+        """Assistant messages written since the last read and since launch, merged across their per-block entries."""
         messages: dict[str, dict] = {}
-        for chunk in chunks:
-            try:
-                entry = json.loads(chunk)
-            except ValueError:
-                continue
-            message = entry.get("message") if isinstance(entry, dict) and entry.get("type") == "assistant" else None
-            if not isinstance(message, dict) or not isinstance(message.get("id"), str):
-                continue
-            merged = messages.setdefault(message["id"], {"texts": [], "usage": None, "model": "claude", "at": 0})
-            merged["at"] = timestamp(entry.get("timestamp"))
-            merged["model"] = str(message.get("model", merged["model"]))[:100]
-            if isinstance(message.get("usage"), dict):
-                merged["usage"] = message["usage"]
-            for block in message.get("content", []) if isinstance(message.get("content"), list) else []:
-                if isinstance(block, dict) and block.get("type") == "text" and isinstance(block.get("text"), str):
-                    merged["texts"].append(block["text"])
+        try:
+            with open(session["transcript"], "rb") as stream:
+                if session["read"] is None or session["read"] > stream.seek(0, 2):
+                    session["read"] = 0
+                stream.seek(session["read"])
+                for chunk in stream:
+                    if not chunk.endswith(b"\n"):
+                        break  # still being written; read it next time
+                    session["read"] += len(chunk)
+                    if b'"assistant"' not in chunk:
+                        continue
+                    try:
+                        entry = json.loads(chunk)
+                    except ValueError:
+                        continue
+                    message = entry.get("message") if isinstance(entry, dict) and entry.get("type") == "assistant" else None
+                    if not isinstance(message, dict) or not isinstance(message.get("id"), str):
+                        continue
+                    at = timestamp(entry.get("timestamp"))
+                    if at < self.boot:
+                        continue
+                    merged = messages.setdefault(message["id"], {"texts": [], "usage": None, "model": "claude", "at": 0})
+                    merged["at"] = at
+                    merged["model"] = str(message.get("model", merged["model"]))[:100]
+                    if isinstance(message.get("usage"), dict):
+                        merged["usage"] = message["usage"]
+                    for block in message.get("content", []) if isinstance(message.get("content"), list) else []:
+                        if isinstance(block, dict) and block.get("type") == "text" and isinstance(block.get("text"), str):
+                            merged["texts"].append(block["text"])
+        except (OSError, ValueError):
+            pass
         return messages
 
     def _record_answer(self, session: dict, event: dict) -> None:
-        messages = self._messages(session["transcript"])
+        messages = self._messages(session)
         for ident, message in messages.items():
             usage = message["usage"]
-            if ident in self.responses or not usage or message["at"] < self.boot:
+            if not usage:
                 continue
-            self.responses.append(ident)
             count = lambda key: usage[key] if isinstance(usage.get(key), int) and not isinstance(usage.get(key), bool) and usage[key] >= 0 else 0
             cached = count("cache_read_input_tokens")
             prompt = count("input_tokens") + count("cache_creation_input_tokens") + cached
             output = count("output_tokens")
-            self.usage.append({"at": message["at"], "app": "claude", "thread": session["id"], "project": session["project"],
-                               "model": message["model"], "input": prompt, "cached": cached, "output": output,
-                               "reasoning": 0, "total": prompt + output})
-        self.usage = self.usage[-500:]
+            self.ledger.add(ident, {"at": message["at"], "app": "claude", "thread": session["id"], "project": session["project"],
+                                    "model": message["model"], "input": prompt, "cached": cached, "output": output,
+                                    "reasoning": 0, "total": prompt + output})
         if self.previews and messages:
             text = "\n".join(list(messages.values())[-1]["texts"]).strip()
             if text:
@@ -152,9 +154,13 @@ class ClaudeSource:
         if live:
             self.last_event = max(self.last_event or 0, at)
         session = self.sessions.setdefault(ident, {"id": ident, "status": "idle", "turn": 0, "last_seen": at, "wait": None,
-                                                   "project": "", "transcript": "", "size": None, "wait_size": None})
+                                                   "project": "", "transcript": "", "size": None, "wait_size": None, "read": None})
         session["project"] = str(line.get("project") or session["project"])[:100]
-        session["transcript"] = str(line.get("transcript") or session["transcript"])
+        transcript = str(line.get("transcript") or session["transcript"])
+        if transcript != session["transcript"]:
+            session.update(transcript=transcript, read=None)
+        if session["read"] is None and not live:
+            session["read"] = self._size(transcript)  # replayed history: only what is written from now on is new
         busy = session["status"] in ("working", "waiting")
         events = []
         if name == "UserPromptSubmit":
@@ -316,12 +322,8 @@ class ClaudeSource:
         self.quotas = {k: q for k, q in self.quotas.items() if q["source"] != "Claude Code usage limit" or q["resets_at"] > now}
         quota = [{**q, "stale": now > q["fresh_until"] or not isinstance(q["resets_at"], (int, float)) or q["resets_at"] <= now}
                  for q in self.quotas.values()]
-        today = datetime.fromtimestamp(now).date()
-        usage = [u for u in self.usage if datetime.fromtimestamp(u["at"]).date() == today]
         return {"running": running, "waiting": waiting, "uncertain": uncertain,
                 "activity": "waiting" if waiting else "working" if running else "unknown" if uncertain else "idle",
                 "quota": sorted(quota, key=lambda q: (q["stale"], q["remaining"])),
-                "tokens": sum(u["total"] for u in usage), "cached": sum(u["cached"] for u in usage),
-                "input": sum(u["input"] for u in usage), "output": sum(u["output"] for u in usage),
-                "usage": usage[-200:], "attention": self.attention,
+                **self.ledger.snapshot(now), "attention": self.attention,
                 "sources": [{"path": "Claude Code hooks", "status": self.error or "Listening for Claude Code"}]}

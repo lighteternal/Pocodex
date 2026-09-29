@@ -50,6 +50,35 @@ class ClaudeContracts(unittest.TestCase):
         self.source.poll(BOOT + 7)
         self.assertEqual(self.source.snapshot(BOOT + 7)["tokens"], 1160)
 
+    def test_a_busy_day_counts_every_response_and_starts_over_the_next_day(self):
+        self.hook("UserPromptSubmit", BOOT + 1)
+        for n in range(600):
+            self.assistant(f"m{n}", [{"type": "text", "text": "Step."}], {"input_tokens": 4, "output_tokens": 6})
+        self.hook("Stop", BOOT + 6)
+        self.source.poll(BOOT + 6)
+        snap = self.source.snapshot(BOOT + 6)
+        self.assertEqual((snap["tokens"], len(snap["usage"])), (6000, 200))
+        snap = self.source.snapshot(BOOT + 86400)
+        self.assertEqual((snap["tokens"], snap["usage"]), (0, []))
+        self.assertEqual((len(self.source.ledger.days), len(self.source.ledger.seen)), (0, 0))
+
+    def test_a_long_turn_keeps_its_early_responses_and_later_turns_add_only_new_ones(self):
+        self.assistant("m0", [{"type": "text", "text": "Before launch."}], {"input_tokens": 1000, "output_tokens": 1}, at="2026-09-28T09:59:00Z")
+        self.hook("UserPromptSubmit", BOOT + 1)
+        self.assistant("m1", [{"type": "tool_use", "name": "Read"}], {"input_tokens": 100, "output_tokens": 10}, stop="tool_use")
+        with self.transcript.open("a") as stream:
+            for _ in range(40):
+                stream.write(json.dumps({"type": "user", "message": {"role": "user", "content": "x" * 20000}}) + "\n")
+        self.assistant("m2", [{"type": "text", "text": "Done."}], {"input_tokens": 200, "output_tokens": 20})
+        self.hook("Stop", BOOT + 6)
+        self.source.poll(BOOT + 6)
+        self.assertEqual(self.source.snapshot(BOOT + 6)["tokens"], 330)
+        self.hook("UserPromptSubmit", BOOT + 7)
+        self.assistant("m3", [{"type": "text", "text": "Again."}], {"input_tokens": 1, "output_tokens": 2}, at="2026-09-28T10:00:08Z")
+        self.hook("Stop", BOOT + 9)
+        self.source.poll(BOOT + 9)
+        self.assertEqual(self.source.snapshot(BOOT + 9)["tokens"], 333)
+
     def test_previews_gather_the_final_message_across_entries_when_enabled(self):
         self.source.set_previews(True)
         self.hook("UserPromptSubmit", BOOT + 1)
