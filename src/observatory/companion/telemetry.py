@@ -1,5 +1,7 @@
 """Merge per-app adapters into the one snapshot every Pocodex window reads."""
 
+import sys
+import traceback
 from collections import deque
 from datetime import datetime
 
@@ -47,7 +49,13 @@ class Telemetry:
         self.extra: list[dict] = []  # Engine-born alerts: break reminders.
 
     def poll(self, now: float) -> list[dict]:
-        return [event for adapter in list(self.adapters.values()) for event in adapter.poll(now)]
+        events = []
+        for adapter in list(self.adapters.values()):
+            try:
+                events.extend(adapter.poll(now))
+            except Exception:  # One unreadable app must not stop the companion or the other app.
+                traceback.print_exc(file=sys.stderr)
+        return events
 
     def running(self, now: float) -> dict[str, bool]:
         return {app: adapter.snapshot(now)["running"] > 0 for app, adapter in self.adapters.items()}

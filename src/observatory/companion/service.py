@@ -64,25 +64,29 @@ def main() -> None:
     battle_file = args.assets / "battle.json"
     battle_data = json.loads(battle_file.read_text(encoding="utf-8")) if battle_file.exists() else None
     engine = Companion(args.data / "companion.sqlite", catalog, now, battle_data=battle_data)
-    settings = engine.state["settings"]
+
+    def setting(name: str):
+        # Read through the engine every time: a failed command rolls engine.state back to a copy.
+        return engine.state["settings"][name]
+
     adapters = {}
-    if settings["codex"]:
+    if setting("codex"):
         adapters["codex"] = Sources(roots, now)
-    if settings["claude"]:
+    if setting("claude"):
         adapters["claude"] = ClaudeSource(args.data, now)
     telemetry = Telemetry(adapters)
-    telemetry.set_previews(settings["message_previews"])
+    telemetry.set_previews(setting("message_previews"))
     found = detect(roots[0] if roots else None, claude_dir, isolated=args.claude_config is not None)
     claude_problem = {"error": None, "snippet": None}
     # An isolated run (tests, sandboxes) never starts the Trainer's real Claude Code.
     usage_cli = args.claude_cli or (None if args.claude_config is not None else claude_usage.find_cli())
-    usage = {"thread": None, "next": 0.0, "problem": None, "at": None}
+    usage = {"thread": None, "next": 0.0, "problem": None, "at": None, "stop": threading.Event()}
 
     def usage_check() -> None:
         try:
             if not usage_cli:
                 raise claude_usage.UsageCheckError("Claude Code isn't installed on Windows. Install it and sign in to use the check.")
-            limits = claude_usage.check(usage_cli, args.data / "claude-usage-check")
+            limits = claude_usage.check(usage_cli, args.data / "claude-usage-check", wait=usage["stop"].wait)
             target = args.data / "claude-limits.json"
             temporary = target.with_suffix(".tmp")
             temporary.write_text(json.dumps({"at": time.time(), "rate_limits": limits, "source": "usage_check"}), encoding="utf-8")
@@ -102,17 +106,17 @@ def main() -> None:
         return claude_settings.status(claude_dir, hook, args.data)
 
     status_cache = claude_status()
-    if settings["claude"] and hook and status_cache["readable"] and not status_cache["current"]:
+    if setting("claude") and hook and status_cache["readable"] and not status_cache["current"]:
         try:  # Pocodex moved or was updated: rewrite only its own entries.
             status_cache = claude_settings.connect(claude_dir, hook, args.data)
         except (OSError, claude_settings.SettingsUnreadable):
             pass
 
     def connections() -> dict:
-        return {"codex": {"enabled": settings["codex"], **found["codex"]},
-                "claude": {"enabled": settings["claude"], **found["claude"], **status_cache, **claude_problem,
+        return {"codex": {"enabled": setting("codex"), **found["codex"]},
+                "claude": {"enabled": setting("claude"), **found["claude"], **status_cache, **claude_problem,
                            "can_connect": bool(hook),
-                           "usage_check": {"enabled": settings["claude_usage_check"], "problem": usage["problem"], "at": usage["at"],
+                           "usage_check": {"enabled": setting("claude_usage_check"), "problem": usage["problem"], "at": usage["at"],
                                            "checking": bool(usage["thread"] and usage["thread"].is_alive())}}}
 
     def connect(app: str, enabled: bool) -> None:
@@ -129,7 +133,7 @@ def main() -> None:
                 raise ValueError("Couldn't read your Claude Code settings, so Pocodex left them unchanged. Settings > Connections shows how to connect by hand.") from error
         if enabled:
             telemetry.adapters[app] = Sources(roots, time.time()) if app == "codex" else ClaudeSource(args.data, time.time())
-            telemetry.set_previews(settings["message_previews"])
+            telemetry.set_previews(setting("message_previews"))
         else:
             telemetry.adapters.pop(app, None)
         engine.command("settings", {app: enabled})
@@ -141,17 +145,13 @@ def main() -> None:
             pass
 
     def publish_files() -> None:
-        """Small files the Claude hook and status line read: who the buddy is, and whether previews are on."""
+        """The small file the Claude status line reads: who the buddy is."""
         active = engine._active()
         buddy = ({"name": engine.catalog[active["species_id"]]["name"], "level": min(100, bisect.bisect_right(THRESHOLDS, active["xp"]))}
                  if active else {"name": "Egg", "level": None})
         if buddy != published.get("buddy"):
             write_json("buddy-status.json", buddy)
             published["buddy"] = buddy
-        flags = {"previews": bool(settings["message_previews"])}
-        if flags != published.get("hook"):
-            write_json("claude-hook.json", flags)
-            published["hook"] = flags
 
     commands: queue.Queue = queue.Queue()
 
@@ -171,19 +171,19 @@ def main() -> None:
     threading.Thread(target=read_commands, daemon=True).start()
     previous = now
     was_running: dict[str, bool] = {}
-    cached_revision = None
+    cached_key = None
     cached_profile = None
 
     def snapshot(at: float, observed: dict | None = None) -> dict:
-        nonlocal cached_revision, cached_profile
-        if cached_revision != engine.state["revision"]:
+        nonlocal cached_key, cached_profile
+        day = datetime.fromtimestamp(at).date().isoformat()
+        if cached_key != (engine.state["revision"], day):  # battles_left comes back at local midnight, unsaved
             cached_profile = engine.snapshot()
-            cached_revision = engine.state["revision"]
+            cached_key = (engine.state["revision"], day)
         result = dict(cached_profile)
         result["treats"] = engine.treats(at)
         result["telemetry"] = observed or telemetry.snapshot(at)
         result["connections"] = connections()
-        day = datetime.fromtimestamp(at).date().isoformat()
         result["today_seconds"] = result["daily"].get(day, {}).get("seconds", 0)
         result["now"] = at
         return result
@@ -213,9 +213,9 @@ def main() -> None:
             # Level-ups are reactions, not alerts: they never enter the Pokegear queue.
             events.extend(care_events + engine.drain_events())
             previous, was_running = now, running
-            if not settings["claude_usage_check"]:
+            if not setting("claude_usage_check"):
                 usage.update(next=0.0, problem=None)  # turning it on checks straight away
-            elif settings["claude"] and now >= usage["next"] and not (usage["thread"] and usage["thread"].is_alive()):
+            elif setting("claude") and now >= usage["next"] and not (usage["thread"] and usage["thread"].is_alive()):
                 usage["next"] = now + claude_usage.EVERY_SECONDS
                 usage["thread"] = threading.Thread(target=usage_check, name="claude-usage", daemon=True)
                 usage["thread"].start()
@@ -259,8 +259,8 @@ def main() -> None:
                                            "at": now, "previous_species": previous_species})
                         events.extend(engine.drain_events())
                         if action == "settings":
-                            telemetry.set_previews(settings["message_previews"])
-                            if not settings["message_previews"]:
+                            telemetry.set_previews(setting("message_previews"))
+                            if not setting("message_previews"):
                                 for event in events:
                                     event.pop("preview", None)
                                     event.pop("questions", None)
@@ -280,7 +280,10 @@ def main() -> None:
                 emitted_signature, last_emitted = signature, now
             time.sleep(0.5)
     finally:
+        usage["stop"].set()  # a running usage check removes its Claude Code session before the process exits
         engine.close()
+        if usage["thread"]:
+            usage["thread"].join(10)
 
 
 if __name__ == "__main__":

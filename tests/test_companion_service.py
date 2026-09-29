@@ -2,11 +2,14 @@
 
 import importlib.util
 import json
+import queue
 import subprocess
 import sys
+import threading
 import time
 import tempfile
 import unittest
+from datetime import date, datetime, timedelta
 from unittest.mock import patch
 from pathlib import Path
 
@@ -94,6 +97,122 @@ class ServiceContracts(unittest.TestCase):
             self.assertFalse(messages[4]["state"]["telemetry"]["apps"]["codex"]["connected"])
             self.assertEqual(json.loads((claude / "settings.json").read_text()), {"theme": "dark"})
             self.assertEqual(json.loads((root / "save" / "buddy-status.json").read_text()), {"name": "Egg", "level": None})
+
+    def test_settings_after_a_failed_command_reach_every_consumer(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "assets").mkdir()
+            (root / "assets/catalog.json").write_text(json.dumps(CATALOG), encoding="utf-8")
+            (root / "claude").mkdir()
+            hook = json.dumps([sys.executable, "-m", "observatory.companion.hook"])
+            process = subprocess.Popen([sys.executable, "-m", "observatory.companion.service", "--data", str(root / "save"),
+                                        "--assets", str(root / "assets"), "--source", str(root / "missing"),
+                                        "--claude-config", str(root / "claude"), "--hook-command", hook],
+                                       stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            lines: queue.Queue = queue.Queue()
+            threading.Thread(target=lambda: [lines.put(json.loads(line)) for line in process.stdout], daemon=True).start()
+
+            def until(test):
+                deadline = time.monotonic() + 15
+                while time.monotonic() < deadline:
+                    try:
+                        message = lines.get(timeout=0.5)
+                    except queue.Empty:
+                        continue
+                    if test(message):
+                        return message
+                self.fail("the service never sent the expected message")
+
+            def request(ident, action, args=None):
+                process.stdin.write(json.dumps({"id": ident, "action": action, "args": args or {}}) + "\n")
+                process.stdin.flush()
+                return until(lambda m: m.get("id") == ident)
+
+            try:
+                until(lambda m: m.get("type") == "state")
+                self.assertIn("Hatch", request(1, "pet")["error"])  # rolls the engine back to a copy
+                request(2, "settings", {"message_previews": False, "claude_usage_check": True})
+                self.assertFalse((root / "save/claude-hook.json").exists())  # the hook never stores question text, so it needs no flag
+                state = request(3, "connect", {"app": "claude", "enabled": True})["state"]
+                self.assertTrue(state["connections"]["claude"]["usage_check"]["enabled"])
+                # The claude and usage-check gates see the new settings: the check runs (and finds no CLI here).
+                until(lambda m: "installed" in str(m.get("state", {}).get("connections", {}).get("claude", {}).get("usage_check", {}).get("problem")))
+                transcript = root / "t.jsonl"
+                transcript.write_text(json.dumps({"type": "assistant", "timestamp": "2026-09-28T10:00:05Z", "message": {
+                    "id": "m1", "role": "assistant", "stop_reason": "end_turn", "content": [{"type": "text", "text": "SECRET answer"}],
+                    "usage": {"input_tokens": 1, "output_tokens": 1}}}) + "\n")
+                at = time.time() + 1
+                with (root / "save/claude-inbox.jsonl").open("a") as inbox:
+                    for offset, event in enumerate(("UserPromptSubmit", "Stop")):
+                        inbox.write(json.dumps({"at": at + offset, "event": event, "session": "s1", "project": "demo", "transcript": str(transcript)}) + "\n")
+                done = until(lambda m: any(e["kind"] == "completed" for e in m.get("events", [])))
+                self.assertNotIn("SECRET", json.dumps(done["events"]))
+                process.stdin.write('{"action":"quit"}\n')
+                process.stdin.flush()
+                self.assertEqual(process.wait(timeout=10), 0, process.stderr.read())
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                process.communicate()
+
+    def test_battles_come_back_at_local_midnight_without_a_save(self):
+        from observatory.companion.engine import BATTLES_PER_DAY, Companion
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "assets").mkdir()
+            (root / "assets/catalog.json").write_text(json.dumps(CATALOG), encoding="utf-8")
+            midnight = datetime.combine(date.today() + timedelta(days=1), datetime.min.time()).timestamp()
+            engine = Companion(root / "save/companion.sqlite", CATALOG, time.time())
+            engine.state["battles"] = {date.today().isoformat(): BATTLES_PER_DAY}
+            engine._save()
+            engine.close()
+            # The service's clock starts two seconds before tonight's midnight.
+            clock = f"import time; real = time.time; time.time = lambda: real() + {midnight - 2 - time.time()}; from observatory.companion import service; service.main()"
+            process = subprocess.Popen([sys.executable, "-c", clock, "--data", str(root / "save"), "--assets", str(root / "assets"), "--source", str(root / "missing")],
+                                       stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            try:
+                self.assertEqual(json.loads(process.stdout.readline())["state"]["battles_left"], 0)
+                time.sleep(2.5)
+                output, errors = process.communicate('{"id": 1, "action": "snapshot"}\n{"action": "quit"}\n', timeout=10)
+                self.assertEqual(process.returncode, 0, errors)
+                response = next(m for m in map(json.loads, output.splitlines()) if m.get("id") == 1)
+                self.assertEqual(response["state"]["battles_left"], BATTLES_PER_DAY)
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                    process.communicate()
+
+    @unittest.skipIf(sys.platform == "win32", "the stand-in CLI is a POSIX script")
+    def test_quitting_mid_usage_check_still_removes_the_background_session(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "assets").mkdir()
+            (root / "assets/catalog.json").write_text(json.dumps(CATALOG), encoding="utf-8")
+            (root / "claude").mkdir()
+            cli = root / "claude-cli"  # backgrounds a session whose screen never shows usage
+            cli.write_text(f"#!{sys.executable}\nimport json, sys\nopen('calls.jsonl', 'a').write(json.dumps(sys.argv[1:]) + '\\n')\n"
+                           "if sys.argv[1] == '--bg':\n    print('backgrounded - f00dcafe')\n")
+            cli.chmod(0o755)
+            hook = json.dumps([sys.executable, "-m", "observatory.companion.hook"])
+            process = subprocess.Popen([sys.executable, "-m", "observatory.companion.service", "--data", str(root / "save"),
+                                        "--assets", str(root / "assets"), "--source", str(root / "missing"), "--claude-config", str(root / "claude"),
+                                        "--hook-command", hook, "--claude-cli", str(cli)],
+                                       stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
+            calls = root / "save/claude-usage-check/calls.jsonl"
+            try:
+                process.stdin.write('{"id": 1, "action": "connect", "args": {"app": "claude", "enabled": true}}\n'
+                                    '{"id": 2, "action": "settings", "args": {"claude_usage_check": true}}\n')
+                process.stdin.flush()
+                deadline = time.monotonic() + 15
+                while '"logs"' not in (calls.read_text() if calls.exists() else "") and time.monotonic() < deadline:
+                    time.sleep(0.1)
+                _, errors = process.communicate('{"action": "quit"}\n', timeout=20)
+                self.assertEqual(process.returncode, 0, errors)
+                self.assertEqual([json.loads(line) for line in calls.read_text().splitlines()][-2:], [["stop", "f00dcafe"], ["rm", "f00dcafe"]])
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                    process.communicate()
 
 
 if __name__ == "__main__":

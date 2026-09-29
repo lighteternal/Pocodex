@@ -301,11 +301,13 @@ function render() {
   const focusAttribute = ['id', 'data-connect', 'data-action', 'data-page', 'data-scope', 'data-evolution', 'data-confirm-evolution', 'data-switch', 'data-dex', 'data-ack', 'data-adopt', 'data-intro'].find(key => currentFocus?.hasAttribute(key));
   const focused = focusAttribute ? `[${focusAttribute}="${CSS.escape(currentFocus.getAttribute(focusAttribute))}"]` : null;
   const selection = document.activeElement instanceof HTMLInputElement && document.activeElement.type === 'search' ? document.activeElement.selectionStart : null;
+  // A half-typed name must survive poll-driven refreshes that re-render its saved value.
+  const draft = currentFocus instanceof HTMLInputElement && currentFocus.type === 'text' && currentFocus.value !== currentFocus.defaultValue ? [currentFocus.value, currentFocus.selectionStart, currentFocus.selectionEnd] : null;
   const html = isBuddy ? renderBuddy() : isUpdates ? updatesPage() : intro.active(state) ? `<div class="home-content intro-mode">${header()}<main>${intro.render()}</main></div>` : `<div class="home-content" ${selectedEvolution ? 'inert' : ''}>${header()}<main>${({ home: homePage, dex: dexPage, usage: usagePage, settings: settingsPage, card: trainerCard.render })[page]()}</main>${navigation()}<footer><span class="status-dot"></span><span class="footer-status">${escape(activityLabel())}</span><button data-action="hide">Back to work</button><button data-action="quit" aria-label="Quit completely">Quit</button></footer></div>${evolutionDialog()}`;
   if (lastMarkup !== html) {
     lastMarkup = html;
     appRoot.innerHTML = html;
-    if (focused) { const element = appRoot.querySelector(focused); element?.focus({ preventScroll: true }); if (selection !== null && element) element.setSelectionRange(selection, selection); }
+    if (focused) { const element = appRoot.querySelector(focused); element?.focus({ preventScroll: true }); if (selection !== null && element) element.setSelectionRange(selection, selection); if (draft && element instanceof HTMLInputElement && element.type === 'text') { element.value = draft[0]; element.setSelectionRange(draft[1], draft[2]); } }
   }
   actionMotion.sync(document.querySelector('[data-sprite-motion]'), state.active?.species, state.telemetry.activity, reactionKind, state.settings.reduced_motion, previousForm, reactionStarted);
   paintStillSprites();

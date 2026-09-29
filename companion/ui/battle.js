@@ -81,7 +81,8 @@ const battleScene = (() => {
 
   // Sprites -------------------------------------------------------------------------------------
   async function image(file) {
-    if (!sheets.has(file)) sheets.set(file, fetch(`pocodex://app/assets/${file}`).then(r => { if (!r.ok) throw new Error(file); return r.blob(); }).then(createImageBitmap));
+    if (!sheets.has(file)) sheets.set(file, fetch(`pocodex://app/assets/${file}`).then(r => { if (!r.ok) throw new Error(file); return r.blob(); }).then(createImageBitmap)
+      .catch(failure => { sheets.delete(file); throw failure; }));
     return sheets.get(file);
   }
   function measure(bitmap, sheet, row) {
@@ -435,8 +436,16 @@ const battleScene = (() => {
     canvas.style.width = `${width}px`; canvas.style.height = `${Math.round(width * 2 / 3)}px`;
     canvas.width = Math.round(width * dpr); canvas.height = Math.round(width * 2 / 3 * dpr);
     ctx = canvas.getContext('2d'); ctx.imageSmoothingEnabled = false;
-    pack ||= await (await fetch('pocodex://app/assets/actions.json')).json();
-    sides = { wild: await load(fight.wild, 'wild'), ally: await load(fight.ally, 'ally') };
+    try {
+      pack ||= await (await fetch('pocodex://app/assets/actions.json')).json();
+      sides = { wild: await load(fight.wild, 'wild'), ally: await load(fight.ally, 'ally') };
+    } catch (failure) {
+      // Stay open until the sidecar drops the battle, so a refresh meanwhile cannot restart it; then Home is usable again.
+      await command('battle_close');
+      stop();
+      error(`The wild battle could not load (${failure.message}). Try again from Home.`);
+      return;
+    }
     renderBox(sides.wild); renderBox(sides.ally); renderExp();
     host.addEventListener('click', onClick);
     host.addEventListener('keydown', onKey);
@@ -477,7 +486,7 @@ const battleScene = (() => {
   }
   // Called on every state update from app.js.
   function sync() {
-    if (state.battle && !open) start(state.battle);
+    if (state.battle && !open) start(state.battle).catch(failure => error(failure.message));
     else if (!state.battle && open) stop();
   }
   return { sync, isOpen: () => open, isPlaying: () => playing };

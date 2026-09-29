@@ -1,13 +1,14 @@
 """Claude Code hook and status-line entry point.
 
 Claude Code runs this on every registered hook, so it imports only the standard library, writes
-one line and exits. It never stores the prompt, and keeps question text only when message
-previews are on. Failures are swallowed: a missed line costs one reaction, never a Claude turn.
+one line and exits. It never stores the prompt or a question's text: with message previews on, Pocodex
+reads questions from the transcript, in memory. Failures are swallowed: a missed line costs one reaction,
+never a Claude turn.
 """
 
 import json
+import math
 import os
-import re
 import shutil
 import subprocess
 import sys
@@ -15,7 +16,6 @@ import time
 from pathlib import Path
 
 EVENTS = {"UserPromptSubmit", "Stop", "StopFailure", "SessionEnd", "Notification", "PreToolUse", "PostToolUse"}
-CONTROL = re.compile(r"[\x00-\x08\x0b-\x1f\x7f\u202a-\u202e\u2066-\u2069]")
 
 
 def default_profile() -> Path:
@@ -26,11 +26,6 @@ def _profile(argv: list[str]) -> Path:
     return Path(argv[argv.index("--profile") + 1]) if "--profile" in argv[:-1] else default_profile()
 
 
-def _clip(value: object, limit: int) -> str:
-    text = CONTROL.sub("", value[:4096]).strip() if isinstance(value, str) else ""
-    return text[:limit - 1] + "…" if len(text) > limit else text
-
-
 def _read_json(path: Path) -> dict:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -39,14 +34,7 @@ def _read_json(path: Path) -> dict:
         return {}
 
 
-def _questions(tool_input: object) -> list[dict]:
-    values = tool_input.get("questions", []) if isinstance(tool_input, dict) else []
-    return [{"text": _clip(q.get("question"), 300),
-             "options": [_clip(o.get("label") if isinstance(o, dict) else o, 100) for o in q.get("options", [])[:5]]}
-            for q in (values[:3] if isinstance(values, list) else []) if isinstance(q, dict) and isinstance(q.get("options", []), list)]
-
-
-def event_line(payload: dict, profile: Path, now: float) -> dict | None:
+def event_line(payload: dict, now: float) -> dict | None:
     name = payload.get("hook_event_name")
     if name not in EVENTS:
         return None
@@ -59,15 +47,18 @@ def event_line(payload: dict, profile: Path, now: float) -> dict | None:
         line["reason"] = str(payload.get("reason", ""))[:40]
     if name in ("PreToolUse", "PostToolUse"):
         line["tool"] = str(payload.get("tool_name", ""))[:60]
-        if name == "PreToolUse" and line["tool"] == "AskUserQuestion" and _read_json(profile / "claude-hook.json").get("previews"):
-            line["questions"] = _questions(payload.get("tool_input"))
+        if name == "PreToolUse" and line["tool"] == "AskUserQuestion":
+            line["tool_use"] = str(payload.get("tool_use_id", ""))[:100]
     return line
 
 
 def _write_atomic(path: Path, value: dict) -> None:
-    temporary = path.with_name(path.name + ".tmp")
-    temporary.write_text(json.dumps(value), encoding="utf-8")
-    os.replace(temporary, path)
+    temporary = path.with_name(f"{path.name}.{os.getpid()}.tmp")  # one per writer: sessions refresh at once
+    try:
+        temporary.write_text(json.dumps(value), encoding="utf-8")
+        os.replace(temporary, path)
+    except OSError:
+        temporary.unlink(missing_ok=True)  # another writer or reader holds the file; the next refresh writes again
 
 
 def git_bash() -> str | None:
@@ -103,7 +94,7 @@ def status_line(profile: Path, raw: str) -> str:
         parts.append(f"{buddy['name']} Lv. {buddy['level']}" if buddy.get("level") else str(buddy["name"]))
     five = limits.get("five_hour") if isinstance(limits, dict) else None
     used = five.get("used_percentage") if isinstance(five, dict) else None
-    if isinstance(used, (int, float)) and not isinstance(used, bool):
+    if isinstance(used, (int, float)) and not isinstance(used, bool) and math.isfinite(used):
         parts.append(f"5h {max(0, round(100 - used))}% left")
     return " · ".join(parts) + "\n"
 
@@ -128,7 +119,7 @@ def main(argv: list[str] | None = None, stdin=None, stdout=None) -> int:
         profile.mkdir(parents=True, exist_ok=True)
         if mode == "claude-event":
             payload = json.loads(raw)
-            line = event_line(payload, profile, time.time()) if isinstance(payload, dict) else None
+            line = event_line(payload, time.time()) if isinstance(payload, dict) else None
             if line:
                 with (profile / "claude-inbox.jsonl").open("a", encoding="utf-8") as inbox:
                     inbox.write(json.dumps(line, ensure_ascii=True) + "\n")

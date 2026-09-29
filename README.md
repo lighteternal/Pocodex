@@ -64,7 +64,7 @@ Claude Code sessions that run inside WSL, including desktop-app sessions in a WS
 
 Pocodex only edits Claude Code's settings after you tick Claude Code. Every entry it adds carries the argument `--pocodex`, so unticking it in Settings, or uninstalling Pocodex, removes exactly those entries and puts back your own status line if you had one. It keeps a one-time copy as `settings.json.pocodex-backup`. If the file isn't plain JSON, Pocodex leaves it alone and shows the snippet to paste by hand.
 
-The hooks run asynchronously, so Claude Code never waits for Pocodex. They record which event happened, the session, the project folder name and the transcript path, plus the text of a question Claude asks you when message previews are on. They never store your prompt.
+The hooks run asynchronously, so Claude Code never waits for Pocodex. They record which event happened, the session, the project folder name and the transcript path. They never store your prompt or the questions Claude asks you: with message previews on, Pocodex reads a question from the session's transcript, like an answer.
 
 ## Growing and reacting
 
