@@ -129,6 +129,18 @@ class ClaudeContracts(unittest.TestCase):
         self.assertEqual(quota, {"5h": 9, "weekly": 60})
         self.assertEqual(self.source.poll(BOOT + 3), [])
 
+    def test_non_finite_limits_are_unknown_not_a_crash(self):
+        # json.loads accepts NaN and turns 1e309 into infinity; the service must neither crash nor send them on.
+        (self.profile / "claude-limits.json").write_text('{"at": 1790589601, "rate_limits": {"five_hour": {"used_percentage": NaN, '
+                                                         '"resets_at": 1790593200}, "seven_day": {"used_percentage": 40, "resets_at": 1e309}}}')
+        self.assertEqual(self.source.poll(BOOT + 2), [])
+        quota = self.source.snapshot(BOOT + 2)["quota"]
+        self.assertEqual([(q["label"], q["remaining"], q["resets_at"], q["stale"]) for q in quota], [("weekly", 60, None, True)])
+        json.dumps(quota, allow_nan=False)
+        (self.profile / "claude-limits.json").write_text('{"at": Infinity, "rate_limits": {"five_hour": {"used_percentage": -1e309}}}')
+        self.source.limits_seen = None
+        self.assertEqual(self.source.poll(BOOT + 3), [])
+
     def test_usage_check_readings_stay_fresh_between_checks(self):
         limits = {"five_hour": {"used_percentage": 43, "resets_at": BOOT + 4000}, "seven_day": {"used_percentage": 57, "resets_at": BOOT + 86400}}
         (self.profile / "claude-limits.json").write_text(json.dumps({"at": BOOT, "rate_limits": limits, "source": "usage_check"}))

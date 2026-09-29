@@ -1,7 +1,9 @@
 """Merging apps into one snapshot, and finding them on this PC."""
 
+import io
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
 
 from observatory.companion.detect import detect
@@ -62,6 +64,15 @@ class TelemetryContracts(unittest.TestCase):
         telemetry.add_attention([{"id": "x", "kind": "break_reminder", "at": 1, "preview": "private"}])
         telemetry.set_previews(False)
         self.assertNotIn("preview", telemetry.snapshot(10)["attention"][0])
+
+    def test_one_failing_app_does_not_stop_the_others(self):
+        broken, codex = Fake("claude"), Fake("codex")
+        broken.poll = lambda now: 1 / 0
+        codex.poll = lambda now: [{"id": "a", "kind": "completed"}]
+        with redirect_stderr(io.StringIO()) as errors:
+            events = Telemetry({"claude": broken, "codex": codex}).poll(10)
+        self.assertEqual([e["id"] for e in events], ["a"])
+        self.assertIn("ZeroDivisionError", errors.getvalue())
 
 
 class DetectContracts(unittest.TestCase):
