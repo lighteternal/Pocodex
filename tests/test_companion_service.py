@@ -182,6 +182,38 @@ class ServiceContracts(unittest.TestCase):
                     process.kill()
                     process.communicate()
 
+    @unittest.skipIf(sys.platform == "win32", "the stand-in CLI is a POSIX script")
+    def test_quitting_mid_usage_check_still_removes_the_background_session(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "assets").mkdir()
+            (root / "assets/catalog.json").write_text(json.dumps(CATALOG), encoding="utf-8")
+            (root / "claude").mkdir()
+            cli = root / "claude-cli"  # backgrounds a session whose screen never shows usage
+            cli.write_text(f"#!{sys.executable}\nimport json, sys\nopen('calls.jsonl', 'a').write(json.dumps(sys.argv[1:]) + '\\n')\n"
+                           "if sys.argv[1] == '--bg':\n    print('backgrounded - f00dcafe')\n")
+            cli.chmod(0o755)
+            hook = json.dumps([sys.executable, "-m", "observatory.companion.hook"])
+            process = subprocess.Popen([sys.executable, "-m", "observatory.companion.service", "--data", str(root / "save"),
+                                        "--assets", str(root / "assets"), "--source", str(root / "missing"), "--claude-config", str(root / "claude"),
+                                        "--hook-command", hook, "--claude-cli", str(cli)],
+                                       stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
+            calls = root / "save/claude-usage-check/calls.jsonl"
+            try:
+                process.stdin.write('{"id": 1, "action": "connect", "args": {"app": "claude", "enabled": true}}\n'
+                                    '{"id": 2, "action": "settings", "args": {"claude_usage_check": true}}\n')
+                process.stdin.flush()
+                deadline = time.monotonic() + 15
+                while '"logs"' not in (calls.read_text() if calls.exists() else "") and time.monotonic() < deadline:
+                    time.sleep(0.1)
+                _, errors = process.communicate('{"action": "quit"}\n', timeout=20)
+                self.assertEqual(process.returncode, 0, errors)
+                self.assertEqual([json.loads(line) for line in calls.read_text().splitlines()][-2:], [["stop", "f00dcafe"], ["rm", "f00dcafe"]])
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                    process.communicate()
+
 
 if __name__ == "__main__":
     unittest.main()

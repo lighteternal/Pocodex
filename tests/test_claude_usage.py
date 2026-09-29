@@ -1,9 +1,11 @@
 """Claude Code's /usage screen read in a background session, without spending a token."""
 
+import io
 import json
 import subprocess
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
@@ -55,15 +57,17 @@ class Check(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
-    def runner(self, screens, start="Starting background service…\nbackgrounded · b902db38\n"):
+    def runner(self, screens, start="Starting background service…\nbackgrounded · b902db38\n", cleanup=0):
         screens = list(screens)
         def run(command, **options):
             self.calls.append((command[1:], options))
             if command[1] == "--bg":
-                return SimpleNamespace(stdout=start, stderr="")
+                if isinstance(start, Exception):
+                    raise start
+                return SimpleNamespace(stdout=start, stderr="", returncode=0)
             if command[1] == "logs":
-                return SimpleNamespace(stdout=screens.pop(0) if len(screens) > 1 else screens[0], stderr="")
-            return SimpleNamespace(stdout="", stderr="")
+                return SimpleNamespace(stdout=screens.pop(0) if len(screens) > 1 else screens[0], stderr="", returncode=0)
+            return SimpleNamespace(stdout="", stderr="", returncode=cleanup)
         return run
 
     def test_reads_the_screen_then_stops_and_removes_the_session(self):
@@ -93,6 +97,28 @@ class Check(unittest.TestCase):
         with self.assertRaisesRegex(claude_usage.UsageCheckError, "didn't start"):
             claude_usage.check("claude", self.workdir, NOW, run=self.runner([SCREEN], start="error: unknown option"), wait=lambda _: None)
         self.assertEqual(len(self.calls), 1)
+
+    def test_closing_pocodex_stops_waiting_and_still_cleans_up(self):
+        with self.assertRaisesRegex(claude_usage.UsageCheckError, "closed"):
+            claude_usage.check("claude", self.workdir, NOW, run=self.runner(["❯ "]), wait=lambda _: True)
+        self.assertEqual([arguments for arguments, _ in self.calls][1:], [["logs", "b902db38"], ["stop", "b902db38"], ["rm", "b902db38"]])
+
+    def test_a_start_that_times_out_after_backgrounding_is_still_followed_and_removed(self):
+        hung = subprocess.TimeoutExpired(["claude"], 30, output=b"backgrounded \xc2\xb7 b902db38\n")
+        limits = claude_usage.check("claude", self.workdir, NOW, run=self.runner([SCREEN], start=hung), wait=lambda _: None)
+        self.assertEqual(limits["five_hour"]["used_percentage"], 42.0)
+        self.assertEqual([arguments for arguments, _ in self.calls][-2:], [["stop", "b902db38"], ["rm", "b902db38"]])
+
+    def test_a_session_without_a_readable_id_is_reported(self):
+        for start in (subprocess.TimeoutExpired(["claude"], 30), "backgrounded session\n"):
+            with self.assertRaisesRegex(claude_usage.UsageCheckError, "may be left running"):
+                claude_usage.check("claude", self.workdir, NOW, run=self.runner([SCREEN], start=start), wait=lambda _: None)
+
+    def test_failed_cleanup_is_a_diagnostic_not_a_failed_check(self):
+        with redirect_stderr(io.StringIO()) as errors:
+            limits = claude_usage.check("claude", self.workdir, NOW, run=self.runner([SCREEN], cleanup=1), wait=lambda _: None)
+        self.assertEqual(limits["five_hour"]["used_percentage"], 42.0)
+        self.assertIn("claude rm b902db38 failed (1)", errors.getvalue())
 
     def test_a_missing_cli_is_an_error(self):
         def run(command, **options):

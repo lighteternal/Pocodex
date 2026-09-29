@@ -80,13 +80,13 @@ def main() -> None:
     claude_problem = {"error": None, "snippet": None}
     # An isolated run (tests, sandboxes) never starts the Trainer's real Claude Code.
     usage_cli = args.claude_cli or (None if args.claude_config is not None else claude_usage.find_cli())
-    usage = {"thread": None, "next": 0.0, "problem": None, "at": None}
+    usage = {"thread": None, "next": 0.0, "problem": None, "at": None, "stop": threading.Event()}
 
     def usage_check() -> None:
         try:
             if not usage_cli:
                 raise claude_usage.UsageCheckError("Claude Code isn't installed on Windows. Install it and sign in to use the check.")
-            limits = claude_usage.check(usage_cli, args.data / "claude-usage-check")
+            limits = claude_usage.check(usage_cli, args.data / "claude-usage-check", wait=usage["stop"].wait)
             target = args.data / "claude-limits.json"
             temporary = target.with_suffix(".tmp")
             temporary.write_text(json.dumps({"at": time.time(), "rate_limits": limits, "source": "usage_check"}), encoding="utf-8")
@@ -284,7 +284,10 @@ def main() -> None:
                 emitted_signature, last_emitted = signature, now
             time.sleep(0.5)
     finally:
+        usage["stop"].set()  # a running usage check removes its Claude Code session before the process exits
         engine.close()
+        if usage["thread"]:
+            usage["thread"].join(10)
 
 
 if __name__ == "__main__":
