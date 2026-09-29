@@ -2,8 +2,10 @@
 
 import importlib.util
 import json
+import queue
 import subprocess
 import sys
+import threading
 import time
 import tempfile
 import unittest
@@ -94,6 +96,63 @@ class ServiceContracts(unittest.TestCase):
             self.assertFalse(messages[4]["state"]["telemetry"]["apps"]["codex"]["connected"])
             self.assertEqual(json.loads((claude / "settings.json").read_text()), {"theme": "dark"})
             self.assertEqual(json.loads((root / "save" / "buddy-status.json").read_text()), {"name": "Egg", "level": None})
+
+    def test_settings_after_a_failed_command_reach_every_consumer(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "assets").mkdir()
+            (root / "assets/catalog.json").write_text(json.dumps(CATALOG), encoding="utf-8")
+            (root / "claude").mkdir()
+            hook = json.dumps([sys.executable, "-m", "observatory.companion.hook"])
+            process = subprocess.Popen([sys.executable, "-m", "observatory.companion.service", "--data", str(root / "save"),
+                                        "--assets", str(root / "assets"), "--source", str(root / "missing"),
+                                        "--claude-config", str(root / "claude"), "--hook-command", hook],
+                                       stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            lines: queue.Queue = queue.Queue()
+            threading.Thread(target=lambda: [lines.put(json.loads(line)) for line in process.stdout], daemon=True).start()
+
+            def until(test):
+                deadline = time.monotonic() + 15
+                while time.monotonic() < deadline:
+                    try:
+                        message = lines.get(timeout=0.5)
+                    except queue.Empty:
+                        continue
+                    if test(message):
+                        return message
+                self.fail("the service never sent the expected message")
+
+            def request(ident, action, args=None):
+                process.stdin.write(json.dumps({"id": ident, "action": action, "args": args or {}}) + "\n")
+                process.stdin.flush()
+                return until(lambda m: m.get("id") == ident)
+
+            try:
+                until(lambda m: m.get("type") == "state")
+                self.assertIn("Hatch", request(1, "pet")["error"])  # rolls the engine back to a copy
+                request(2, "settings", {"message_previews": False, "claude_usage_check": True})
+                self.assertEqual(json.loads((root / "save/claude-hook.json").read_text()), {"previews": False})
+                state = request(3, "connect", {"app": "claude", "enabled": True})["state"]
+                self.assertTrue(state["connections"]["claude"]["usage_check"]["enabled"])
+                # The claude and usage-check gates see the new settings: the check runs (and finds no CLI here).
+                until(lambda m: "installed" in str(m.get("state", {}).get("connections", {}).get("claude", {}).get("usage_check", {}).get("problem")))
+                transcript = root / "t.jsonl"
+                transcript.write_text(json.dumps({"type": "assistant", "timestamp": "2026-09-28T10:00:05Z", "message": {
+                    "id": "m1", "role": "assistant", "stop_reason": "end_turn", "content": [{"type": "text", "text": "SECRET answer"}],
+                    "usage": {"input_tokens": 1, "output_tokens": 1}}}) + "\n")
+                at = time.time() + 1
+                with (root / "save/claude-inbox.jsonl").open("a") as inbox:
+                    for offset, event in enumerate(("UserPromptSubmit", "Stop")):
+                        inbox.write(json.dumps({"at": at + offset, "event": event, "session": "s1", "project": "demo", "transcript": str(transcript)}) + "\n")
+                done = until(lambda m: any(e["kind"] == "completed" for e in m.get("events", [])))
+                self.assertNotIn("SECRET", json.dumps(done["events"]))
+                process.stdin.write('{"action":"quit"}\n')
+                process.stdin.flush()
+                self.assertEqual(process.wait(timeout=10), 0, process.stderr.read())
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                process.communicate()
 
 
 if __name__ == "__main__":
