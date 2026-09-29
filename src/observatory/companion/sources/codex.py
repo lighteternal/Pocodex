@@ -9,10 +9,12 @@ from pathlib import Path
 
 from observatory.companion.metadata import counter_values, local_project
 from observatory.companion.previews import answered_questions, excerpt, question_previews, questions, user_text
+from observatory.companion.telemetry import Ledger
 
 
 MAX_LINE = 8 * 1024 * 1024
 STALE_SECONDS = 120
+IDLE_SECONDS = 86400
 WINDOW_LABELS = {300: "5h", 10080: "weekly"}
 
 
@@ -32,13 +34,13 @@ class Sources:
         self.roots = roots
         self.boot = now
         self.paths: dict[Path, dict] = {}
+        self.parked: dict[Path, dict] = {}  # logs quiet for a day, only re-checked by the inventory
         self.observed_sizes: dict[Path, int] = {}
         self.turns: dict[str, dict] = {}
         self.quotas: dict[str, dict] = {}
         self.warnings: set[tuple] = set()
-        self.responses: set[str] = set()
         self.finished: deque[tuple] = deque(maxlen=512)
-        self.usage: list[dict] = []
+        self.ledger = Ledger()
         self.attention: list[dict] = []
         self.previews = False
         self.pending_questions: dict[tuple, set[int]] = {}
@@ -62,8 +64,11 @@ class Sources:
                     self.observed_sizes[path] = stat.st_size
                     # Windows can defer mtime changes while Codex holds its log open.
                     grew = previous_size is not None and stat.st_size != previous_size
-                    if path not in self.paths and (stat.st_mtime >= self.boot - 86400 or grew):
-                        self.paths[path] = {"offset": 0, "thread": None, "turn": "unknown", "project": "", "source": label}
+                    if path in self.parked:
+                        if grew:
+                            self.paths[path] = {**self.parked.pop(path), "changed": now}
+                    elif path not in self.paths and (stat.st_mtime >= self.boot - 86400 or grew):
+                        self.paths[path] = {"offset": 0, "thread": None, "turn": "unknown", "project": "", "source": label, "changed": now}
             except OSError:
                 self.errors[label] = "Cannot enumerate this source"
         self.last_inventory = now
@@ -84,7 +89,11 @@ class Sources:
                     ctx.update(offset=0, thread=None, turn="unknown", project="", source=source)
                 ctx["identity"] = identity
                 if size == ctx["offset"]:
+                    turn = self.turns.get(ctx["source"] + ":" + str(ctx["thread"]))
+                    if now - ctx.get("changed", now) > IDLE_SECONDS and not (turn and turn["status"] in {"working", "waiting"}):
+                        self.parked[path] = self.paths.pop(path)
                     continue
+                ctx["changed"] = now
                 with path.open("rb") as stream:
                     stream.seek(ctx["offset"])
                     budget = 12 * 1024 * 1024
@@ -232,10 +241,9 @@ class Sources:
         if kind == "token_usage_record":
             response = payload.get("response_id")
             values = counter_values(payload.get("usage", {}))
-            if response and values and payload.get("thread_id") == thread and response not in self.responses:
-                self.responses.add(response)
-                self.usage.append({"at": at, "thread": thread, "project": ctx["project"], "model": ctx.get("model", "unknown"),
-                                   "input": values[0], "cached": values[1], "output": values[3], "reasoning": values[4], "total": values[0] + values[3]})
+            if response and values and payload.get("thread_id") == thread:
+                self.ledger.add(response, {"at": at, "thread": thread, "project": ctx["project"], "model": ctx.get("model", "unknown"),
+                                           "input": values[0], "cached": values[1], "output": values[3], "reasoning": values[4], "total": values[0] + values[3]})
         events = [event] if event else []
         if kind == "event_msg" and name == "token_count" and isinstance(payload.get("rate_limits"), dict):
             limits = payload["rate_limits"]
@@ -285,13 +293,10 @@ class Sources:
         waiting = sum(t["status"] == "waiting" for t in self.turns.values())
         uncertain = sum(t["status"] == "working" and now - t["last_seen"] > STALE_SECONDS for t in self.turns.values())
         quota = [{**q, "stale": now - q["at"] > STALE_SECONDS or not isinstance(q["resets_at"], (float, int)) or q["resets_at"] <= now} for q in self.quotas.values()]
-        usage = [u for u in self.usage if datetime.fromtimestamp(u["at"]).date() == datetime.fromtimestamp(now).date()]
         return {"running": running, "waiting": waiting, "uncertain": uncertain,
                 "activity": "waiting" if waiting else "working" if running else "unknown" if uncertain or errors else "idle",
                 "quota": sorted(quota, key=lambda q: (q["stale"], q["remaining"])),
-                "tokens": sum(u["total"] for u in usage), "cached": sum(u["cached"] for u in usage),
-                "input": sum(u["input"] for u in usage), "output": sum(u["output"] for u in usage),
-                "usage": usage[-200:], "attention": self.attention,
+                **self.ledger.snapshot(now), "attention": self.attention,
                 "sources": [{"path": str(root), "status": errors.get(str(root), "Reading local metadata")} for root in self.roots],
                 "coverage": "Since companion launch; local records only",
                 "capabilities": {"completion": True, "input_requests": True, "native_approvals": False,
