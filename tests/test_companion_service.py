@@ -9,6 +9,7 @@ import threading
 import time
 import tempfile
 import unittest
+from datetime import date, datetime, timedelta
 from unittest.mock import patch
 from pathlib import Path
 
@@ -153,6 +154,33 @@ class ServiceContracts(unittest.TestCase):
                 if process.poll() is None:
                     process.kill()
                 process.communicate()
+
+    def test_battles_come_back_at_local_midnight_without_a_save(self):
+        from observatory.companion.engine import BATTLES_PER_DAY, Companion
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "assets").mkdir()
+            (root / "assets/catalog.json").write_text(json.dumps(CATALOG), encoding="utf-8")
+            midnight = datetime.combine(date.today() + timedelta(days=1), datetime.min.time()).timestamp()
+            engine = Companion(root / "save/companion.sqlite", CATALOG, time.time())
+            engine.state["battles"] = {date.today().isoformat(): BATTLES_PER_DAY}
+            engine._save()
+            engine.close()
+            # The service's clock starts two seconds before tonight's midnight.
+            clock = f"import time; real = time.time; time.time = lambda: real() + {midnight - 2 - time.time()}; from observatory.companion import service; service.main()"
+            process = subprocess.Popen([sys.executable, "-c", clock, "--data", str(root / "save"), "--assets", str(root / "assets"), "--source", str(root / "missing")],
+                                       stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            try:
+                self.assertEqual(json.loads(process.stdout.readline())["state"]["battles_left"], 0)
+                time.sleep(2.5)
+                output, errors = process.communicate('{"id": 1, "action": "snapshot"}\n{"action": "quit"}\n', timeout=10)
+                self.assertEqual(process.returncode, 0, errors)
+                response = next(m for m in map(json.loads, output.splitlines()) if m.get("id") == 1)
+                self.assertEqual(response["state"]["battles_left"], BATTLES_PER_DAY)
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                    process.communicate()
 
 
 if __name__ == "__main__":

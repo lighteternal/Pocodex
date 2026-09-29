@@ -175,19 +175,19 @@ def main() -> None:
     threading.Thread(target=read_commands, daemon=True).start()
     previous = now
     was_running: dict[str, bool] = {}
-    cached_revision = None
+    cached_key = None
     cached_profile = None
 
     def snapshot(at: float, observed: dict | None = None) -> dict:
-        nonlocal cached_revision, cached_profile
-        if cached_revision != engine.state["revision"]:
+        nonlocal cached_key, cached_profile
+        day = datetime.fromtimestamp(at).date().isoformat()
+        if cached_key != (engine.state["revision"], day):  # battles_left comes back at local midnight, unsaved
             cached_profile = engine.snapshot()
-            cached_revision = engine.state["revision"]
+            cached_key = (engine.state["revision"], day)
         result = dict(cached_profile)
         result["treats"] = engine.treats(at)
         result["telemetry"] = observed or telemetry.snapshot(at)
         result["connections"] = connections()
-        day = datetime.fromtimestamp(at).date().isoformat()
         result["today_seconds"] = result["daily"].get(day, {}).get("seconds", 0)
         result["now"] = at
         return result
