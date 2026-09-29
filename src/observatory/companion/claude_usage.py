@@ -14,6 +14,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -97,8 +98,14 @@ def _problem(screen: str) -> str | None:
     return None
 
 
+def _text(value) -> str:
+    return value.decode("utf-8", "replace") if isinstance(value, bytes) else value or ""
+
+
 def check(cli: str, workdir: Path, now: float | None = None, run=subprocess.run, wait=time.sleep, patience: float = 20) -> dict:
-    """Run /usage in a background Claude Code session and return its windows; always removes the session."""
+    """Run /usage in a background Claude Code session and return its windows; always removes the session.
+
+    A wait that returns true (threading.Event.wait once set) means Pocodex is closing: stop and clean up now."""
     workdir.mkdir(parents=True, exist_ok=True)
     # Settings as a file, not inline JSON: no quotes for Windows to mangle on the way to Claude Code.
     guard = workdir / "check-settings.json"
@@ -112,12 +119,16 @@ def check(cli: str, workdir: Path, now: float | None = None, run=subprocess.run,
     call = lambda *arguments: run([cli, *arguments], **options)
     try:
         started = call("--bg", "--model", MODEL_GUARD, "--settings", str(guard), "/usage")
+    except subprocess.TimeoutExpired as error:  # it may have backgrounded the session, and said so, before hanging
+        started = error
     except (OSError, subprocess.SubprocessError) as error:
         raise UsageCheckError("Couldn't start Claude Code for the usage check.") from error
-    output = ANSI.sub("", (started.stdout or "") + (started.stderr or ""))
+    output = ANSI.sub("", _text(started.stdout) + _text(started.stderr))
     ident = re.search(r"backgrounded\s*\S\s*([0-9a-f]{6,})", output)
     if not ident:
-        raise UsageCheckError(_problem(output) or "Claude Code didn't start a background session for the usage check.")
+        unsure = isinstance(started, subprocess.TimeoutExpired) or "backgrounded" in output
+        raise UsageCheckError(_problem(output) or ("Claude Code didn't say which background session the usage check started, so one may be left running."
+                                                   if unsure else "Claude Code didn't start a background session for the usage check."))
     ident = ident[1]
     deadline = time.monotonic() + patience
     try:
@@ -134,10 +145,13 @@ def check(cli: str, workdir: Path, now: float | None = None, run=subprocess.run,
                 raise UsageCheckError(problem)
             if time.monotonic() >= deadline:
                 raise UsageCheckError("Claude Code's usage screen didn't show plan usage. A newer Claude Code may have changed it.")
-            wait(1.5)
+            if wait(1.5):
+                raise UsageCheckError("Pocodex closed before the usage check finished.")
     finally:
         for step in ("stop", "rm"):
             try:
-                call(step, ident)
-            except (OSError, subprocess.SubprocessError):
-                pass
+                code = call(step, ident).returncode
+            except (OSError, subprocess.SubprocessError) as error:
+                code = type(error).__name__
+            if code:
+                print(f"Claude usage check: claude {step} {ident} failed ({code}); that background session may be left", file=sys.stderr)

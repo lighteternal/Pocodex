@@ -1,20 +1,24 @@
 """Add and remove Pocodex's Claude Code hooks and status line.
 
 Every entry Pocodex writes carries the argument `--pocodex`; nothing without it is ever changed.
-Connecting keeps a one-time backup, writes atomically and records the user's own status line so
-disconnecting (from Settings or the uninstaller) restores the file exactly.
+Connecting keeps a one-time backup, writes atomically and records the user's own status line first,
+so disconnecting (from Settings or the uninstaller) puts it back. When nothing else changed meanwhile,
+disconnecting restores the backup's exact bytes; otherwise it rewrites the file without Pocodex's entries.
 """
 
 import ctypes
 import json
 import os
+import re
 import shutil
+import tempfile
 from pathlib import Path
 
 MARK = "--pocodex"
 HOOKS = (("UserPromptSubmit", None), ("Stop", None), ("StopFailure", None), ("SessionEnd", None),
          ("Notification", "permission_prompt|elicitation_dialog|agent_needs_input"),
          ("PreToolUse", "AskUserQuestion"), ("PostToolUse", "AskUserQuestion"))
+SHELL_SAFE = re.compile(r"[\w.:/\\~-]+")
 
 
 class SettingsUnreadable(ValueError):
@@ -53,11 +57,20 @@ def _load(path: Path) -> dict:
     return value
 
 
-def _write(path: Path, data: dict) -> None:
+def _replace(path: Path, content: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_name(path.name + ".pocodex-tmp")
-    temporary.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    os.replace(temporary, path)
+    handle, temporary = tempfile.mkstemp(dir=path.parent, prefix=path.name + ".", suffix=".pocodex-tmp")
+    try:
+        with os.fdopen(handle, "wb") as file:
+            file.write(content)
+        os.replace(temporary, path)
+    except BaseException:
+        Path(temporary).unlink(missing_ok=True)
+        raise
+
+
+def _write(path: Path, data: dict) -> None:
+    _replace(path, (json.dumps(data, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
 
 
 def _ours(entry: object) -> bool:
@@ -89,8 +102,8 @@ def status_command(command: list[str], profile: Path) -> str | None:
     exe, *prefix = command
     extra = _profile_args(profile)
     parts = [_short(exe), *prefix, "claude-statusline", *(["--profile", _short(extra[1])] if extra else []), MARK]
-    if any(" " in part or '"' in part or "'" in part for part in parts):
-        return None
+    if not all(SHELL_SAFE.fullmatch(part) for part in parts):
+        return None  # Spaces or shell metacharacters: skip the status line rather than break it.
     return " ".join(part.replace("\\", "/") for part in parts)
 
 
@@ -138,6 +151,15 @@ def _strip(data: dict, original_status: dict | None) -> dict:
     return result
 
 
+def _our_hooks(data: dict) -> list:
+    return [h for groups in data.get("hooks", {}).values() for g in groups if isinstance(g, dict)
+            for h in (g.get("hooks") if isinstance(g.get("hooks"), list) else []) if _ours(h)]
+
+
+def _marked(data: dict) -> bool:
+    return bool(_our_hooks(data)) or _ours(data.get("statusLine"))
+
+
 def _apply(data: dict, command: list[str], profile: Path, saved: dict) -> dict:
     existing = data.get("statusLine")
     if isinstance(existing, dict) and not _ours(existing):
@@ -164,20 +186,41 @@ def connect(config: Path, command: list[str], profile: Path) -> dict:
         updated = _apply(before, command, profile, saved)
         if _load(path) != before:
             continue  # Claude Code rewrote the file meanwhile; start again from its version.
+        _write(_connection_file(profile), {**saved, "config": str(config), "connected": True})
         _write(path, updated)
-        profile.mkdir(parents=True, exist_ok=True)
-        _connection_file(profile).write_text(json.dumps({**saved, "config": str(config), "connected": True}), encoding="utf-8")
         return status(config, command, profile)
     raise SettingsUnreadable("Claude Code settings kept changing; try again")
+
+
+def _backup_if_same(config: Path, stripped: dict) -> bytes | None:
+    """The untouched original, when stripping Pocodex out left nothing but formatting to tell them apart."""
+    backup = config / "settings.json.pocodex-backup"
+    try:
+        original = _load(backup)
+        if backup.exists() and not _marked(original) and _strip(original, None) == stripped:
+            return backup.read_bytes()
+    except (OSError, SettingsUnreadable):
+        pass
+    return None
 
 
 def disconnect(config: Path, profile: Path) -> dict:
     path = config / "settings.json"
     saved = _read_connection(profile)
-    _write(path, _strip(_load(path), saved.get("status_line")))
-    if _connection_file(profile).exists():
-        _connection_file(profile).write_text(json.dumps({"config": str(config), "connected": False}), encoding="utf-8")
-    return {"readable": True, "connected": False, "current": False, "status_line": False}
+    for _ in range(2):
+        before = _load(path)
+        updated = _strip(before, saved.get("status_line"))
+        original = _backup_if_same(config, updated) if _marked(before) else None
+        if _load(path) != before:
+            continue  # Claude Code rewrote the file meanwhile; start again from its version.
+        if original is not None:
+            _replace(path, original)
+        elif _marked(before):
+            _write(path, updated)
+        if _connection_file(profile).exists():
+            _write(_connection_file(profile), {"config": str(config), "connected": False})
+        return {"readable": True, "connected": False, "current": False, "status_line": False}
+    raise SettingsUnreadable("Claude Code settings kept changing; try again")
 
 
 def disconnect_saved(profile: Path) -> None:
@@ -195,8 +238,7 @@ def status(config: Path, command: list[str], profile: Path) -> dict:
         data = _load(config / "settings.json")
     except (OSError, SettingsUnreadable):
         return {"readable": False, "connected": False, "current": False, "status_line": False}
-    ours = [h for groups in data.get("hooks", {}).values() for g in groups if isinstance(g, dict)
-            for h in (g.get("hooks") if isinstance(g.get("hooks"), list) else []) if _ours(h)]
+    ours = _our_hooks(data)
     expected, line = hook_entry(command, profile), status_command(command, profile)
     has_line = _ours(data.get("statusLine"))
     line_ok = data["statusLine"].get("command") == line if has_line else line is None

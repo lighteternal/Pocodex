@@ -1,9 +1,11 @@
 """Editing Claude Code's settings.json: only Pocodex's entries, always reversible."""
 
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from observatory.companion import claude_settings as cs
 
@@ -101,6 +103,67 @@ class SettingsContracts(unittest.TestCase):
         self.assertEqual(self.settings(), {"model": "opus"})
         cs.disconnect_saved(self.profile)  # second run is harmless
         self.assertEqual(self.settings(), {"model": "opus"})
+
+    def fail_metadata_writes(self):
+        real = os.replace
+        def replace(source, target):
+            if Path(target).name == "claude-connection.json":
+                raise OSError("disk full")
+            return real(source, target)
+        return mock.patch.object(cs.os, "replace", replace)
+
+    def test_failed_metadata_write_leaves_settings_untouched_and_restorable(self):
+        original = '{"statusLine": {"type": "command", "command": "~/.claude/line.sh"}}'
+        self.file.write_text(original)
+        with self.fail_metadata_writes(), self.assertRaises(OSError):
+            cs.connect(self.config, [EXE], self.profile)
+        self.assertEqual(self.file.read_text(), original)
+        cs.disconnect(self.config, self.profile)
+        self.assertEqual(self.file.read_text(), original)
+        self.assertEqual([p.name for p in self.profile.iterdir()], [])
+
+    def test_failed_reconnect_keeps_the_recorded_status_line(self):
+        original = {"statusLine": {"type": "command", "command": "~/.claude/line.sh"}}
+        self.file.write_text(json.dumps(original))
+        cs.connect(self.config, [EXE], self.profile)
+        with self.fail_metadata_writes(), self.assertRaises(OSError):
+            cs.connect(self.config, [EXE.replace("Programs", "Apps")], self.profile)
+        cs.disconnect(self.config, self.profile)
+        self.assertEqual(self.settings(), original)
+
+    def test_disconnect_restores_the_original_bytes_when_nothing_else_changed(self):
+        original = '{"hooks": {},\n    "model": "opus",  "statusLine": {"type": "command", "command": "line.sh"}}'
+        self.file.write_text(original)
+        cs.connect(self.config, [EXE], self.profile)
+        cs.disconnect(self.config, self.profile)
+        self.assertEqual(self.file.read_text(), original)
+
+    def test_disconnect_keeps_later_user_changes_over_the_backup(self):
+        self.file.write_text('{"model": "opus", "hooks": {}}')
+        cs.connect(self.config, [EXE], self.profile)
+        self.file.write_text(json.dumps({**self.settings(), "model": "sonnet"}))
+        cs.disconnect(self.config, self.profile)
+        self.assertEqual(self.settings(), {"model": "sonnet"})
+
+    def test_disconnect_starts_again_when_claude_rewrites_the_file_meanwhile(self):
+        cs.connect(self.config, [EXE], self.profile)
+        real, calls = cs._load, []
+        def load(path):
+            value = real(path)
+            if path == self.file and not calls:
+                calls.append(path)
+                self.file.write_text(json.dumps({**value, "theme": "light"}))
+            return value
+        with mock.patch.object(cs, "_load", load):
+            cs.disconnect(self.config, self.profile)
+        self.assertEqual(self.settings(), {"theme": "light"})
+
+    def test_shell_metacharacters_skip_only_the_status_line(self):
+        for exe in (r"C:\Users\A&B\hook.exe", r"C:\a(b)\hook.exe", r"C:\$x\hook.exe", r"C:\a;b|c\hook.exe"):
+            self.assertIsNone(cs.status_command([exe], self.profile), exe)
+        self.assertIsNone(cs.status_command([EXE, "%PATH%"], self.profile))
+        self.assertEqual(cs.status_command([r"C:\Users\Zoë\PROGRA~1\hook_1.exe"], self.profile).split()[0],
+                         "C:/Users/Zoë/PROGRA~1/hook_1.exe")
 
 
 if __name__ == "__main__":

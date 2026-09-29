@@ -63,6 +63,13 @@ class HookContracts(unittest.TestCase):
         saved = json.loads((self.profile / "claude-limits.json").read_text())
         self.assertEqual(saved["rate_limits"]["five_hour"]["used_percentage"], 23.4)
 
+    def test_status_line_ignores_non_finite_limits(self):
+        for used in ("NaN", "1e309", "-Infinity"):
+            raw = '{"rate_limits": {"five_hour": {"used_percentage": %s}}}' % used
+            out = io.StringIO()
+            self.assertEqual(hook.main(["claude-statusline", "--profile", str(self.profile)], stdin=io.StringIO(raw), stdout=out), 0)
+            self.assertEqual(out.getvalue().strip(), "Pocodex")
+
     def test_status_line_without_limits_keeps_the_last_snapshot(self):
         (self.profile / "claude-limits.json").write_text('{"at": 1, "rate_limits": {"five_hour": {"used_percentage": 5}}}')
         self.assertEqual(run("claude-statusline", {"model": {"display_name": "Opus"}}, self.profile).strip(), "Pocodex")

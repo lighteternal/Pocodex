@@ -27,6 +27,7 @@ const intro = (() => {
   const wait = ms => new Promise(resolve => setTimeout(resolve, reduced() ? 0 : ms));
 
   function go(next) {
+    if (!LINES[next]) return;
     // Focus follows keyboard Trainers only, so a mouse click never leaves a ring on the text box.
     focusPending = LINES[next].scene === 'name' || Boolean(document.activeElement?.closest?.('.intro'));
     step = next; started = performance.now(); skipTyping = false;
@@ -144,7 +145,8 @@ const intro = (() => {
       skipTyping = true; sync();
       if (kind === 'next') return;
     }
-    if (kind === 'next') return go(step + 1);
+    // The text box only turns story pages; the connect and name pages advance through their own controls.
+    if (kind === 'next') { if (step < CONNECT) go(step + 1); return; }
     busy = true; h.render();
     let advance = false;
     try {

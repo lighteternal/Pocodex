@@ -11,6 +11,7 @@ the exact window and reset time when a usage limit is hit, so that window reads 
 
 import hashlib
 import json
+import math
 import os
 from collections import deque
 from datetime import datetime
@@ -29,6 +30,10 @@ TAIL_BYTES = 512 * 1024
 def _hashed(event: dict) -> dict:
     event["id"] = hashlib.sha256(json.dumps(event, sort_keys=True).encode()).hexdigest()[:20]
     return event
+
+
+def _finite(value) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
 
 
 class ClaudeSource:
@@ -316,17 +321,17 @@ class ClaudeSource:
             return []
         at = saved.get("at") if isinstance(saved, dict) else None
         limits = saved.get("rate_limits") if isinstance(saved, dict) else None
-        if not isinstance(at, (int, float)) or not isinstance(limits, dict):
+        if not _finite(at) or not isinstance(limits, dict):
             return []
         checked = saved.get("source") == "usage_check"
         events = []
         for name, (label, minutes) in WINDOWS.items():
             raw = limits.get(name)
             used = raw.get("used_percentage") if isinstance(raw, dict) else None
-            if not isinstance(used, (int, float)) or isinstance(used, bool):
+            if not _finite(used):  # NaN or 1e309 in a hand-edited or damaged file is unknown, not a crash
                 continue
             remaining = max(0, min(100, round(100 - used)))
-            reset = raw.get("resets_at")
+            reset = raw["resets_at"] if _finite(raw.get("resets_at")) else None
             key = f"claude:{label}"
             self.quotas[key] = {"key": key, "app": "claude", "bucket": "Claude", "window": label, "label": label,
                                 "minutes": minutes, "remaining": remaining, "resets_at": reset, "at": at,
