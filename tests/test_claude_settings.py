@@ -158,5 +158,13 @@ class SettingsContracts(unittest.TestCase):
             cs.disconnect(self.config, self.profile)
         self.assertEqual(self.settings(), {"theme": "light"})
 
+    def test_shell_metacharacters_skip_only_the_status_line(self):
+        for exe in (r"C:\Users\A&B\hook.exe", r"C:\a(b)\hook.exe", r"C:\$x\hook.exe", r"C:\a;b|c\hook.exe"):
+            self.assertIsNone(cs.status_command([exe], self.profile), exe)
+        self.assertIsNone(cs.status_command([EXE, "%PATH%"], self.profile))
+        self.assertEqual(cs.status_command([r"C:\Users\Zoë\PROGRA~1\hook_1.exe"], self.profile).split()[0],
+                         "C:/Users/Zoë/PROGRA~1/hook_1.exe")
+
+
 if __name__ == "__main__":
     unittest.main()

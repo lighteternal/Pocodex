@@ -9,6 +9,7 @@ disconnecting restores the backup's exact bytes; otherwise it rewrites the file 
 import ctypes
 import json
 import os
+import re
 import shutil
 import tempfile
 from pathlib import Path
@@ -17,6 +18,7 @@ MARK = "--pocodex"
 HOOKS = (("UserPromptSubmit", None), ("Stop", None), ("StopFailure", None), ("SessionEnd", None),
          ("Notification", "permission_prompt|elicitation_dialog|agent_needs_input"),
          ("PreToolUse", "AskUserQuestion"), ("PostToolUse", "AskUserQuestion"))
+SHELL_SAFE = re.compile(r"[\w.:/\\~-]+")
 
 
 class SettingsUnreadable(ValueError):
@@ -100,8 +102,8 @@ def status_command(command: list[str], profile: Path) -> str | None:
     exe, *prefix = command
     extra = _profile_args(profile)
     parts = [_short(exe), *prefix, "claude-statusline", *(["--profile", _short(extra[1])] if extra else []), MARK]
-    if any(" " in part or '"' in part or "'" in part for part in parts):
-        return None
+    if not all(SHELL_SAFE.fullmatch(part) for part in parts):
+        return None  # Spaces or shell metacharacters: skip the status line rather than break it.
     return " ".join(part.replace("\\", "/") for part in parts)
 
 
