@@ -39,6 +39,7 @@ class ClaudeSource:
         self.inbox, self.limits = profile / "claude-inbox.jsonl", profile / "claude-limits.json"
         self.rotated = profile / "claude-inbox.jsonl.old"
         self.offset, self.rotated_offset, self.limits_seen = 0, 0, None
+        self.purge = False  # an older build stored question text: rotate that inbox out once it is read
         self.sessions: dict[str, dict] = {}
         self.attention: list[dict] = []
         self.usage: list[dict] = []
@@ -61,6 +62,7 @@ class ClaudeSource:
                 continue
             if isinstance(line, dict) and isinstance(line.get("at"), (int, float)) and not isinstance(line.get("at"), bool):
                 lines.append(line)
+                self.purge = self.purge or "questions" in line
         return lines
 
     def _lines(self) -> list[dict]:
@@ -90,10 +92,10 @@ class ClaudeSource:
         end = data.rfind(b"\n") + 1
         self.offset += end
         lines += self._parse(data[:end])
-        if self.offset >= TRIM_BYTES and self.offset == size and not self.rotated.exists():
+        if (self.offset >= TRIM_BYTES or self.purge and self.offset) and self.offset == size and not self.rotated.exists():
             try:  # Rotate, never truncate: a line appended since the read survives in the rotated file.
                 os.replace(self.inbox, self.rotated)
-                self.rotated_offset, self.offset = self.offset, 0
+                self.rotated_offset, self.offset, self.purge = self.offset, 0, False
             except OSError:
                 pass  # On Windows a hook holding the file blocks the rename; rotate on a later poll.
         return lines
@@ -247,10 +249,10 @@ class ClaudeSource:
             if event["kind"] != "input_needed" or event.get("reason") != "question" or "questions" in event or not session:
                 continue
             size = self._size(session["transcript"])
-            if size is None or size == session["asked"]:
+            if size is None or size == session.get("asked"):
                 continue
             session["asked"] = size
-            found = self._asked(session["transcript"], session["ask"], event["at"])
+            found = self._asked(session["transcript"], session.get("ask", ""), event["at"])
             if found is not None:
                 event["questions"] = found
 

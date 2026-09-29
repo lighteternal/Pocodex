@@ -249,6 +249,16 @@ class ClaudeContracts(unittest.TestCase):
         self.assertFalse((self.profile / "claude-inbox.jsonl.old").exists())
         self.assertEqual(self.source.poll(BOOT + 3), [])
 
+    def test_question_text_left_by_an_older_build_is_cleared_once_read(self):
+        self.hook("PreToolUse", BOOT - 30, tool="AskUserQuestion", questions=[{"text": "secret marker", "options": []}])
+        self.source.poll(BOOT + 1)
+        self.source.poll(BOOT + 2)
+        self.assertFalse(any(b"secret marker" in p.read_bytes() for p in self.profile.iterdir()))
+        self.hook("UserPromptSubmit", BOOT + 3)
+        self.source.poll(BOOT + 3)
+        self.assertEqual(self.source.snapshot(BOOT + 3)["running"], 1)
+        self.assertTrue((self.profile / "claude-inbox.jsonl").exists())  # new lines wait for the usual trim
+
 
 if __name__ == "__main__":
     unittest.main()
